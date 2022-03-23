@@ -1,4 +1,4 @@
-baseURL = "https://tasekida.github.io/"
+baseURL = "https://tasekida.github.io/hands-on/"
 canonifyurls = true
 publishDir = "docs"
 
