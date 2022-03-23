@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hardware on Hands on</title>
+    <link>https://tasekida.github.io/docs/hardware/</link>
+    <description>Recent content in hardware on Hands on</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    
+	<atom:link href="https://tasekida.github.io/docs/hardware/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>server</title>
+      <link>https://tasekida.github.io/docs/hardware/server/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tasekida.github.io/docs/hardware/server/</guid>
+      <description>Server EPSON Endeavor ST180E &amp;hellip;..
+Ubuntu Server 20.04 LTS &amp;hellip;..</description>
+    </item>
+    
+    <item>
+      <title>storage</title>
+      <link>https://tasekida.github.io/docs/hardware/storage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tasekida.github.io/docs/hardware/storage/</guid>
+      <description>storage Synology DiskStation DS220+ &amp;hellip;&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>router</title>
+      <link>https://tasekida.github.io/docs/hardware/router/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tasekida.github.io/docs/hardware/router/</guid>
+      <description>Router EdgeRouter ER-X &amp;hellip;..</description>
+    </item>
+    
+  </channel>
+</rss>

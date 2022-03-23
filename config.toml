@@ -1,4 +1,7 @@
-baseURL = "http://localhost:1313/"
+baseURL = "https://tasekida.github.io/"
+canonifyurls = true
+publishDir = "docs"
+
 languageCode = "ja"
 defaultContentLanguage = "ja"
 
