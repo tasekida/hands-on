@@ -14,3 +14,7 @@ headless: true
   - [synology-csi]({{< relref "/docs/kubernetes/synology-csi" >}})
   - [argo]({{< relref "/docs/kubernetes/argo" >}})
 <br />
+
+- [java]({{< relref "/docs/java" >}})
+  - [TBD]({{< relref "/docs/java/tbd" >}})
+<br />
