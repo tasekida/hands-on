@@ -9,7 +9,7 @@
 hugo-book このサイトは静的サイトジェネレーターhugoを使っています。
 テーマはhugo-bookを使っています。
 install WSL2のUbuntu20.04を使用
-apt -y install hugo hugo new site hands-on cd hands-on git init git submodule add https://github.com/alex-shpak/hugo-book themes/hugo-book echo theme = \&#34;hugo-book\&#34; &gt;&gt; config.toml cp -R themes/hugo-book/exampleSite/content . hugo server --minify --theme hugo-book ">
+apt -y install hugo hugo new site hands-on cd hands-on git init git submodule add https://github.com/alex-shpak/hugo-book themes/hugo-book echo theme = \&#34;hugo-book\&#34; &gt;&gt; config.toml cp -R themes/hugo-book/exampleSite/content . rm -rf themes/hugo-book/.git rm -rf .gitmodules hugo server --minify --theme hugo-book ">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="hands on" />
 <meta property="og:description" content="" />
@@ -327,6 +327,8 @@ git init
 git submodule add https://github.com/alex-shpak/hugo-book themes/hugo-book
 echo theme = \&#34;hugo-book\&#34; &gt;&gt; config.toml
 cp -R themes/hugo-book/exampleSite/content .
+rm -rf themes/hugo-book/.git
+rm -rf .gitmodules
 hugo server --minify --theme hugo-book
 </code></pre></div></article>
  
