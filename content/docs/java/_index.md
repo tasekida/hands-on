@@ -1,5 +1,10 @@
 ---
+title: "Java"
 weight: 3
+# bookFlatSection: false
+# bookToc: true
+# bookHidden: false
 bookCollapseSection: true
-title: "java"
+# bookComments: false
+# bookSearchExclude: false
 ---

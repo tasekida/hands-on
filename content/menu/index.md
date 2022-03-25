@@ -15,6 +15,6 @@ headless: true
   - [argo]({{< relref "/docs/kubernetes/argo" >}})
 <br />
 
-- [java]({{< relref "/docs/java" >}})
+- [Java]({{< relref "/docs/java" >}})
   - [tbd]({{< relref "/docs/java/tbd" >}})
 <br />
