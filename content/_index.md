@@ -28,5 +28,7 @@ git init
 git submodule add https://github.com/alex-shpak/hugo-book themes/hugo-book
 echo theme = \"hugo-book\" >> config.toml
 cp -R themes/hugo-book/exampleSite/content .
+rm -rf themes/hugo-book/.git
+rm -rf .gitmodules
 hugo server --minify --theme hugo-book
 ```
