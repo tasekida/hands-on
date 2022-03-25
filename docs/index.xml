@@ -6,19 +6,15 @@
     <description>Recent content in hands on on Hands on</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 28 Sep 2014 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://tasekida.github.io/hands-on/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 28 Sep 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://tasekida.github.io/hands-on/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>kubespray</title>
       <link>https://tasekida.github.io/hands-on/docs/kubernetes/kubespray/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tasekida.github.io/hands-on/docs/kubernetes/kubespray/</guid>
-      <description>kubespray config &amp;hellip;..
-install &amp;hellip;..</description>
+      <description>kubespray #  config #  &amp;hellip;..
+install #  &amp;hellip;..</description>
     </item>
     
     <item>
@@ -27,8 +23,8 @@ install &amp;hellip;..</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tasekida.github.io/hands-on/docs/hardware/server/</guid>
-      <description>Server EPSON Endeavor ST180E &amp;hellip;..
-Ubuntu Server 20.04 LTS &amp;hellip;..</description>
+      <description>Server #  EPSON Endeavor ST180E #  &amp;hellip;..
+Ubuntu Server 20.04 LTS #  &amp;hellip;..</description>
     </item>
     
     <item>
@@ -37,8 +33,8 @@ Ubuntu Server 20.04 LTS &amp;hellip;..</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tasekida.github.io/hands-on/docs/java/tbd/</guid>
-      <description>tbd tbd &amp;hellip;..
-tbd &amp;hellip;..</description>
+      <description>tbd #  tbd #  &amp;hellip;..
+tbd #  &amp;hellip;..</description>
     </item>
     
     <item>
@@ -47,8 +43,8 @@ tbd &amp;hellip;..</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tasekida.github.io/hands-on/docs/kubernetes/metallb/</guid>
-      <description>metallb install &amp;hellip;..
-config &amp;hellip;..</description>
+      <description>metallb #  install #  &amp;hellip;..
+config #  &amp;hellip;..</description>
     </item>
     
     <item>
@@ -57,7 +53,7 @@ config &amp;hellip;..</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tasekida.github.io/hands-on/docs/hardware/storage/</guid>
-      <description>storage Synology DiskStation DS220+ &amp;hellip;&amp;hellip;</description>
+      <description>storage #  Synology DiskStation DS220+ #  &amp;hellip;&amp;hellip;</description>
     </item>
     
     <item>
@@ -66,7 +62,7 @@ config &amp;hellip;..</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tasekida.github.io/hands-on/docs/hardware/router/</guid>
-      <description>Router EdgeRouter ER-X &amp;hellip;..</description>
+      <description>Router #  EdgeRouter ER-X #  &amp;hellip;..</description>
     </item>
     
     <item>
@@ -75,8 +71,8 @@ config &amp;hellip;..</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tasekida.github.io/hands-on/docs/kubernetes/synology-csi/</guid>
-      <description>synology-csi install &amp;hellip;..
-config &amp;hellip;..</description>
+      <description>synology-csi #  install #  &amp;hellip;..
+config #  &amp;hellip;..</description>
     </item>
     
     <item>
@@ -85,8 +81,8 @@ config &amp;hellip;..</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tasekida.github.io/hands-on/docs/kubernetes/argo/</guid>
-      <description>argo install &amp;hellip;..
-config &amp;hellip;..</description>
+      <description>argo #  install #  &amp;hellip;..
+config #  &amp;hellip;..</description>
     </item>
     
     <item>
@@ -95,7 +91,7 @@ config &amp;hellip;..</description>
       <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
       
       <guid>https://tasekida.github.io/hands-on/posts/creating-a-new-theme/</guid>
-      <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
+      <description>Introduction #  This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
 We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
     </item>
     
@@ -105,7 +101,7 @@ We&amp;rsquo;ll start with creating a new site with a very basic template.</desc
       <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
       
       <guid>https://tasekida.github.io/hands-on/posts/migrate-from-jekyll/</guid>
-      <description>Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
+      <description>Move static content to static #  Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
 ▾ &amp;lt;root&amp;gt;/ ▾ images/ logo.png  should become
 ▾ &amp;lt;root&amp;gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.</description>
     </item>
@@ -126,12 +122,11 @@ This document is a brief primer on using Go templates.</description>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
       <guid>https://tasekida.github.io/hands-on/posts/hugoisforlovers/</guid>
-      <description>Step 1. Install Hugo Go to Hugo releases and download the appropriate version for your OS and architecture.
+      <description>Step 1. Install Hugo #  Go to Hugo releases and download the appropriate version for your OS and architecture.
 Save it somewhere specific as we will be using it in the next step.
 More complete instructions are available at Install Hugo
-Step 2. Build the Docs Hugo has its own example site which happens to also be the documentation site you are reading right now.
-Follow the following steps:
- Clone the Hugo repository Go into the repo Run hugo in server mode and build the docs Open your browser to http://localhost:1313  Corresponding pseudo commands:</description>
+Step 2. Build the Docs #  Hugo has its own example site which happens to also be the documentation site you are reading right now.
+Follow the following steps:</description>
     </item>
     
   </channel>

@@ -1,133 +1,77 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://tasekida.github.io/hands-on/docs/hardware/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tasekida.github.io/hands-on/docs/kubernetes/kubespray/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tasekida.github.io/hands-on/docs/hardware/server/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tasekida.github.io/hands-on/docs/java/tbd/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tasekida.github.io/hands-on/docs/kubernetes/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tasekida.github.io/hands-on/docs/kubernetes/metallb/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tasekida.github.io/hands-on/docs/hardware/storage/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tasekida.github.io/hands-on/docs/java/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tasekida.github.io/hands-on/docs/hardware/router/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tasekida.github.io/hands-on/docs/kubernetes/synology-csi/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tasekida.github.io/hands-on/docs/kubernetes/argo/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tasekida.github.io/hands-on/posts/creating-a-new-theme/</loc>
     <lastmod>2014-09-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tasekida.github.io/hands-on/posts/migrate-from-jekyll/</loc>
     <lastmod>2014-03-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tasekida.github.io/hands-on/posts/</loc>
     <lastmod>2014-09-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tasekida.github.io/hands-on/</loc>
     <lastmod>2014-09-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tasekida.github.io/hands-on/posts/goisforlovers/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tasekida.github.io/hands-on/categories/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tasekida.github.io/hands-on/categories/development/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tasekida.github.io/hands-on/tags/development/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tasekida.github.io/hands-on/posts/hugoisforlovers/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tasekida.github.io/hands-on/tags/go/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tasekida.github.io/hands-on/tags/golang/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tasekida.github.io/hands-on/categories/golang/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tasekida.github.io/hands-on/tags/hugo/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tasekida.github.io/hands-on/tags/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tasekida.github.io/hands-on/tags/templates/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tasekida.github.io/hands-on/tags/themes/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://tasekida.github.io/hands-on/docs/</loc>
   </url>
-  
 </urlset>

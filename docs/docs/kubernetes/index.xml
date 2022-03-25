@@ -5,19 +5,15 @@
     <link>https://tasekida.github.io/hands-on/docs/kubernetes/</link>
     <description>Recent content in kubernetes on Hands on</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja</language>
-    
-	<atom:link href="https://tasekida.github.io/hands-on/docs/kubernetes/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>ja</language><atom:link href="https://tasekida.github.io/hands-on/docs/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>kubespray</title>
       <link>https://tasekida.github.io/hands-on/docs/kubernetes/kubespray/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tasekida.github.io/hands-on/docs/kubernetes/kubespray/</guid>
-      <description>kubespray config &amp;hellip;..
-install &amp;hellip;..</description>
+      <description>kubespray #  config #  &amp;hellip;..
+install #  &amp;hellip;..</description>
     </item>
     
     <item>
@@ -26,8 +22,8 @@ install &amp;hellip;..</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tasekida.github.io/hands-on/docs/kubernetes/metallb/</guid>
-      <description>metallb install &amp;hellip;..
-config &amp;hellip;..</description>
+      <description>metallb #  install #  &amp;hellip;..
+config #  &amp;hellip;..</description>
     </item>
     
     <item>
@@ -36,8 +32,8 @@ config &amp;hellip;..</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tasekida.github.io/hands-on/docs/kubernetes/synology-csi/</guid>
-      <description>synology-csi install &amp;hellip;..
-config &amp;hellip;..</description>
+      <description>synology-csi #  install #  &amp;hellip;..
+config #  &amp;hellip;..</description>
     </item>
     
     <item>
@@ -46,8 +42,8 @@ config &amp;hellip;..</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://tasekida.github.io/hands-on/docs/kubernetes/argo/</guid>
-      <description>argo install &amp;hellip;..
-config &amp;hellip;..</description>
+      <description>argo #  install #  &amp;hellip;..
+config #  &amp;hellip;..</description>
     </item>
     
   </channel>

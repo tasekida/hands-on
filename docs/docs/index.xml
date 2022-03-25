@@ -5,10 +5,6 @@
     <link>https://tasekida.github.io/hands-on/docs/</link>
     <description>Recent content in Docs on Hands on</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja</language>
-    
-	<atom:link href="https://tasekida.github.io/hands-on/docs/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>ja</language><atom:link href="https://tasekida.github.io/hands-on/docs/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

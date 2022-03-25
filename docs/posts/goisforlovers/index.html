@@ -10,15 +10,16 @@ This document is a brief primer on using Go templates.">
 <meta property="og:description" content="Hugo uses the excellent Go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in Go templates.
 This document is a brief primer on using Go templates." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://tasekida.github.io/hands-on/posts/goisforlovers/" />
+<meta property="og:url" content="https://tasekida.github.io/hands-on/posts/goisforlovers/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2014-04-02T00:00:00+00:00" />
 <meta property="article:modified_time" content="2014-04-02T00:00:00+00:00" />
+
 <title>(Hu)go Template Primer | Hands on</title>
 <link rel="manifest" href="https://tasekida.github.io/hands-on/manifest.json">
 <link rel="icon" href="https://tasekida.github.io/hands-on/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="https://tasekida.github.io/hands-on/book.min.da110f27d6a4d632dc8e162876b7216c5c1f82164fbdac7ff33021633767f034.css" integrity="sha256-2hEPJ9ak1jLcjhYodrchbFwfghZPvax/8zAhYzdn8DQ=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://tasekida.github.io/hands-on/book.min.82c5dbd23447cee0b4c2aa3ed08ce0961faa40e1fa370eee4f8c9f02e0d46b5f.css" integrity="sha256-gsXb0jRHzuC0wqo&#43;0Izglh&#43;qQOH6Nw7uT4yfAuDUa18=" crossorigin="anonymous">
   <script defer src="https://tasekida.github.io/hands-on/flexsearch.min.js"></script>
-  <script defer src="https://tasekida.github.io/hands-on/ja.search.min.c9c6e4ddf6bcd812a3313c50eb32c39d7ef35d779cff2eacbecdf06bb7112e93.js" integrity="sha256-ycbk3fa82BKjMTxQ6zLDnX7zXXec/y6svs3wa7cRLpM=" crossorigin="anonymous"></script>
+  <script defer src="https://tasekida.github.io/hands-on/ja.search.min.68772cd685eb8b4859c3969e30308163030a7782e80a00ae59f7e27d3b66353c.js" integrity="sha256-aHcs1oXri0hZw5aeMDCBYwMKd4LoCgCuWffifTtmNTw=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -263,7 +264,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var menu=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -344,11 +345,11 @@ https://github.com/alex-shpak/hugo-book
   
   <div>
     
-      <a href="https://tasekida.github.io/hands-on/tags/development/">development</a>, 
       <a href="https://tasekida.github.io/hands-on/tags/go/">go</a>, 
       <a href="https://tasekida.github.io/hands-on/tags/golang/">golang</a>, 
       <a href="https://tasekida.github.io/hands-on/tags/templates/">templates</a>, 
-      <a href="https://tasekida.github.io/hands-on/tags/themes/">themes</a>
+      <a href="https://tasekida.github.io/hands-on/tags/themes/">themes</a>, 
+      <a href="https://tasekida.github.io/hands-on/tags/development/">development</a>
   </div>
   
 
@@ -362,14 +363,20 @@ template systems from different languages or frameworks you will find a lot of
 similarities in Go templates.</p>
 <p>This document is a brief primer on using Go templates. The <a href="https://golang.org/pkg/html/template/">Go docs</a>
 provide more details.</p>
-<h2 id="introduction-to-go-templates">Introduction to Go Templates</h2>
+<h2 id="introduction-to-go-templates">
+  Introduction to Go Templates
+  <a class="anchor" href="#introduction-to-go-templates">#</a>
+</h2>
 <p>Go templates provide an extremely simple template language. It adheres to the
 belief that only the most basic of logic belongs in the template or view layer.
 One consequence of this simplicity is that Go templates parse very quickly.</p>
 <p>A unique characteristic of Go templates is they are content aware. Variables and
 content will be sanitized depending on the context of where they are used. More
 details can be found in the <a href="https://golang.org/pkg/html/template/">Go docs</a>.</p>
-<h2 id="basic-syntax">Basic Syntax</h2>
+<h2 id="basic-syntax">
+  Basic Syntax
+  <a class="anchor" href="#basic-syntax">#</a>
+</h2>
 <p>Golang templates are HTML files with the addition of variables and
 functions.</p>
 <p><strong>Go variables and functions are accessible within {{ }}</strong></p>
@@ -387,7 +394,10 @@ functions.</p>
 <p><strong>Parentheses can be used to group items together</strong></p>
 <pre><code>{{ if or (isset .Params &quot;alt&quot;) (isset .Params &quot;caption&quot;) }} Caption {{ end }}
 </code></pre>
-<h2 id="variables">Variables</h2>
+<h2 id="variables">
+  Variables
+  <a class="anchor" href="#variables">#</a>
+</h2>
 <p>Each Go template has a struct (object) made available to it. In hugo each
 template is passed either a page or a node struct depending on which type of
 page you are rendering. More details are available on the
@@ -399,7 +409,10 @@ page you are rendering. More details are available on the
 <pre><code>{{ $address := &quot;123 Main St.&quot;}}
 {{ $address }}
 </code></pre>
-<h2 id="functions">Functions</h2>
+<h2 id="functions">
+  Functions
+  <a class="anchor" href="#functions">#</a>
+</h2>
 <p>Go template ship with a few functions which provide basic functionality. The Go
 template system also provides a mechanism for applications to extend the
 available functions with their own. <a href="https://tasekida.github.io/hands-on/layout/functions">Hugo template
@@ -410,7 +423,10 @@ functions cannot be added without recompiling hugo.</p>
 <p><strong>Example:</strong></p>
 <pre><code>{{ add 1 2 }}
 </code></pre>
-<h2 id="includes">Includes</h2>
+<h2 id="includes">
+  Includes
+  <a class="anchor" href="#includes">#</a>
+</h2>
 <p>When including another template you will pass to it the data it will be
 able to access. To pass along the current context please remember to
 include a trailing dot. The templates location will always be starting at
@@ -418,9 +434,15 @@ the /layout/ directory within Hugo.</p>
 <p><strong>Example:</strong></p>
 <pre><code>{{ template &quot;chrome/header.html&quot; . }}
 </code></pre>
-<h2 id="logic">Logic</h2>
+<h2 id="logic">
+  Logic
+  <a class="anchor" href="#logic">#</a>
+</h2>
 <p>Go templates provide the most basic iteration and conditional logic.</p>
-<h3 id="iteration">Iteration</h3>
+<h3 id="iteration">
+  Iteration
+  <a class="anchor" href="#iteration">#</a>
+</h3>
 <p>Just like in Go, the Go templates make heavy use of range to iterate over
 a map, array or slice. The following are different examples of how to use
 range.</p>
@@ -440,7 +462,10 @@ range.</p>
     {{ $element }}
 {{ end }}
 </code></pre>
-<h3 id="conditionals">Conditionals</h3>
+<h3 id="conditionals">
+  Conditionals
+  <a class="anchor" href="#conditionals">#</a>
+</h3>
 <p>If, else, with, or, &amp; and provide the framework for handling conditional
 logic in Go Templates. Like range, each statement is closed with <code>end</code>.</p>
 <p>Go Templates treat the following values as false:</p>
@@ -476,7 +501,10 @@ and skips the block if the variable is absent.</p>
     {{ index .Params &quot;caption&quot; }}
 {{ end }}
 </code></pre>
-<h2 id="pipes">Pipes</h2>
+<h2 id="pipes">
+  Pipes
+  <a class="anchor" href="#pipes">#</a>
+</h2>
 <p>One of the most powerful components of Go templates is the ability to
 stack actions one after another. This is done by using pipes. Borrowed
 from unix pipes, the concept is simple, each pipeline&rsquo;s output becomes the
@@ -508,7 +536,10 @@ Stuff Here
 Stuff Here
 {{ end }}
 </code></pre>
-<h2 id="context-aka-the-dot">Context (aka. the dot)</h2>
+<h2 id="context-aka-the-dot">
+  Context (aka. the dot)
+  <a class="anchor" href="#context-aka-the-dot">#</a>
+</h2>
 <p>The most easily overlooked concept to understand about Go templates is that {{ . }}
 always refers to the current context. In the top level of your template this
 will be the data set made available to it. Inside of a iteration it will have
@@ -525,13 +556,19 @@ instead of depending on the context.</p>
 <p>Notice how once we have entered the loop the value of {{ . }} has changed. We
 have defined a variable outside of the loop so we have access to it from within
 the loop.</p>
-<h1 id="hugo-parameters">Hugo Parameters</h1>
+<h1 id="hugo-parameters">
+  Hugo Parameters
+  <a class="anchor" href="#hugo-parameters">#</a>
+</h1>
 <p>Hugo provides the option of passing values to the template language
 through the site configuration (for sitewide values), or through the meta
 data of each specific piece of content. You can define any values of any
 type (supported by your front matter/config format) and use them however
 you want to inside of your templates.</p>
-<h2 id="using-content-page-parameters">Using Content (page) Parameters</h2>
+<h2 id="using-content-page-parameters">
+  Using Content (page) Parameters
+  <a class="anchor" href="#using-content-page-parameters">#</a>
+</h2>
 <p>In each piece of content you can provide variables to be used by the
 templates. This happens in the <a href="https://tasekida.github.io/hands-on/content/front-matter">front matter</a>.</p>
 <p>An example of this is used in this documentation site. Most of the pages
@@ -539,12 +576,12 @@ benefit from having the table of contents provided. Sometimes the TOC just
 doesn&rsquo;t make a lot of sense. We&rsquo;ve defined a variable in our front matter
 of some pages to turn off the TOC from being displayed.</p>
 <p>Here is the example front matter:</p>
-<pre><code>---
-title: &quot;Permalinks&quot;
-date: &quot;2013-11-18&quot;
+<pre tabindex="0"><code>---
+title: &#34;Permalinks&#34;
+date: &#34;2013-11-18&#34;
 aliases:
-  - &quot;/doc/permalinks/&quot;
-groups: [&quot;extras&quot;]
+  - &#34;/doc/permalinks/&#34;
+groups: [&#34;extras&#34;]
 groups_weight: 30
 notoc: true
 ---
@@ -555,36 +592,39 @@ notoc: true
     &lt;/div&gt;
   {{ end }}
 </code></pre>
-<h2 id="using-site-config-parameters">Using Site (config) Parameters</h2>
+<h2 id="using-site-config-parameters">
+  Using Site (config) Parameters
+  <a class="anchor" href="#using-site-config-parameters">#</a>
+</h2>
 <p>In your top-level configuration file (eg, <code>config.yaml</code>) you can define site
 parameters, which are values which will be available to you in chrome.</p>
 <p>For instance, you might declare:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">params</span>:
-  <span style="color:#66d9ef">CopyrightHTML</span>: <span style="color:#e6db74">&#34;Copyright &amp;#xA9; 2013 John Doe. All Rights Reserved.&#34;</span>
-  <span style="color:#66d9ef">TwitterUser</span>: <span style="color:#e6db74">&#34;spf13&#34;</span>
-  <span style="color:#66d9ef">SidebarRecentLimit</span>: <span style="color:#ae81ff">5</span>
-</code></pre></div><p>Within a footer layout, you might then declare a <code>&lt;footer&gt;</code> which is only
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">params</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">CopyrightHTML</span>: <span style="color:#e6db74">&#34;Copyright &amp;#xA9; 2013 John Doe. All Rights Reserved.&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">TwitterUser</span>: <span style="color:#e6db74">&#34;spf13&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">SidebarRecentLimit</span>: <span style="color:#ae81ff">5</span>
+</span></span></code></pre></div><p>Within a footer layout, you might then declare a <code>&lt;footer&gt;</code> which is only
 provided if the <code>CopyrightHTML</code> parameter is provided, and if it is given,
 you would declare it to be HTML-safe, so that the HTML entity is not escaped
 again.  This would let you easily update just your top-level config file each
 January 1st, instead of hunting through your templates.</p>
-<pre><code>{{if .Site.Params.CopyrightHTML}}&lt;footer&gt;
-&lt;div class=&quot;text-center&quot;&gt;{{.Site.Params.CopyrightHTML | safeHtml}}&lt;/div&gt;
+<pre tabindex="0"><code>{{if .Site.Params.CopyrightHTML}}&lt;footer&gt;
+&lt;div class=&#34;text-center&#34;&gt;{{.Site.Params.CopyrightHTML | safeHtml}}&lt;/div&gt;
 &lt;/footer&gt;{{end}}
 </code></pre><p>An alternative way of writing the &ldquo;if&rdquo; and then referencing the same value
 is to use &ldquo;with&rdquo; instead. With rebinds the context <code>.</code> within its scope,
 and skips the block if the variable is absent:</p>
-<pre><code>{{with .Site.Params.TwitterUser}}&lt;span class=&quot;twitter&quot;&gt;
-&lt;a href=&quot;https://twitter.com/{{.}}&quot; rel=&quot;author&quot;&gt;
-&lt;img src=&quot;/images/twitter.png&quot; width=&quot;48&quot; height=&quot;48&quot; title=&quot;Twitter: {{.}}&quot;
- alt=&quot;Twitter&quot;&gt;&lt;/a&gt;
+<pre tabindex="0"><code>{{with .Site.Params.TwitterUser}}&lt;span class=&#34;twitter&#34;&gt;
+&lt;a href=&#34;https://twitter.com/{{.}}&#34; rel=&#34;author&#34;&gt;
+&lt;img src=&#34;/images/twitter.png&#34; width=&#34;48&#34; height=&#34;48&#34; title=&#34;Twitter: {{.}}&#34;
+ alt=&#34;Twitter&#34;&gt;&lt;/a&gt;
 &lt;/span&gt;{{end}}
 </code></pre><p>Finally, if you want to pull &ldquo;magic constants&rdquo; out of your layouts, you can do
 so, such as in this example:</p>
-<pre><code>&lt;nav class=&quot;recent&quot;&gt;
+<pre tabindex="0"><code>&lt;nav class=&#34;recent&#34;&gt;
   &lt;h1&gt;Recent Posts&lt;/h1&gt;
   &lt;ul&gt;{{range first .Site.Params.SidebarRecentLimit .Site.Recent}}
-    &lt;li&gt;&lt;a href=&quot;{{.RelPermalink}}&quot;&gt;{{.Title}}&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;{{.RelPermalink}}&#34;&gt;{{.Title}}&lt;/a&gt;&lt;/li&gt;
   {{end}}&lt;/ul&gt;
 &lt;/nav&gt;
 </code></pre></article>
@@ -603,8 +643,7 @@ so, such as in this example:</p>
 
 
 
-  <script>(function(){function select(element){const selection=window.getSelection();const range=document.createRange();range.selectNodeContents(element);selection.removeAllRanges();selection.addRange(range);}
-document.querySelectorAll("pre code").forEach(code=>{code.addEventListener("click",function(event){select(code.parentElement);if(navigator.clipboard){navigator.clipboard.writeText(code.parentElement.textContent);}});});})();</script>
+  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
  
