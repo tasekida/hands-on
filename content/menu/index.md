@@ -16,5 +16,5 @@ headless: true
 <br />
 
 - [java]({{< relref "/docs/java" >}})
-  - [TBD]({{< relref "/docs/java/tbd" >}})
+  - [tbd]({{< relref "/docs/java/tbd" >}})
 <br />
