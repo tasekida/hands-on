@@ -40,7 +40,7 @@ draft: false
 - Intel 第6世代 Core i5-6500T
 - DDR4 SDRAM 8GB
 - 500GB SATA 2.5inch HDD
-- Windows11 Pro デジタル ライセンス附属
+- Windows11 Pro デジタル ライセンス付属
 - 45×185×195 mm
 - 静音
 - 4台=55,069円 1台=約13,767円
