@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>hardware on Hands on</title>
-    <link>https://tasekida.github.io/hands-on/docs/hardware/</link>
+    <link>https://www.oblique-rays.cyou/docs/hardware/</link>
     <description>Recent content in hardware on Hands on</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 26 Mar 2022 00:00:00 +0900</lastBuildDate><atom:link href="https://tasekida.github.io/hands-on/docs/hardware/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 26 Mar 2022 00:00:00 +0900</lastBuildDate><atom:link href="https://www.oblique-rays.cyou/docs/hardware/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>server</title>
-      <link>https://tasekida.github.io/hands-on/docs/hardware/server/</link>
+      <link>https://www.oblique-rays.cyou/docs/hardware/server/</link>
       <pubDate>Sat, 26 Mar 2022 00:00:00 +0900</pubDate>
       
-      <guid>https://tasekida.github.io/hands-on/docs/hardware/server/</guid>
+      <guid>https://www.oblique-rays.cyou/docs/hardware/server/</guid>
       <description>Server #  下記の用途を考えます。
  自宅で使う On-Premise Kubernetes Clusterを構築する為、同一スペックを4台  その結果、下記の条件で選びます。
   Intel CPU
@@ -41,19 +41,19 @@
     
     <item>
       <title>storage</title>
-      <link>https://tasekida.github.io/hands-on/docs/hardware/storage/</link>
+      <link>https://www.oblique-rays.cyou/docs/hardware/storage/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tasekida.github.io/hands-on/docs/hardware/storage/</guid>
+      <guid>https://www.oblique-rays.cyou/docs/hardware/storage/</guid>
       <description>storage #  Synology DiskStation DS220+ #  &amp;hellip;&amp;hellip;</description>
     </item>
     
     <item>
       <title>router</title>
-      <link>https://tasekida.github.io/hands-on/docs/hardware/router/</link>
+      <link>https://www.oblique-rays.cyou/docs/hardware/router/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tasekida.github.io/hands-on/docs/hardware/router/</guid>
+      <guid>https://www.oblique-rays.cyou/docs/hardware/router/</guid>
       <description>Router #  EdgeRouter ER-X #  &amp;hellip;..</description>
     </item>
     

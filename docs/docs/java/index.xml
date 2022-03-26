@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Java on Hands on</title>
-    <link>https://tasekida.github.io/hands-on/docs/java/</link>
+    <link>https://www.oblique-rays.cyou/docs/java/</link>
     <description>Recent content in Java on Hands on</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja</language><atom:link href="https://tasekida.github.io/hands-on/docs/java/index.xml" rel="self" type="application/rss+xml" />
+    <language>ja</language><atom:link href="https://www.oblique-rays.cyou/docs/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tbd</title>
-      <link>https://tasekida.github.io/hands-on/docs/java/tbd/</link>
+      <link>https://www.oblique-rays.cyou/docs/java/tbd/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tasekida.github.io/hands-on/docs/java/tbd/</guid>
+      <guid>https://www.oblique-rays.cyou/docs/java/tbd/</guid>
       <description>TBD #  TBD #  </description>
     </item>
     

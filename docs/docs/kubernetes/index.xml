@@ -2,46 +2,46 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>kubernetes on Hands on</title>
-    <link>https://tasekida.github.io/hands-on/docs/kubernetes/</link>
+    <link>https://www.oblique-rays.cyou/docs/kubernetes/</link>
     <description>Recent content in kubernetes on Hands on</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja</language><atom:link href="https://tasekida.github.io/hands-on/docs/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <language>ja</language><atom:link href="https://www.oblique-rays.cyou/docs/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>kubespray</title>
-      <link>https://tasekida.github.io/hands-on/docs/kubernetes/kubespray/</link>
+      <link>https://www.oblique-rays.cyou/docs/kubernetes/kubespray/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tasekida.github.io/hands-on/docs/kubernetes/kubespray/</guid>
+      <guid>https://www.oblique-rays.cyou/docs/kubernetes/kubespray/</guid>
       <description>kubespray #  config #  &amp;hellip;..
 install #  &amp;hellip;..</description>
     </item>
     
     <item>
       <title>metallb</title>
-      <link>https://tasekida.github.io/hands-on/docs/kubernetes/metallb/</link>
+      <link>https://www.oblique-rays.cyou/docs/kubernetes/metallb/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tasekida.github.io/hands-on/docs/kubernetes/metallb/</guid>
+      <guid>https://www.oblique-rays.cyou/docs/kubernetes/metallb/</guid>
       <description>metallb #  install #  &amp;hellip;..
 config #  &amp;hellip;..</description>
     </item>
     
     <item>
       <title>synology-csi</title>
-      <link>https://tasekida.github.io/hands-on/docs/kubernetes/synology-csi/</link>
+      <link>https://www.oblique-rays.cyou/docs/kubernetes/synology-csi/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tasekida.github.io/hands-on/docs/kubernetes/synology-csi/</guid>
+      <guid>https://www.oblique-rays.cyou/docs/kubernetes/synology-csi/</guid>
       <description>synology-csi #  install #  &amp;hellip;..
 config #  &amp;hellip;..</description>
     </item>
     
     <item>
       <title>argo</title>
-      <link>https://tasekida.github.io/hands-on/docs/kubernetes/argo/</link>
+      <link>https://www.oblique-rays.cyou/docs/kubernetes/argo/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tasekida.github.io/hands-on/docs/kubernetes/argo/</guid>
+      <guid>https://www.oblique-rays.cyou/docs/kubernetes/argo/</guid>
       <description>argo #  install #  &amp;hellip;..
 config #  &amp;hellip;..</description>
     </item>
