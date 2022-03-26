@@ -1,11 +1,46 @@
 ---
 weight: 1
 title: "server"
+date: 2022-03-26
+draft: false
 ---
 # Server
+下記の用途を考えます。
+- 自宅で使う
+- On-Premise Kubernetes Clusterを構築する為、同一スペックを4台
+  
+その結果、下記の条件で選びます。
+- Intel CPU  
+コンパイラなどのトラブルを回避
+
+- DDR4 SDRAM  
+転用、入手性
+- 省スペース  
+設置スペースが狭い
+- 静音  
+自宅に設置
+- 安価  
+予算が少ない
+  
+候補
+- Intel nuc  
+中古も価格が安定して高価  
+特価も週末を待たずに在庫切れ
+
+- Intel mac mini 2020  
+中古も価格が安定して高価
+- ESPRIMO Q556/M  
+電源内蔵では最小レベル
+現物中古品を確認した結果、騒音大
+- EPSON Endeavor ST180E  
+現物中古品を確認した結果、静音
 
 ## EPSON Endeavor ST180E
-.....
-
-## Ubuntu Server 20.04 LTS
-.....
+タイミング良く、オークションに程度の良い格安中古品を発見したので調達
+- Intel 第6世代 Core i5-6500T
+- DDR4 SDRAM 8GB
+- 500GB SATA 2.5inch HDD
+- Windows11 Pro デジタル ライセンス附属
+- 45×185×195 mm
+- 静音
+- 4台=55,069円 1台=約13,767円
