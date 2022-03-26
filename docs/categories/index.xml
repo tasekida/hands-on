@@ -6,11 +6,11 @@
     <description>Recent content in Categories on Hands on</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 02 Apr 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://tasekida.github.io/hands-on/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 02 Apr 2014 00:00:00 +0900</lastBuildDate><atom:link href="https://tasekida.github.io/hands-on/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Development</title>
       <link>https://tasekida.github.io/hands-on/categories/development/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0900</pubDate>
       
       <guid>https://tasekida.github.io/hands-on/categories/development/</guid>
       <description></description>
@@ -19,7 +19,7 @@
     <item>
       <title>golang</title>
       <link>https://tasekida.github.io/hands-on/categories/golang/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0900</pubDate>
       
       <guid>https://tasekida.github.io/hands-on/categories/golang/</guid>
       <description></description>

@@ -7,3 +7,5 @@ defaultContentLanguage = "ja"
 
 title = "Hands on"
 theme = "hugo-book"
+
+timeZone = "Asia/Tokyo"
