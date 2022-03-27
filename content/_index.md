@@ -3,11 +3,11 @@ title: hands on
 type: docs
 ---
 
-# この「hands on」について  
-この「hands on」は私のノート、言い方を変えると備忘録です。
+# このページについて  
+このページは私のノート、言い方を変えると備忘録です。  
 忘れた時に見るつもりなので、hands on形式にします。
 ## hugo-book  
-このサイトは静的サイトジェネレーター[hugo](https://gohugo.io/)を使っています。  
+このページは静的サイトジェネレーター[hugo](https://gohugo.io/)を使っています。  
 テーマは[hugo-book](https://themes.gohugo.io/themes/hugo-book/)を使っています。  
 ## install  
 WSL2のUbuntu20.04を使用  
