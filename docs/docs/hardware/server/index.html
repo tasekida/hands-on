@@ -3,58 +3,10 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Server #  下記の用途で検討
- 自宅で使う On-Premise Kubernetes Clusterを構築する為、同一スペックを4台  その結果、下記の条件で調査
-  Intel CPU
-コンパイラなどのトラブルを回避したいので
-  DDR4 SDRAM
-転用しやすいので
-入手しやすいので
-  省スペース
-設置スペースが狭いので
-  静音
-自宅に設置するので
-  安価
-予算が少ないので
-  候補
-  Intel nuc
-中古も価格が安定して高価
-特価も週末を待たずに在庫切れ
-  Intel mac mini 2020
-中古も価格が安定して高価
-  ESPRIMO Q556/M
-電源内蔵では最小レベル
-現物中古品を確認した結果、騒音大
-  EPSON Endeavor ST180E
-現物中古品を確認した結果、静音
-  EPSON Endeavor ST180E #  タイミング良く、オークションに程度の良い格安中古品を発見したので調達">
+<meta name="description" content="Server #  検討 #  用途 #   On-Premise Kubernetes Clusterを構築して、自宅Labとする   条件 #  Intel CPU #   コンパイラなどのトラブルを回避したいので  DDR4 SDRAM #   転用しやすいので 入手しやすいので  省スペース #   設置スペースが狭いので  静音 #   自宅に設置するので  安価 #   予算が少ないので  同一スペックを4台 #   On-Premise Kubernetes Clusterを構築するので   候補 #  Intel nuc #   中古も価格が安定して高価 特価も週末を待たずに在庫切れ  Intel mac mini 2020 #   中古も価格が安定して高価  ESPRIMO Q556/M #   電源内蔵では最小レベル 現物中古品を確認した結果、騒音大  EPSON Endeavor ST180E #   現物中古品を確認した結果、静音   結論 #  EPSON Endeavor ST180E #  タイミング良く、オークションに程度の良い格安中古品を発見したので調達">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="server" />
-<meta property="og:description" content="Server #  下記の用途で検討
- 自宅で使う On-Premise Kubernetes Clusterを構築する為、同一スペックを4台  その結果、下記の条件で調査
-  Intel CPU
-コンパイラなどのトラブルを回避したいので
-  DDR4 SDRAM
-転用しやすいので
-入手しやすいので
-  省スペース
-設置スペースが狭いので
-  静音
-自宅に設置するので
-  安価
-予算が少ないので
-  候補
-  Intel nuc
-中古も価格が安定して高価
-特価も週末を待たずに在庫切れ
-  Intel mac mini 2020
-中古も価格が安定して高価
-  ESPRIMO Q556/M
-電源内蔵では最小レベル
-現物中古品を確認した結果、騒音大
-  EPSON Endeavor ST180E
-現物中古品を確認した結果、静音
-  EPSON Endeavor ST180E #  タイミング良く、オークションに程度の良い格安中古品を発見したので調達" />
+<meta property="og:description" content="Server #  検討 #  用途 #   On-Premise Kubernetes Clusterを構築して、自宅Labとする   条件 #  Intel CPU #   コンパイラなどのトラブルを回避したいので  DDR4 SDRAM #   転用しやすいので 入手しやすいので  省スペース #   設置スペースが狭いので  静音 #   自宅に設置するので  安価 #   予算が少ないので  同一スペックを4台 #   On-Premise Kubernetes Clusterを構築するので   候補 #  Intel nuc #   中古も価格が安定して高価 特価も週末を待たずに在庫切れ  Intel mac mini 2020 #   中古も価格が安定して高価  ESPRIMO Q556/M #   電源内蔵では最小レベル 現物中古品を確認した結果、騒音大  EPSON Endeavor ST180E #   現物中古品を確認した結果、静音   結論 #  EPSON Endeavor ST180E #  タイミング良く、オークションに程度の良い格安中古品を発見したので調達" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.oblique-rays.cyou/docs/hardware/server/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-03-26T00:00:00+09:00" />
@@ -65,7 +17,7 @@
 <link rel="icon" href="https://www.oblique-rays.cyou/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="https://www.oblique-rays.cyou/book.min.82c5dbd23447cee0b4c2aa3ed08ce0961faa40e1fa370eee4f8c9f02e0d46b5f.css" integrity="sha256-gsXb0jRHzuC0wqo&#43;0Izglh&#43;qQOH6Nw7uT4yfAuDUa18=" crossorigin="anonymous">
   <script defer src="https://www.oblique-rays.cyou/flexsearch.min.js"></script>
-  <script defer src="https://www.oblique-rays.cyou/ja.search.min.5f583b750f2a3a9bd5acab23ec27c4d7c788fb93ce9851a9471a887a0e4dd53c.js" integrity="sha256-X1g7dQ8qOpvVrKsj7CfE18eI&#43;5POmFGpRxqIeg5N1Tw=" crossorigin="anonymous"></script>
+  <script defer src="https://www.oblique-rays.cyou/ja.search.min.475001e72b4da9917df599f11b2a7d581e5dc98056314645cc064bb418ead2fc.js" integrity="sha256-R1AB5ytNqZF99ZnxGyp9WB5dyYBWMUZFzAZLtBjq0vw=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -341,7 +293,16 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#epson-endeavor-st180e">EPSON Endeavor ST180E</a></li>
+    <li><a href="#検討">検討</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#結論">結論</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -358,60 +319,109 @@ https://github.com/alex-shpak/hugo-book
   Server
   <a class="anchor" href="#server">#</a>
 </h1>
-<p>下記の用途で検討</p>
+<h2 id="検討">
+  検討
+  <a class="anchor" href="#%e6%a4%9c%e8%a8%8e">#</a>
+</h2>
+<h4 id="用途">
+  用途
+  <a class="anchor" href="#%e7%94%a8%e9%80%94">#</a>
+</h4>
 <ul>
-<li>自宅で使う</li>
-<li>On-Premise Kubernetes Clusterを構築する為、同一スペックを4台</li>
+<li>On-Premise Kubernetes Clusterを構築して、自宅Labとする</li>
 </ul>
-<p>その結果、下記の条件で調査</p>
+<hr>
+<h4 id="条件">
+  条件
+  <a class="anchor" href="#%e6%9d%a1%e4%bb%b6">#</a>
+</h4>
+<h6 id="intel-cpu">
+  Intel CPU
+  <a class="anchor" href="#intel-cpu">#</a>
+</h6>
 <ul>
-<li>
-<p>Intel CPU<br>
-コンパイラなどのトラブルを回避したいので</p>
-</li>
-<li>
-<p>DDR4 SDRAM<br>
-転用しやすいので<br>
-入手しやすいので</p>
-</li>
-<li>
-<p>省スペース<br>
-設置スペースが狭いので</p>
-</li>
-<li>
-<p>静音<br>
-自宅に設置するので</p>
-</li>
-<li>
-<p>安価<br>
-予算が少ないので</p>
-</li>
+<li>コンパイラなどのトラブルを回避したいので</li>
 </ul>
-<p>候補</p>
+<h6 id="ddr4-sdram">
+  DDR4 SDRAM
+  <a class="anchor" href="#ddr4-sdram">#</a>
+</h6>
 <ul>
-<li>
-<p>Intel nuc<br>
-中古も価格が安定して高価<br>
-特価も週末を待たずに在庫切れ</p>
-</li>
-<li>
-<p>Intel mac mini 2020<br>
-中古も価格が安定して高価</p>
-</li>
-<li>
-<p>ESPRIMO Q556/M<br>
-電源内蔵では最小レベル<br>
-現物中古品を確認した結果、騒音大</p>
-</li>
-<li>
-<p>EPSON Endeavor ST180E<br>
-現物中古品を確認した結果、静音</p>
-</li>
+<li>転用しやすいので</li>
+<li>入手しやすいので</li>
 </ul>
-<h2 id="epson-endeavor-st180e">
+<h6 id="省スペース">
+  省スペース
+  <a class="anchor" href="#%e7%9c%81%e3%82%b9%e3%83%9a%e3%83%bc%e3%82%b9">#</a>
+</h6>
+<ul>
+<li>設置スペースが狭いので</li>
+</ul>
+<h6 id="静音">
+  静音
+  <a class="anchor" href="#%e9%9d%99%e9%9f%b3">#</a>
+</h6>
+<ul>
+<li>自宅に設置するので</li>
+</ul>
+<h6 id="安価">
+  安価
+  <a class="anchor" href="#%e5%ae%89%e4%be%a1">#</a>
+</h6>
+<ul>
+<li>予算が少ないので</li>
+</ul>
+<h6 id="同一スペックを4台">
+  同一スペックを4台
+  <a class="anchor" href="#%e5%90%8c%e4%b8%80%e3%82%b9%e3%83%9a%e3%83%83%e3%82%af%e3%82%924%e5%8f%b0">#</a>
+</h6>
+<ul>
+<li>On-Premise Kubernetes Clusterを構築するので</li>
+</ul>
+<hr>
+<h4 id="候補">
+  候補
+  <a class="anchor" href="#%e5%80%99%e8%a3%9c">#</a>
+</h4>
+<h6 id="intel-nuc">
+  Intel nuc
+  <a class="anchor" href="#intel-nuc">#</a>
+</h6>
+<ul>
+<li>中古も価格が安定して高価</li>
+<li>特価も週末を待たずに在庫切れ</li>
+</ul>
+<h6 id="intel-mac-mini-2020">
+  Intel mac mini 2020
+  <a class="anchor" href="#intel-mac-mini-2020">#</a>
+</h6>
+<ul>
+<li>中古も価格が安定して高価</li>
+</ul>
+<h6 id="esprimo-q556m">
+  ESPRIMO Q556/M
+  <a class="anchor" href="#esprimo-q556m">#</a>
+</h6>
+<ul>
+<li>電源内蔵では最小レベル</li>
+<li>現物中古品を確認した結果、騒音大</li>
+</ul>
+<h6 id="epson-endeavor-st180e">
   EPSON Endeavor ST180E
   <a class="anchor" href="#epson-endeavor-st180e">#</a>
+</h6>
+<ul>
+<li>現物中古品を確認した結果、静音</li>
+</ul>
+<hr>
+<h2 id="結論">
+  結論
+  <a class="anchor" href="#%e7%b5%90%e8%ab%96">#</a>
 </h2>
+<h4 id="epson-endeavor-st180e-1">
+  EPSON Endeavor ST180E
+  <a class="anchor" href="#epson-endeavor-st180e-1">#</a>
+</h4>
 <p>タイミング良く、オークションに程度の良い格安中古品を発見したので調達</p>
 <ul>
 <li>Intel 第6世代 Core i5-6500T</li>
@@ -463,7 +473,16 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#epson-endeavor-st180e">EPSON Endeavor ST180E</a></li>
+    <li><a href="#検討">検討</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#結論">結論</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
