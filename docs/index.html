@@ -4,12 +4,11 @@
 	<meta name="generator" content="Hugo 0.95.0" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="このhands onについて #  このhands onは私のノート、言い方を変えると備忘録です。
-忘れた時に見るのでhands on形式にしたいと思っています。
+<meta name="description" content="この「hands on」について #  この「hands on」は私のノート、言い方を変えると備忘録です。 忘れた時に見るつもりなので、hands on形式にします。
 hugo-book #  このサイトは静的サイトジェネレーターhugoを使っています。
 テーマはhugo-bookを使っています。
 install #  WSL2のUbuntu20.04を使用
-apt -y install hugo hugo new site hands-on cd hands-on git init git submodule add https://github.com/alex-shpak/hugo-book themes/hugo-book echo theme = \&#34;hugo-book\&#34; &gt;&gt; config.toml cp -R themes/hugo-book/exampleSite/content . rm -rf themes/hugo-book/.git rm -rf .gitmodules hugo server --minify --theme hugo-book ">
+brew install hugo hugo new site hands-on cd hands-on git init git submodule add https://github.com/alex-shpak/hugo-book themes/hugo-book echo theme = \&#34;hugo-book\&#34; &gt;&gt; config.toml echo .settings &gt;&gt; .gitignore echo .hugo_build.lock &gt;&gt; .gitignore echo .gitmodules &gt;&gt; .gitignore echo public/ &gt;&gt; .gitignore echo themes/ &gt;&gt; .gitignore hugo server --minify --theme hugo-book hugo git add . git commit -m &#34;first commit&#34; git push -u origin main ">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="hands on" />
 <meta property="og:description" content="" />
@@ -21,7 +20,7 @@ apt -y install hugo hugo new site hands-on cd hands-on git init git submodule ad
 <link rel="icon" href="https://www.oblique-rays.cyou/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="https://www.oblique-rays.cyou/book.min.82c5dbd23447cee0b4c2aa3ed08ce0961faa40e1fa370eee4f8c9f02e0d46b5f.css" integrity="sha256-gsXb0jRHzuC0wqo&#43;0Izglh&#43;qQOH6Nw7uT4yfAuDUa18=" crossorigin="anonymous">
   <script defer src="https://www.oblique-rays.cyou/flexsearch.min.js"></script>
-  <script defer src="https://www.oblique-rays.cyou/ja.search.min.76cbf747d75740592cf0bb55a59468a4fc50e638dc297505f3848d930f91219e.js" integrity="sha256-dsv3R9dXQFks8LtVpZRopPxQ5jjcKXUF84SNkw&#43;RIZ4=" crossorigin="anonymous"></script>
+  <script defer src="https://www.oblique-rays.cyou/ja.search.min.ad23a52379e3afc6cfaf45e0972429f203a011950edd0f67fe5e3f298c8800f3.js" integrity="sha256-rSOlI3njr8bPr0XglyQp8gOgEZUO3Q9n/l4/KYyIAPM=" crossorigin="anonymous"></script>
 <link rel="alternate" type="application/rss+xml" href="https://www.oblique-rays.cyou/index.xml" title="Hands on" />
 <!--
 Made with Book Theme
@@ -313,32 +312,38 @@ https://github.com/alex-shpak/hugo-book
       
       
   <article class="markdown"><h1 id="このhands-onについて">
-  このhands onについて
+  この「hands on」について
   <a class="anchor" href="#%e3%81%93%e3%81%aehands-on%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6">#</a>
 </h1>
-<p>このhands onは私のノート、言い方を変えると備忘録です。</p>
-<p>忘れた時に見るのでhands on形式にしたいと思っています。</p>
+<p>この「hands on」は私のノート、言い方を変えると備忘録です。
+忘れた時に見るつもりなので、hands on形式にします。</p>
 <h2 id="hugo-book">
   hugo-book
   <a class="anchor" href="#hugo-book">#</a>
 </h2>
-<p>このサイトは静的サイトジェネレーター<a href="https://gohugo.io/">hugo</a>を使っています。</p>
-<p>テーマは<a href="https://themes.gohugo.io/themes/hugo-book/">hugo-book</a>を使っています。</p>
+<p>このサイトは静的サイトジェネレーター<a href="https://gohugo.io/">hugo</a>を使っています。<br>
+テーマは<a href="https://themes.gohugo.io/themes/hugo-book/">hugo-book</a>を使っています。</p>
 <h2 id="install">
   install
   <a class="anchor" href="#install">#</a>
 </h2>
 <p>WSL2のUbuntu20.04を使用</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span>apt -y install hugo
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span>brew install hugo
 </span></span><span style="display:flex;"><span>hugo new site hands-on
 </span></span><span style="display:flex;"><span>cd hands-on
 </span></span><span style="display:flex;"><span>git init
 </span></span><span style="display:flex;"><span>git submodule add https://github.com/alex-shpak/hugo-book themes/hugo-book
 </span></span><span style="display:flex;"><span>echo theme = \&#34;hugo-book\&#34; &gt;&gt; config.toml
-</span></span><span style="display:flex;"><span>cp -R themes/hugo-book/exampleSite/content .
-</span></span><span style="display:flex;"><span>rm -rf themes/hugo-book/.git
-</span></span><span style="display:flex;"><span>rm -rf .gitmodules
+</span></span><span style="display:flex;"><span>echo .settings &gt;&gt; .gitignore
+</span></span><span style="display:flex;"><span>echo .hugo_build.lock &gt;&gt; .gitignore
+</span></span><span style="display:flex;"><span>echo .gitmodules &gt;&gt; .gitignore
+</span></span><span style="display:flex;"><span>echo public/ &gt;&gt; .gitignore
+</span></span><span style="display:flex;"><span>echo themes/ &gt;&gt; .gitignore
 </span></span><span style="display:flex;"><span>hugo server --minify --theme hugo-book
+</span></span><span style="display:flex;"><span>hugo
+</span></span><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>git commit -m &#34;first commit&#34;
+</span></span><span style="display:flex;"><span>git push -u origin main
 </span></span></code></pre></div></article>
  
       
