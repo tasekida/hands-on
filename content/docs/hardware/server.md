@@ -7,7 +7,7 @@ draft: false
 # Server
 ## 検討
 #### 用途
-- On-Premise Kubernetes Clusterを構築して、自宅Labとする
+- On-Premise Kubernetes Clusterを構築して自宅Labとする
 ---
 #### 条件
 ###### Intel CPU  
