@@ -52,7 +52,7 @@ RB750Gr3は入手するまでに日数が掛かりそうだった。
 ## 設定  
 #### Switch  
 Routerとして機能させるまでは、GUIのWizardsが便利でした。  
-「Only use one LAN」にチェックするとLAN側にSwitchデバイスが作成されてHardware処理になります。  
+「Only use one LAN」にチェックをすると、LAN側にSwitchデバイスが作成されて、ハードウェアが処理します。  
 {{< figure src="switch.jpg" alt="switch" width=800px >}}
 #### BGP  
 
