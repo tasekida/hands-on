@@ -47,3 +47,12 @@ RB750Gr3は入手するまでに日数が掛かりそうだった。
 今は、[getic.com](https://www.getic.com/product/edgerouter-x)で、購入確定前まで進めます。  
 日本へのShippingに対応してくれるかも知れません。  
 {{< /hint >}}
+
+---
+## 設定  
+#### Switch  
+Routerとして機能させるまでは、GUIのWizardsが便利でした。  
+「Only use one LAN」にチェックするとLAN側にSwitchデバイスが作成されてHardware処理になります。  
+{{< figure src="switch.jpg" alt="switch" width=800px >}}
+#### BGP  
+
