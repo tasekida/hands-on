@@ -2,7 +2,6 @@
 weight: 1
 title: "server"
 date: 2022-03-26
-draft: false
 ---
 # Server
 ## 検討
@@ -39,7 +38,7 @@ draft: false
 ---
 ## 結果
 #### EPSON Endeavor ST180E
-タイミング良く、オークションに程度の良い格安中古品を発見したので調達
+タイミング良く、オークションに程度の良い中古品を発見したので調達
 - Intel 第6世代 Core i5-6500T
 - DDR4 SDRAM 8GB
 - 500GB SATA 2.5inch HDD

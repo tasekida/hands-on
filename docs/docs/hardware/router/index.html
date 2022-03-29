@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Router #  EdgeRouter ER-X #  &hellip;..">
+<meta name="description" content="Router #  検討 #  用途 #   On-Premise Kubernetes ClusterでServiceのtype:Loadbalancerを使う   条件 #  BGP #   On-Premise Kubernetes ClusterでServiceのtype:Loadbalancerを使いたいので  省スペース #   設置スペースが狭いので  静音 #   自宅に設置するので  安価 #   予算が少ないので  省電力 #   自宅に設置するので   候補 #  Ubiquiti Networks EdgeRouter ER-X #   日本語情報が多い 値上がり傾向  mikrotik hEX RB750Gr3 #   日本語情報が少ない ER-Xより安価   結果 #  Ubiquiti Networks EdgeRouter ER-X #  こちらの方が情報を集めやすそうだった。">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="router" />
-<meta property="og:description" content="Router #  EdgeRouter ER-X #  &hellip;.." />
+<meta property="og:description" content="Router #  検討 #  用途 #   On-Premise Kubernetes ClusterでServiceのtype:Loadbalancerを使う   条件 #  BGP #   On-Premise Kubernetes ClusterでServiceのtype:Loadbalancerを使いたいので  省スペース #   設置スペースが狭いので  静音 #   自宅に設置するので  安価 #   予算が少ないので  省電力 #   自宅に設置するので   候補 #  Ubiquiti Networks EdgeRouter ER-X #   日本語情報が多い 値上がり傾向  mikrotik hEX RB750Gr3 #   日本語情報が少ない ER-Xより安価   結果 #  Ubiquiti Networks EdgeRouter ER-X #  こちらの方が情報を集めやすそうだった。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.oblique-rays.cyou/docs/hardware/router/" /><meta property="article:section" content="docs" />
-
-
+<meta property="article:published_time" content="2022-03-29T00:00:00+09:00" />
+<meta property="article:modified_time" content="2022-03-29T00:00:00+09:00" />
 
 <title>router | Hands on</title>
 <link rel="manifest" href="https://www.oblique-rays.cyou/manifest.json">
 <link rel="icon" href="https://www.oblique-rays.cyou/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="https://www.oblique-rays.cyou/book.min.82c5dbd23447cee0b4c2aa3ed08ce0961faa40e1fa370eee4f8c9f02e0d46b5f.css" integrity="sha256-gsXb0jRHzuC0wqo&#43;0Izglh&#43;qQOH6Nw7uT4yfAuDUa18=" crossorigin="anonymous">
   <script defer src="https://www.oblique-rays.cyou/flexsearch.min.js"></script>
-  <script defer src="https://www.oblique-rays.cyou/ja.search.min.ad23a52379e3afc6cfaf45e0972429f203a011950edd0f67fe5e3f298c8800f3.js" integrity="sha256-rSOlI3njr8bPr0XglyQp8gOgEZUO3Q9n/l4/KYyIAPM=" crossorigin="anonymous"></script>
+  <script defer src="https://www.oblique-rays.cyou/ja.search.min.4d1def95f066c408690d7086170f7cd9f291fdc992ecfdc6707ead746ab93de8.js" integrity="sha256-TR3vlfBmxAhpDXCGFw982fKR/cmS7P3GcH6tdGq5Peg=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -293,7 +293,16 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#edgerouter-er-x">EdgeRouter ER-X</a></li>
+    <li><a href="#検討">検討</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#結果">結果</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -310,11 +319,107 @@ https://github.com/alex-shpak/hugo-book
   Router
   <a class="anchor" href="#router">#</a>
 </h1>
-<h2 id="edgerouter-er-x">
-  EdgeRouter ER-X
-  <a class="anchor" href="#edgerouter-er-x">#</a>
+<h2 id="検討">
+  検討
+  <a class="anchor" href="#%e6%a4%9c%e8%a8%8e">#</a>
 </h2>
-<p>&hellip;..</p>
+<h4 id="用途">
+  用途
+  <a class="anchor" href="#%e7%94%a8%e9%80%94">#</a>
+</h4>
+<ul>
+<li>On-Premise Kubernetes ClusterでServiceのtype:Loadbalancerを使う</li>
+</ul>
+<hr>
+<h4 id="条件">
+  条件
+  <a class="anchor" href="#%e6%9d%a1%e4%bb%b6">#</a>
+</h4>
+<h6 id="bgp">
+  BGP
+  <a class="anchor" href="#bgp">#</a>
+</h6>
+<ul>
+<li>On-Premise Kubernetes ClusterでServiceのtype:Loadbalancerを使いたいので</li>
+</ul>
+<h6 id="省スペース">
+  省スペース
+  <a class="anchor" href="#%e7%9c%81%e3%82%b9%e3%83%9a%e3%83%bc%e3%82%b9">#</a>
+</h6>
+<ul>
+<li>設置スペースが狭いので</li>
+</ul>
+<h6 id="静音">
+  静音
+  <a class="anchor" href="#%e9%9d%99%e9%9f%b3">#</a>
+</h6>
+<ul>
+<li>自宅に設置するので</li>
+</ul>
+<h6 id="安価">
+  安価
+  <a class="anchor" href="#%e5%ae%89%e4%be%a1">#</a>
+</h6>
+<ul>
+<li>予算が少ないので</li>
+</ul>
+<h6 id="省電力">
+  省電力
+  <a class="anchor" href="#%e7%9c%81%e9%9b%bb%e5%8a%9b">#</a>
+</h6>
+<ul>
+<li>自宅に設置するので</li>
+</ul>
+<hr>
+<h4 id="候補">
+  候補
+  <a class="anchor" href="#%e5%80%99%e8%a3%9c">#</a>
+</h4>
+<h6 id="ubiquiti-networks-edgerouter-er-x">
+  Ubiquiti Networks EdgeRouter ER-X
+  <a class="anchor" href="#ubiquiti-networks-edgerouter-er-x">#</a>
+</h6>
+<ul>
+<li>日本語情報が多い</li>
+<li>値上がり傾向</li>
+</ul>
+<h6 id="mikrotik-hex-rb750gr3">
+  mikrotik hEX RB750Gr3
+  <a class="anchor" href="#mikrotik-hex-rb750gr3">#</a>
+</h6>
+<ul>
+<li>日本語情報が少ない</li>
+<li>ER-Xより安価</li>
+</ul>
+<hr>
+<h2 id="結果">
+  結果
+  <a class="anchor" href="#%e7%b5%90%e6%9e%9c">#</a>
+</h2>
+<h4 id="ubiquiti-networks-edgerouter-er-x-1">
+  Ubiquiti Networks EdgeRouter ER-X
+  <a class="anchor" href="#ubiquiti-networks-edgerouter-er-x-1">#</a>
+</h4>
+<p>こちらの方が情報を集めやすそうだった。<br>
+RB750Gr3は入手するまでに日数が掛かりそうだった。</p>
+<ul>
+<li>Mediatek MT7621A 880MHz MIPS1004Kc 2Core</li>
+<li>DDR3 256MB</li>
+<li>256MB ROM</li>
+<li>EdgeOS</li>
+<li>110×75×22 mm</li>
+<li>静音</li>
+<li>16,400円</li>
+</ul>
+<hr>
+<blockquote class="book-hint info">
+  <strong>購入について</strong><br>
+私は上記の価格でAmazonより購入しました。<br>
+その時は<a href="http://edge-os.net/wiki/view/%e8%b3%bc%e5%85%a5%e6%96%b9%e6%b3%95_%ef%bc%9e_eurodk.com">eurodk.com</a>が、日本へのShippingを停止していたからです。<br>
+今は、<a href="https://www.getic.com/product/edgerouter-x">getic.com</a>で、購入確定前まで進めます。<br>
+日本へのShippingに対応してくれるかも知れません。
+</blockquote>
+
 </article>
  
       
@@ -356,7 +461,16 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#edgerouter-er-x">EdgeRouter ER-X</a></li>
+    <li><a href="#検討">検討</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#結果">結果</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
