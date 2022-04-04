@@ -55,4 +55,18 @@ Routerとして機能させるまでは、GUIのWizardsが便利でした。
 「Only use one LAN」にチェックをすると、LAN側にSwitchデバイスが作成されて、ハードウェアが処理します。  
 {{< figure src="switch.jpg" alt="switch" width=800px >}}
 #### BGP  
-
+BGPの設定はCUIが便利です。  
+```tpl
+ssh ubnt@192.168.51.254
+configure
+set protocols bgp 65001 maximum-paths ebgp 3
+set protocols bgp 65001 neighbor 192.168.51.3 peer-group k8scluster01
+set protocols bgp 65001 neighbor 192.168.51.4 peer-group k8scluster01
+set protocols bgp 65001 neighbor 192.168.51.5 peer-group k8scluster01
+set protocols bgp 65001 parameters router-id 192.168.51.254
+set protocols bgp 65001 peer-group k8scluster01 default-originate
+set protocols bgp 65001 peer-group k8scluster01 remote-as 65002
+commit
+save
+exit
+```
