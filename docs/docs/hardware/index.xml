@@ -6,7 +6,7 @@
     <description>Recent content in hardware on Hands on</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 29 Mar 2022 00:00:00 +0900</lastBuildDate><atom:link href="https://www.oblique-rays.cyou/docs/hardware/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 06 Apr 2022 00:00:00 +0900</lastBuildDate><atom:link href="https://www.oblique-rays.cyou/docs/hardware/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>server</title>
       <link>https://www.oblique-rays.cyou/docs/hardware/server/</link>
@@ -19,10 +19,10 @@
     <item>
       <title>storage</title>
       <link>https://www.oblique-rays.cyou/docs/hardware/storage/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 06 Apr 2022 00:00:00 +0900</pubDate>
       
       <guid>https://www.oblique-rays.cyou/docs/hardware/storage/</guid>
-      <description>storage #  Synology DiskStation DS220+ #  &amp;hellip;&amp;hellip;</description>
+      <description>Storage #  検討 #  用途 #   On-Premise Kubernetes ClusterでReadWriteManyのPersistentVolumeを使う   条件 #  監視カメラ対応 #   TP-Link Tapo C310の映像を録画したいので  CSI (Container Storage Interface) #   On-Premise Kubernetes ClusterでReadWriteManyのPersistentVolumeを使いたいので  省スペース #   設置スペースが狭いので  静音 #   自宅に設置するので  安価 #   予算が少ないので  省電力 #   自宅に設置するので   候補 #  Synology DiskStation DS220+ #   DS220jより高スペック DS220jより高価  Synology DiskStation DS220j #   DS220+より低スペック DS220+より安価   結果 #  Synology DiskStation DS220+ #  CSI Driverを使う場合、Synology NASかNFS Serverに絞られた。</description>
     </item>
     
     <item>
