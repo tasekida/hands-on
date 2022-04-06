@@ -51,8 +51,3 @@ Cluster専用のVolumeを作成するのがベストです。
 フォルダ管理するつもりで、全てのStorageで1つのVolumeを作成していたので再作成しました。  
 容量が多いとファイルを逃がすのも工夫が必要になります。  
 {{< figure src="synology01.jpg" alt="volume" width=800px >}}
-#### Synology CSI Driver  
-Synology CSI Driverのインストール。  
-```tpl
-・・・
-```
