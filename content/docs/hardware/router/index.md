@@ -60,9 +60,9 @@ BGPの設定はCUIが便利です。
 ssh ubnt@192.168.51.254
 configure
 set protocols bgp 65001 maximum-paths ebgp 3
+set protocols bgp 65001 neighbor 192.168.51.2 peer-group k8scluster01
 set protocols bgp 65001 neighbor 192.168.51.3 peer-group k8scluster01
 set protocols bgp 65001 neighbor 192.168.51.4 peer-group k8scluster01
-set protocols bgp 65001 neighbor 192.168.51.5 peer-group k8scluster01
 set protocols bgp 65001 parameters router-id 192.168.51.254
 set protocols bgp 65001 peer-group k8scluster01 default-originate
 set protocols bgp 65001 peer-group k8scluster01 remote-as 65002

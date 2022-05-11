@@ -1,7 +1,7 @@
 ---
 weight: 1
 title: "server"
-date: 2022-03-26
+date: 2022-05-10
 ---
 # Server
 ## 検討
@@ -46,3 +46,19 @@ date: 2022-03-26
 - 45×185×195 mm
 - 静音
 - 4台=55,069円 1台=約13,767円
+
+---
+## 設定  
+#### CentOS Stream 8  
+[CentOS8のドキュメント](https://docs.centos.org/en-US/8-docs/standard-install/assembly_preparing-for-your-installation/)に従ってCentOS Stream 8をインストールします。  
+ほぼデフォルト設定でインストールしました。  
+いつかスクリーンショットを撮ったらここに追加します。  
+k8smaster01 192.168.51.1  
+k8sworker01 192.168.51.2  
+k8sworker02 192.168.51.3  
+k8sworker03 192.168.51.4  
+
+#### ssh server 鍵認証  
+```tpl
+～～略～～
+```
