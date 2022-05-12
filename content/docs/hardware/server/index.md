@@ -51,13 +51,13 @@ date: 2022-05-10
 ## 設定  
 #### CentOS Stream 8 Install  
 [CentOS8のドキュメント](https://docs.centos.org/en-US/8-docs/standard-install/assembly_preparing-for-your-installation/)に従ってCentOS Stream 8をインストールします。  
-ほぼデフォルト設定でインストールしました。  
+ほぼデフォルト設定です。  
 {{< figure src="centos01.png" alt="install01" width=800px >}}
 {{< figure src="centos02.png" alt="install02" width=800px >}}
 {{< figure src="centos02.png" alt="install03" width=800px >}}
 
 #### ノードの構成  
-  hostname | Column 1 | Column 2
+  hostname | IP address | gateway
 ---------------|----------|---------
   k8smaster01 | 192.168.51.1/24 | 192.168.51.254/24
   k8sworker01 | 192.168.51.2/24 | 192.168.51.254/24
