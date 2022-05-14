@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="kubespray #  config #  準備 #   On-Premise Kubernetes Clusterを構築して自宅Labとする   条件 #  Intel CPU #   コンパイラなどのトラブルを回避したいので  DDR4 SDRAM #   転用しやすいので 入手しやすいので  省スペース #   設置スペースが狭いので  静音 #   自宅に設置するので  安価 #   予算が少ないので  同一スペックを4台 #   On-Premise Kubernetes Clusterを構築するので   候補 #  Intel nuc #   中古も価格が安定して高価 特価も週末を待たずに在庫切れ  Intel mac mini 2020 #   中古も価格が安定して高価  ESPRIMO Q556/M #   電源内蔵では最小レベル 現物中古品を確認した結果、騒音大  EPSON Endeavor ST180E #   現物中古品を確認した結果、静音   install #  EPSON Endeavor ST180E #  タイミング良く、オークションに程度の良い中古品を発見したので調達">
+<meta name="description" content="kubespray #  準備 #  Kubesprayを取得 #   githubからKubesprayを取得します。  git clone https://github.com/kubernetes-sigs/kubespray.git cd kubespray sudo pip3 install -r requirements-2.12.txt cp -rfp inventory/sample inventory/mycluster declare -a IPS=(192.168.51.1 192.168.51.2 192.168.51.3 192.168.51.4) CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]}  構成情報を設定 #   inventory/mycluster/hosts.yaml
+AS-IS all:  hosts:  node1:  ansible_host: 192.168.51.1  ip: 192.168.51.1  access_ip: 192.168.51.1  node2:  ansible_host: 192.168.51.2  ip: 192.168.51.2  access_ip: 192.168.51.2  node3:  ansible_host: 192.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="kubespray" />
-<meta property="og:description" content="kubespray #  config #  準備 #   On-Premise Kubernetes Clusterを構築して自宅Labとする   条件 #  Intel CPU #   コンパイラなどのトラブルを回避したいので  DDR4 SDRAM #   転用しやすいので 入手しやすいので  省スペース #   設置スペースが狭いので  静音 #   自宅に設置するので  安価 #   予算が少ないので  同一スペックを4台 #   On-Premise Kubernetes Clusterを構築するので   候補 #  Intel nuc #   中古も価格が安定して高価 特価も週末を待たずに在庫切れ  Intel mac mini 2020 #   中古も価格が安定して高価  ESPRIMO Q556/M #   電源内蔵では最小レベル 現物中古品を確認した結果、騒音大  EPSON Endeavor ST180E #   現物中古品を確認した結果、静音   install #  EPSON Endeavor ST180E #  タイミング良く、オークションに程度の良い中古品を発見したので調達" />
+<meta property="og:description" content="kubespray #  準備 #  Kubesprayを取得 #   githubからKubesprayを取得します。  git clone https://github.com/kubernetes-sigs/kubespray.git cd kubespray sudo pip3 install -r requirements-2.12.txt cp -rfp inventory/sample inventory/mycluster declare -a IPS=(192.168.51.1 192.168.51.2 192.168.51.3 192.168.51.4) CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]}  構成情報を設定 #   inventory/mycluster/hosts.yaml
+AS-IS all:  hosts:  node1:  ansible_host: 192.168.51.1  ip: 192.168.51.1  access_ip: 192.168.51.1  node2:  ansible_host: 192.168.51.2  ip: 192.168.51.2  access_ip: 192.168.51.2  node3:  ansible_host: 192." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.oblique-rays.cyou/docs/kubernetes/kubespray/" /><meta property="article:section" content="docs" />
 
@@ -15,9 +17,9 @@
 <title>kubespray | Hands on</title>
 <link rel="manifest" href="https://www.oblique-rays.cyou/manifest.json">
 <link rel="icon" href="https://www.oblique-rays.cyou/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="https://www.oblique-rays.cyou/book.min.82c5dbd23447cee0b4c2aa3ed08ce0961faa40e1fa370eee4f8c9f02e0d46b5f.css" integrity="sha256-gsXb0jRHzuC0wqo&#43;0Izglh&#43;qQOH6Nw7uT4yfAuDUa18=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://www.oblique-rays.cyou/book.min.d19e0f463a18eecba598e5937004fd8bdb717a8b293157c432039a983b2a097e.css" integrity="sha256-0Z4PRjoY7sulmOWTcAT9i9txeospMVfEMgOamDsqCX4=" crossorigin="anonymous">
   <script defer src="https://www.oblique-rays.cyou/flexsearch.min.js"></script>
-  <script defer src="https://www.oblique-rays.cyou/ja.search.min.5cb3be0362f438cb932eb79c8b6ff0e134e2835f201592b9ae00bf3ec5550243.js" integrity="sha256-XLO&#43;A2L0OMuTLreci2/w4TTig18gFZK5rgC/PsVVAkM=" crossorigin="anonymous"></script>
+  <script defer src="https://www.oblique-rays.cyou/ja.search.min.51c876b9d850fd22794064231964691d158d519e55850c5b395e6dd085d992e5.js" integrity="sha256-Uch2udhQ/SJ5QGQjGWRpHRWNUZ5VhQxbOV5t0IXZkuU=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -158,19 +160,6 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://www.oblique-rays.cyou/docs/kubernetes/metallb/" class="">metallb</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
     <a href="https://www.oblique-rays.cyou/docs/kubernetes/synology-csi/" class="">synology-csi</a>
   
 
@@ -293,12 +282,7 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#config">config</a>
-      <ul>
-        <li></li>
-      </ul>
-    </li>
-    <li><a href="#install">install</a>
+    <li><a href="#準備">準備</a>
       <ul>
         <li></li>
       </ul>
@@ -319,120 +303,374 @@ https://github.com/alex-shpak/hugo-book
   kubespray
   <a class="anchor" href="#kubespray">#</a>
 </h1>
-<h2 id="config">
-  config
-  <a class="anchor" href="#config">#</a>
-</h2>
-<h4 id="準備">
+<h2 id="準備">
   準備
   <a class="anchor" href="#%e6%ba%96%e5%82%99">#</a>
-</h4>
-<ul>
-<li>On-Premise Kubernetes Clusterを構築して自宅Labとする</li>
-</ul>
-<hr>
-<h4 id="条件">
-  条件
-  <a class="anchor" href="#%e6%9d%a1%e4%bb%b6">#</a>
-</h4>
-<h6 id="intel-cpu">
-  Intel CPU
-  <a class="anchor" href="#intel-cpu">#</a>
-</h6>
-<ul>
-<li>コンパイラなどのトラブルを回避したいので</li>
-</ul>
-<h6 id="ddr4-sdram">
-  DDR4 SDRAM
-  <a class="anchor" href="#ddr4-sdram">#</a>
-</h6>
-<ul>
-<li>転用しやすいので</li>
-<li>入手しやすいので</li>
-</ul>
-<h6 id="省スペース">
-  省スペース
-  <a class="anchor" href="#%e7%9c%81%e3%82%b9%e3%83%9a%e3%83%bc%e3%82%b9">#</a>
-</h6>
-<ul>
-<li>設置スペースが狭いので</li>
-</ul>
-<h6 id="静音">
-  静音
-  <a class="anchor" href="#%e9%9d%99%e9%9f%b3">#</a>
-</h6>
-<ul>
-<li>自宅に設置するので</li>
-</ul>
-<h6 id="安価">
-  安価
-  <a class="anchor" href="#%e5%ae%89%e4%be%a1">#</a>
-</h6>
-<ul>
-<li>予算が少ないので</li>
-</ul>
-<h6 id="同一スペックを4台">
-  同一スペックを4台
-  <a class="anchor" href="#%e5%90%8c%e4%b8%80%e3%82%b9%e3%83%9a%e3%83%83%e3%82%af%e3%82%924%e5%8f%b0">#</a>
-</h6>
-<ul>
-<li>On-Premise Kubernetes Clusterを構築するので</li>
-</ul>
-<hr>
-<h4 id="候補">
-  候補
-  <a class="anchor" href="#%e5%80%99%e8%a3%9c">#</a>
-</h4>
-<h6 id="intel-nuc">
-  Intel nuc
-  <a class="anchor" href="#intel-nuc">#</a>
-</h6>
-<ul>
-<li>中古も価格が安定して高価</li>
-<li>特価も週末を待たずに在庫切れ</li>
-</ul>
-<h6 id="intel-mac-mini-2020">
-  Intel mac mini 2020
-  <a class="anchor" href="#intel-mac-mini-2020">#</a>
-</h6>
-<ul>
-<li>中古も価格が安定して高価</li>
-</ul>
-<h6 id="esprimo-q556m">
-  ESPRIMO Q556/M
-  <a class="anchor" href="#esprimo-q556m">#</a>
-</h6>
-<ul>
-<li>電源内蔵では最小レベル</li>
-<li>現物中古品を確認した結果、騒音大</li>
-</ul>
-<h6 id="epson-endeavor-st180e">
-  EPSON Endeavor ST180E
-  <a class="anchor" href="#epson-endeavor-st180e">#</a>
-</h6>
-<ul>
-<li>現物中古品を確認した結果、静音</li>
-</ul>
-<hr>
-<h2 id="install">
-  install
-  <a class="anchor" href="#install">#</a>
 </h2>
-<h4 id="epson-endeavor-st180e-1">
-  EPSON Endeavor ST180E
-  <a class="anchor" href="#epson-endeavor-st180e-1">#</a>
+<h4 id="kubesprayを取得">
+  Kubesprayを取得
+  <a class="anchor" href="#kubespray%e3%82%92%e5%8f%96%e5%be%97">#</a>
 </h4>
-<p>タイミング良く、オークションに程度の良い中古品を発見したので調達</p>
 <ul>
-<li>Intel 第6世代 Core i5-6500T</li>
-<li>DDR4 SDRAM 8GB</li>
-<li>500GB SATA 2.5inch HDD</li>
-<li>Windows11 Pro デジタル ライセンス付属</li>
-<li>45×185×195 mm</li>
-<li>静音</li>
-<li>4台=55,069円 1台=約13,767円</li>
+<li>githubから<a href="https://github.com/kubernetes-sigs/kubespray">Kubespray</a>を取得します。</li>
 </ul>
-</article>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span>git clone https://github.com/kubernetes-sigs/kubespray.git
+</span></span><span style="display:flex;"><span>cd kubespray
+</span></span><span style="display:flex;"><span>sudo pip3 install -r requirements-2.12.txt
+</span></span><span style="display:flex;"><span>cp -rfp inventory/sample inventory/mycluster
+</span></span><span style="display:flex;"><span>declare -a IPS=(192.168.51.1 192.168.51.2 192.168.51.3 192.168.51.4)
+</span></span><span style="display:flex;"><span>CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py $<span style="color:#75715e">{</span><span style="color:#a6e22e">IPS</span><span style="color:#f92672">[@]</span><span style="color:#75715e">}</span>
+</span></span></code></pre></div><hr>
+<h4 id="構成情報を設定">
+  構成情報を設定
+  <a class="anchor" href="#%e6%a7%8b%e6%88%90%e6%83%85%e5%a0%b1%e3%82%92%e8%a8%ad%e5%ae%9a">#</a>
+</h4>
+<ul>
+<li>inventory/mycluster/hosts.yaml<br>
+
+
+
+
+<div class="book-tabs"><input type="radio" class="toggle" name="tabs-uniqueid" id="tabs-uniqueid-0" checked="checked" />
+  <label for="tabs-uniqueid-0">AS-IS</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span>all:
+</span></span><span style="display:flex;"><span>  hosts:
+</span></span><span style="display:flex;"><span>    node1:
+</span></span><span style="display:flex;"><span>      ansible_host: 192.168.51.1
+</span></span><span style="display:flex;"><span>      ip: 192.168.51.1
+</span></span><span style="display:flex;"><span>      access_ip: 192.168.51.1
+</span></span><span style="display:flex;"><span>    node2:
+</span></span><span style="display:flex;"><span>      ansible_host: 192.168.51.2
+</span></span><span style="display:flex;"><span>      ip: 192.168.51.2
+</span></span><span style="display:flex;"><span>      access_ip: 192.168.51.2
+</span></span><span style="display:flex;"><span>    node3:
+</span></span><span style="display:flex;"><span>      ansible_host: 192.168.51.3
+</span></span><span style="display:flex;"><span>      ip: 192.168.51.3
+</span></span><span style="display:flex;"><span>      access_ip: 192.168.51.3
+</span></span><span style="display:flex;"><span>    node4:
+</span></span><span style="display:flex;"><span>      ansible_host: 192.168.51.4
+</span></span><span style="display:flex;"><span>      ip: 192.168.51.4
+</span></span><span style="display:flex;"><span>      access_ip: 192.168.51.4
+</span></span><span style="display:flex;"><span>  children:
+</span></span><span style="display:flex;"><span>    kube_control_plane:
+</span></span><span style="display:flex;"><span>      hosts:
+</span></span><span style="display:flex;"><span>        node1:
+</span></span><span style="display:flex;"><span>        node2:
+</span></span><span style="display:flex;"><span>    kube_node:
+</span></span><span style="display:flex;"><span>      hosts:
+</span></span><span style="display:flex;"><span>        node1:
+</span></span><span style="display:flex;"><span>        node2:
+</span></span><span style="display:flex;"><span>        node3:
+</span></span><span style="display:flex;"><span>        node4:
+</span></span><span style="display:flex;"><span>    etcd:
+</span></span><span style="display:flex;"><span>      hosts:
+</span></span><span style="display:flex;"><span>        node1:
+</span></span><span style="display:flex;"><span>        node2:
+</span></span><span style="display:flex;"><span>        node3:
+</span></span><span style="display:flex;"><span>    k8s_cluster:
+</span></span><span style="display:flex;"><span>      children:
+</span></span><span style="display:flex;"><span>        kube_control_plane:
+</span></span><span style="display:flex;"><span>        kube_node:
+</span></span><span style="display:flex;"><span>    calico_rr:
+</span></span><span style="display:flex;"><span>      hosts: <span style="color:#75715e">{}</span>
+</span></span></code></pre></div></div><input type="radio" class="toggle" name="tabs-uniqueid" id="tabs-uniqueid-1"  />
+  <label for="tabs-uniqueid-1">TO-BE</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span>all:
+</span></span><span style="display:flex;"><span>  hosts:
+</span></span><span style="display:flex;"><span>    k8smaster01:
+</span></span><span style="display:flex;"><span>      ansible_host: 192.168.51.1
+</span></span><span style="display:flex;"><span>      ip: 192.168.51.1
+</span></span><span style="display:flex;"><span>      access_ip: 192.168.51.1
+</span></span><span style="display:flex;"><span>    k8sworker01:
+</span></span><span style="display:flex;"><span>      ansible_host: 192.168.51.2
+</span></span><span style="display:flex;"><span>      ip: 192.168.51.2
+</span></span><span style="display:flex;"><span>      access_ip: 192.168.51.2
+</span></span><span style="display:flex;"><span>    k8sworker02:
+</span></span><span style="display:flex;"><span>      ansible_host: 192.168.51.3
+</span></span><span style="display:flex;"><span>      ip: 192.168.51.3
+</span></span><span style="display:flex;"><span>      access_ip: 192.168.51.3
+</span></span><span style="display:flex;"><span>    k8sworker03:
+</span></span><span style="display:flex;"><span>      ansible_host: 192.168.51.4
+</span></span><span style="display:flex;"><span>      ip: 192.168.51.4
+</span></span><span style="display:flex;"><span>      access_ip: 192.168.51.4
+</span></span><span style="display:flex;"><span>  children:
+</span></span><span style="display:flex;"><span>    kube_control_plane:
+</span></span><span style="display:flex;"><span>      hosts:
+</span></span><span style="display:flex;"><span>        k8smaster01:
+</span></span><span style="display:flex;"><span>    kube_node:
+</span></span><span style="display:flex;"><span>      hosts:
+</span></span><span style="display:flex;"><span>        k8sworker01:
+</span></span><span style="display:flex;"><span>        k8sworker02:
+</span></span><span style="display:flex;"><span>        k8sworker03:
+</span></span><span style="display:flex;"><span>    etcd:
+</span></span><span style="display:flex;"><span>      hosts:
+</span></span><span style="display:flex;"><span>        k8smaster01:
+</span></span><span style="display:flex;"><span>    k8s_cluster:
+</span></span><span style="display:flex;"><span>      children:
+</span></span><span style="display:flex;"><span>        kube_control_plane:
+</span></span><span style="display:flex;"><span>        kube_node:
+</span></span><span style="display:flex;"><span>    calico_rr:
+</span></span><span style="display:flex;"><span>      hosts: <span style="color:#75715e">{}</span>
+</span></span></code></pre></div></div></div>
+</li>
+</ul>
+<h4 id="cluster全体の設定">
+  Cluster全体の設定
+  <a class="anchor" href="#cluster%e5%85%a8%e4%bd%93%e3%81%ae%e8%a8%ad%e5%ae%9a">#</a>
+</h4>
+<ul>
+<li>inventory/mycluster/group_vars/all/all.yml<br>
+
+
+
+
+<div class="book-tabs"><input type="radio" class="toggle" name="tabs-all" id="tabs-all-0" checked="checked" />
+  <label for="tabs-all-0">AS-IS</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span>## Upstream dns servers
+</span></span><span style="display:flex;"><span># upstream_dns_servers:
+</span></span><span style="display:flex;"><span>#   - 8.8.8.8
+</span></span><span style="display:flex;"><span>#   - 8.8.4.4
+</span></span></code></pre></div></div><input type="radio" class="toggle" name="tabs-all" id="tabs-all-1"  />
+  <label for="tabs-all-1">TO-BE</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span>## Upstream dns servers
+</span></span><span style="display:flex;"><span>upstream_dns_servers:
+</span></span><span style="display:flex;"><span>  - 8.8.8.8
+</span></span><span style="display:flex;"><span>  - 1.1.1.1
+</span></span></code></pre></div></div></div>
+</li>
+</ul>
+<h4 id="containerdの設定">
+  Containerdの設定
+  <a class="anchor" href="#containerd%e3%81%ae%e8%a8%ad%e5%ae%9a">#</a>
+</h4>
+<ul>
+<li>inventory/mycluster/group_vars/all/containerd.yml<br>
+
+
+
+
+<div class="book-tabs"><input type="radio" class="toggle" name="tabs-containerd" id="tabs-containerd-0" checked="checked" />
+  <label for="tabs-containerd-0">AS-IS</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span># containerd_registries:
+</span></span><span style="display:flex;"><span>#   &#34;docker.io&#34;: &#34;https://registry-1.docker.io&#34;
+</span></span></code></pre></div></div><input type="radio" class="toggle" name="tabs-containerd" id="tabs-containerd-1"  />
+  <label for="tabs-containerd-1">TO-BE</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span>containerd_registries:
+</span></span><span style="display:flex;"><span>  &#34;docker.io&#34;:
+</span></span><span style="display:flex;"><span>    - &#34;https://mirror.gcr.io&#34;
+</span></span><span style="display:flex;"><span>    - &#34;https://registry-1.docker.io&#34;
+</span></span><span style="display:flex;"><span>image_command_tool: crictl
+</span></span></code></pre></div></div></div>
+</li>
+</ul>
+<h4 id="k8s-addonの設定">
+  K8s Addonの設定
+  <a class="anchor" href="#k8s-addon%e3%81%ae%e8%a8%ad%e5%ae%9a">#</a>
+</h4>
+<ul>
+<li>inventory/mycluster/group_vars/k8s_cluster/addons.yml<br>
+
+
+
+
+<div class="book-tabs"><input type="radio" class="toggle" name="tabs-addons" id="tabs-addons-0" checked="checked" />
+  <label for="tabs-addons-0">AS-IS</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span># Nginx ingress controller deployment
+</span></span><span style="display:flex;"><span>ingress_nginx_enabled: false
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># Cert manager deployment
+</span></span><span style="display:flex;"><span>cert_manager_enabled: false
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># MetalLB deployment
+</span></span><span style="display:flex;"><span>metallb_enabled: false
+</span></span><span style="display:flex;"><span>metallb_speaker_enabled: true
+</span></span><span style="display:flex;"><span># metallb_ip_range:
+</span></span><span style="display:flex;"><span>#   - &#34;10.5.0.50-10.5.0.99&#34;
+</span></span><span style="display:flex;"><span># metallb_pool_name: &#34;loadbalanced&#34;
+</span></span><span style="display:flex;"><span># matallb_auto_assign: true
+</span></span><span style="display:flex;"><span># metallb_speaker_nodeselector:
+</span></span><span style="display:flex;"><span>#   kubernetes.io/os: &#34;linux&#34;
+</span></span><span style="display:flex;"><span># metallb_controller_nodeselector:
+</span></span><span style="display:flex;"><span>#   kubernetes.io/os: &#34;linux&#34;
+</span></span><span style="display:flex;"><span># metallb_speaker_tolerations:
+</span></span><span style="display:flex;"><span>#   - key: &#34;node-role.kubernetes.io/master&#34;
+</span></span><span style="display:flex;"><span>#     operator: &#34;Equal&#34;
+</span></span><span style="display:flex;"><span>#     value: &#34;&#34;
+</span></span><span style="display:flex;"><span>#     effect: &#34;NoSchedule&#34;
+</span></span><span style="display:flex;"><span>#   - key: &#34;node-role.kubernetes.io/control-plane&#34;
+</span></span><span style="display:flex;"><span>#     operator: &#34;Equal&#34;
+</span></span><span style="display:flex;"><span>#     value: &#34;&#34;
+</span></span><span style="display:flex;"><span>#     effect: &#34;NoSchedule&#34;
+</span></span><span style="display:flex;"><span># metallb_controller_tolerations:
+</span></span><span style="display:flex;"><span>#   - key: &#34;node-role.kubernetes.io/master&#34;
+</span></span><span style="display:flex;"><span>#     operator: &#34;Equal&#34;
+</span></span><span style="display:flex;"><span>#     value: &#34;&#34;
+</span></span><span style="display:flex;"><span>#     effect: &#34;NoSchedule&#34;
+</span></span><span style="display:flex;"><span>#   - key: &#34;node-role.kubernetes.io/control-plane&#34;
+</span></span><span style="display:flex;"><span>#     operator: &#34;Equal&#34;
+</span></span><span style="display:flex;"><span>#     value: &#34;&#34;
+</span></span><span style="display:flex;"><span>#     effect: &#34;NoSchedule&#34;
+</span></span><span style="display:flex;"><span># metallb_version: v0.12.1
+</span></span><span style="display:flex;"><span># metallb_protocol: &#34;layer2&#34;
+</span></span><span style="display:flex;"><span># metallb_port: &#34;7472&#34;
+</span></span><span style="display:flex;"><span># metallb_memberlist_port: &#34;7946&#34;
+</span></span><span style="display:flex;"><span># metallb_additional_address_pools:
+</span></span><span style="display:flex;"><span>#   kube_service_pool:
+</span></span><span style="display:flex;"><span>#     ip_range:
+</span></span><span style="display:flex;"><span>#       - &#34;10.5.1.50-10.5.1.99&#34;
+</span></span><span style="display:flex;"><span>#     protocol: &#34;layer2&#34;
+</span></span><span style="display:flex;"><span>#     auto_assign: false
+</span></span><span style="display:flex;"><span># metallb_protocol: &#34;bgp&#34;
+</span></span><span style="display:flex;"><span># metallb_peers:
+</span></span><span style="display:flex;"><span>#   - peer_address: 192.0.2.1
+</span></span><span style="display:flex;"><span>#     peer_asn: 64512
+</span></span><span style="display:flex;"><span>#     my_asn: 4200000000
+</span></span><span style="display:flex;"><span>#   - peer_address: 192.0.2.2
+</span></span><span style="display:flex;"><span>#     peer_asn: 64513
+</span></span><span style="display:flex;"><span>#     my_asn: 4200000000
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>argocd_enabled: false
+</span></span></code></pre></div></div><input type="radio" class="toggle" name="tabs-addons" id="tabs-addons-1"  />
+  <label for="tabs-addons-1">TO-BE</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span># Nginx ingress controller deployment
+</span></span><span style="display:flex;"><span>ingress_nginx_enabled: true
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># Cert manager deployment
+</span></span><span style="display:flex;"><span>cert_manager_enabled: true
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># MetalLB deployment
+</span></span><span style="display:flex;"><span>metallb_enabled: true
+</span></span><span style="display:flex;"><span>metallb_speaker_enabled: true
+</span></span><span style="display:flex;"><span>metallb_ip_range:
+</span></span><span style="display:flex;"><span>  - &#34;192.168.51.10-192.168.51.230&#34;
+</span></span><span style="display:flex;"><span>metallb_pool_name: &#34;k8scluster01&#34;
+</span></span><span style="display:flex;"><span>matallb_auto_assign: true
+</span></span><span style="display:flex;"><span># metallb_speaker_nodeselector:
+</span></span><span style="display:flex;"><span>#   kubernetes.io/os: &#34;linux&#34;
+</span></span><span style="display:flex;"><span># metallb_controller_nodeselector:
+</span></span><span style="display:flex;"><span>#   kubernetes.io/os: &#34;linux&#34;
+</span></span><span style="display:flex;"><span>metallb_speaker_tolerations:
+</span></span><span style="display:flex;"><span>  - key: &#34;node-role.kubernetes.io/master&#34;
+</span></span><span style="display:flex;"><span>    operator: &#34;Equal&#34;
+</span></span><span style="display:flex;"><span>    value: &#34;&#34;
+</span></span><span style="display:flex;"><span>    effect: &#34;NoSchedule&#34;
+</span></span><span style="display:flex;"><span>  - key: &#34;node-role.kubernetes.io/control-plane&#34;
+</span></span><span style="display:flex;"><span>    operator: &#34;Equal&#34;
+</span></span><span style="display:flex;"><span>    value: &#34;&#34;
+</span></span><span style="display:flex;"><span>    effect: &#34;NoSchedule&#34;
+</span></span><span style="display:flex;"><span>metallb_controller_tolerations:
+</span></span><span style="display:flex;"><span>  - key: &#34;node-role.kubernetes.io/master&#34;
+</span></span><span style="display:flex;"><span>    operator: &#34;Equal&#34;
+</span></span><span style="display:flex;"><span>    value: &#34;&#34;
+</span></span><span style="display:flex;"><span>    effect: &#34;NoSchedule&#34;
+</span></span><span style="display:flex;"><span>  - key: &#34;node-role.kubernetes.io/control-plane&#34;
+</span></span><span style="display:flex;"><span>    operator: &#34;Equal&#34;
+</span></span><span style="display:flex;"><span>    value: &#34;&#34;
+</span></span><span style="display:flex;"><span>    effect: &#34;NoSchedule&#34;
+</span></span><span style="display:flex;"><span># metallb_version: v0.12.1
+</span></span><span style="display:flex;"><span># metallb_protocol: &#34;layer2&#34;
+</span></span><span style="display:flex;"><span># metallb_port: &#34;7472&#34;
+</span></span><span style="display:flex;"><span># metallb_memberlist_port: &#34;7946&#34;
+</span></span><span style="display:flex;"><span># metallb_additional_address_pools:
+</span></span><span style="display:flex;"><span>#   kube_service_pool:
+</span></span><span style="display:flex;"><span>#     ip_range:
+</span></span><span style="display:flex;"><span>#       - &#34;192.168.51.10-192.168.51.230&#34;
+</span></span><span style="display:flex;"><span>#     protocol: &#34;bgp&#34;
+</span></span><span style="display:flex;"><span>#     auto_assign: true
+</span></span><span style="display:flex;"><span>metallb_protocol: &#34;bgp&#34;
+</span></span><span style="display:flex;"><span>metallb_peers:
+</span></span><span style="display:flex;"><span>  - peer_address: 192.168.51.254
+</span></span><span style="display:flex;"><span>    peer_asn: 65001
+</span></span><span style="display:flex;"><span>    my_asn: 65002
+</span></span><span style="display:flex;"><span>#   - peer_address: 192.0.2.2
+</span></span><span style="display:flex;"><span>#     peer_asn: 64513
+</span></span><span style="display:flex;"><span>#     my_asn: 4200000000
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>argocd_enabled: true
+</span></span></code></pre></div></div></div>
+</li>
+</ul>
+<h4 id="k8s-clusterの設定">
+  K8s Clusterの設定
+  <a class="anchor" href="#k8s-cluster%e3%81%ae%e8%a8%ad%e5%ae%9a">#</a>
+</h4>
+<ul>
+<li>inventory/mycluster/group_vars/k8s_cluster/k8s-cluster.yml<br>
+
+
+
+
+<div class="book-tabs"><input type="radio" class="toggle" name="tabs-k8s-cluster" id="tabs-k8s-cluster-0" checked="checked" />
+  <label for="tabs-k8s-cluster-0">AS-IS</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span># configure arp_ignore and arp_announce to avoid answering ARP queries from kube-ipvs0 interface
+</span></span><span style="display:flex;"><span># must be set to true for MetalLB to work
+</span></span><span style="display:flex;"><span>kube_proxy_strict_arp: false
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># Make a copy of kubeconfig on the host that runs Ansible in <span style="color:#75715e">{{</span> <span style="color:#a6e22e">inventory_dir</span> <span style="color:#75715e">}}</span>/artifacts
+</span></span><span style="display:flex;"><span># kubeconfig_localhost: false
+</span></span><span style="display:flex;"><span># Use ansible_host as external api ip when copying over kubeconfig.
+</span></span><span style="display:flex;"><span># kubeconfig_localhost_ansible_host: false
+</span></span><span style="display:flex;"><span># Download kubectl onto the host that runs Ansible in <span style="color:#75715e">{{</span> <span style="color:#a6e22e">bin_dir</span> <span style="color:#75715e">}}</span>
+</span></span><span style="display:flex;"><span># kubectl_localhost: false
+</span></span></code></pre></div></div><input type="radio" class="toggle" name="tabs-k8s-cluster" id="tabs-k8s-cluster-1"  />
+  <label for="tabs-k8s-cluster-1">TO-BE</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span># configure arp_ignore and arp_announce to avoid answering ARP queries from kube-ipvs0 interface
+</span></span><span style="display:flex;"><span># must be set to true for MetalLB to work
+</span></span><span style="display:flex;"><span>kube_proxy_strict_arp: true
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># Make a copy of kubeconfig on the host that runs Ansible in <span style="color:#75715e">{{</span> <span style="color:#a6e22e">inventory_dir</span> <span style="color:#75715e">}}</span>/artifacts
+</span></span><span style="display:flex;"><span>kubeconfig_localhost: true
+</span></span><span style="display:flex;"><span># Use ansible_host as external api ip when copying over kubeconfig.
+</span></span><span style="display:flex;"><span>kubeconfig_localhost_ansible_host: true
+</span></span><span style="display:flex;"><span># Download kubectl onto the host that runs Ansible in <span style="color:#75715e">{{</span> <span style="color:#a6e22e">bin_dir</span> <span style="color:#75715e">}}</span>
+</span></span><span style="display:flex;"><span>kubectl_localhost: true
+</span></span></code></pre></div></div></div>
+</li>
+</ul>
+<h4 id="k8s-clusterの設定-1">
+  K8s Clusterの設定
+  <a class="anchor" href="#k8s-cluster%e3%81%ae%e8%a8%ad%e5%ae%9a-1">#</a>
+</h4>
+<ul>
+<li>inventory/mycluster/group_vars/k8s_cluster/k8s-net-calico.yml<br>
+
+
+
+
+<div class="book-tabs"><input type="radio" class="toggle" name="tabs-k8s-net-calico" id="tabs-k8s-net-calico-0" checked="checked" />
+  <label for="tabs-k8s-net-calico-0">AS-IS</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span># Choose Calico iptables backend: &#34;Legacy&#34;, &#34;Auto&#34; or &#34;NFT&#34;
+</span></span><span style="display:flex;"><span># calico_iptables_backend: &#34;Auto&#34;
+</span></span></code></pre></div></div><input type="radio" class="toggle" name="tabs-k8s-net-calico" id="tabs-k8s-net-calico-1"  />
+  <label for="tabs-k8s-net-calico-1">TO-BE</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span># Choose Calico iptables backend: &#34;Legacy&#34;, &#34;Auto&#34; or &#34;NFT&#34;
+</span></span><span style="display:flex;"><span>calico_iptables_backend: &#34;NFT&#34;
+</span></span></code></pre></div></div></div>
+</li>
+</ul>
+<hr>
+<h4 id="kubesprayを実行">
+  Kubesprayを実行
+  <a class="anchor" href="#kubespray%e3%82%92%e5%ae%9f%e8%a1%8c">#</a>
+</h4>
+<ul>
+<li>Kubesprayを実行します。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span>sudo ansible-playbook -i inventory/mycluster/hosts.yaml cluster.yml -b -v --private-key=~/.ssh/k8scluster.pem --timeout=3000
+</span></span></code></pre></div><hr>
+<h4 id="kubectlを設定">
+  kubectlを設定
+  <a class="anchor" href="#kubectl%e3%82%92%e8%a8%ad%e5%ae%9a">#</a>
+</h4>
+<ul>
+<li>kubectlを設定します。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span>mkdir -p ~/.kube
+</span></span><span style="display:flex;"><span>sudo cp inventory/mycluster/artifacts/kubectl /usr/local/bin/kubectl
+</span></span><span style="display:flex;"><span>sudo cp inventory/mycluster/artifacts/admin.conf ~/.kube/config
+</span></span><span style="display:flex;"><span>kubectl get node -o wide
+</span></span><span style="display:flex;"><span>kubectl get all,cm,pvc,pv,storageclass,secret --all-namespaces -o wide
+</span></span></code></pre></div></article>
  
       
 
@@ -473,12 +711,7 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#config">config</a>
-      <ul>
-        <li></li>
-      </ul>
-    </li>
-    <li><a href="#install">install</a>
+    <li><a href="#準備">準備</a>
       <ul>
         <li></li>
       </ul>
