@@ -1,7 +1,7 @@
 ---
 weight: 1
 title: "server"
-date: 2022-05-10
+date: 2022-05-10T00:00:00+09:00
 ---
 # Server
 ## 検討
