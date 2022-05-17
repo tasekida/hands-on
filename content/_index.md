@@ -1,6 +1,7 @@
 ---
 title: hands on
 type: docs
+date: 2022-05-18T00:00:00+09:00
 ---
 
 # このページについて  

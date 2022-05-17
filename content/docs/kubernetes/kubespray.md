@@ -1,6 +1,7 @@
 ---
 weight: 1
 title: "kubespray"
+date: 2022-05-14T00:00:00+09:00
 ---
 # kubespray
 ## 準備
