@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="synology-csi #  install #  &hellip;..
-config #  &hellip;..">
+<meta name="description" content="synology-csi #  準備 #  CSI Driverを取得 #   githubから Synology CSI Driver for Kubernetesを取得します。  git clone https://github.com/SynologyOpenSource/synology-csi cd synology-csi cp config/client-info-template.yml config/client-info.yml  Synology DS220&#43; への接続情報を設定 #   config/client-info.yml
+AS-IS --- clients:  - host: 192.168.1.1  port: 5000  https: false  username: username  password: password  - host: 192.168.1.2  port: 5000  https: false  username: username  password: password TO-BE --- clients:  - host: 192.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="synology-csi" />
-<meta property="og:description" content="synology-csi #  install #  &hellip;..
-config #  &hellip;.." />
+<meta property="og:description" content="synology-csi #  準備 #  CSI Driverを取得 #   githubから Synology CSI Driver for Kubernetesを取得します。  git clone https://github.com/SynologyOpenSource/synology-csi cd synology-csi cp config/client-info-template.yml config/client-info.yml  Synology DS220&#43; への接続情報を設定 #   config/client-info.yml
+AS-IS --- clients:  - host: 192.168.1.1  port: 5000  https: false  username: username  password: password  - host: 192.168.1.2  port: 5000  https: false  username: username  password: password TO-BE --- clients:  - host: 192." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.oblique-rays.cyou/docs/kubernetes/synology-csi/" /><meta property="article:section" content="docs" />
-
+<meta property="article:published_time" content="2022-06-04T22:00:00+09:00" />
 <meta property="article:modified_time" content="2022-05-15T00:23:36+09:00" />
 
 <title>synology-csi | Hands on</title>
@@ -19,7 +19,7 @@ config #  &hellip;.." />
 <link rel="icon" href="https://www.oblique-rays.cyou/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="https://www.oblique-rays.cyou/book.min.d19e0f463a18eecba598e5937004fd8bdb717a8b293157c432039a983b2a097e.css" integrity="sha256-0Z4PRjoY7sulmOWTcAT9i9txeospMVfEMgOamDsqCX4=" crossorigin="anonymous">
   <script defer src="https://www.oblique-rays.cyou/flexsearch.min.js"></script>
-  <script defer src="https://www.oblique-rays.cyou/ja.search.min.e6897cdf6303cfb920adcebb3ea776af886c7c5cf28a7b4259d512fd55b2a5d0.js" integrity="sha256-5ol832MDz7kgrc67Pqd2r4hsfFzyintCWdUS/VWypdA=" crossorigin="anonymous"></script>
+  <script defer src="https://www.oblique-rays.cyou/ja.search.min.5cf520bc4921e9f710de33cb09a74f295db0fe0c4f89ff92a5f307915d6a30db.js" integrity="sha256-XPUgvEkh6fcQ3jPLCadPKV2w/gxPif&#43;SpfMHkV1qMNs=" crossorigin="anonymous"></script>
 
   <script defer src="https://www.oblique-rays.cyou/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -286,8 +286,16 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     <li><a href="#synology-csi">synology-csi</a>
       <ul>
-        <li><a href="#install">install</a></li>
-        <li><a href="#config">config</a></li>
+        <li><a href="#準備">準備</a>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+        <li><a href="#インストール">インストール</a>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -301,22 +309,129 @@ https://github.com/alex-shpak/hugo-book
       </header>
 
       
+  <h5 style="text-align:center">最終更新日：June 4, 2022</h5>
+
       
   <article class="markdown"><h1 id="synology-csi">
   synology-csi
   <a class="anchor" href="#synology-csi">#</a>
 </h1>
-<h2 id="install">
-  install
-  <a class="anchor" href="#install">#</a>
+<h2 id="準備">
+  準備
+  <a class="anchor" href="#%e6%ba%96%e5%82%99">#</a>
 </h2>
-<p>&hellip;..</p>
-<h2 id="config">
-  config
-  <a class="anchor" href="#config">#</a>
+<h4 id="csi-driverhttpskubernetes-csigithubiodocsdrivershtmlを取得">
+  
+  <a href="https://kubernetes-csi.github.io/docs/drivers.html">CSI Driver</a>を取得
+  <a class="anchor" href="#csi-driverhttpskubernetes-csigithubiodocsdrivershtml%e3%82%92%e5%8f%96%e5%be%97">#</a>
+</h4>
+<ul>
+<li>githubから
+  <a href="https://github.com/SynologyOpenSource/synology-csi">Synology CSI Driver for Kubernetes</a>を取得します。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span>git clone https://github.com/SynologyOpenSource/synology-csi
+</span></span><span style="display:flex;"><span>cd synology-csi
+</span></span><span style="display:flex;"><span>cp config/client-info-template.yml config/client-info.yml
+</span></span></code></pre></div><hr>
+<h4 id="synology-ds220-への接続情報を設定">
+  Synology DS220+ への接続情報を設定
+  <a class="anchor" href="#synology-ds220-%e3%81%b8%e3%81%ae%e6%8e%a5%e7%b6%9a%e6%83%85%e5%a0%b1%e3%82%92%e8%a8%ad%e5%ae%9a">#</a>
+</h4>
+<ul>
+<li>config/client-info.yml<br>
+
+
+
+
+<div class="book-tabs"><input type="radio" class="toggle" name="tabs-client-info" id="tabs-client-info-0" checked="checked" />
+  <label for="tabs-client-info-0">AS-IS</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>clients:
+</span></span><span style="display:flex;"><span>  - host: 192.168.1.1
+</span></span><span style="display:flex;"><span>    port: 5000
+</span></span><span style="display:flex;"><span>    https: false
+</span></span><span style="display:flex;"><span>    username: username
+</span></span><span style="display:flex;"><span>    password: password
+</span></span><span style="display:flex;"><span>  - host: 192.168.1.2
+</span></span><span style="display:flex;"><span>    port: 5000
+</span></span><span style="display:flex;"><span>    https: false
+</span></span><span style="display:flex;"><span>    username: username
+</span></span><span style="display:flex;"><span>    password: password
+</span></span></code></pre></div></div><input type="radio" class="toggle" name="tabs-client-info" id="tabs-client-info-1"  />
+  <label for="tabs-client-info-1">TO-BE</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>clients:
+</span></span><span style="display:flex;"><span>  - host: 192.168.50.xxx (Synology DS220+ のIPアドレス)
+</span></span><span style="display:flex;"><span>    port: 5001
+</span></span><span style="display:flex;"><span>    https: true
+</span></span><span style="display:flex;"><span>    username: xxxxxxxxxx (Synology DS220+ のユーザー)
+</span></span><span style="display:flex;"><span>    password: xxxxxxxxxx (Synology DS220+ のパスワード)
+</span></span></code></pre></div></div></div>
+</li>
+</ul>
+<h4 id="strageclassの情報を設定">
+  StrageClassの情報を設定
+  <a class="anchor" href="#strageclass%e3%81%ae%e6%83%85%e5%a0%b1%e3%82%92%e8%a8%ad%e5%ae%9a">#</a>
+</h4>
+<ul>
+<li>deploy/kubernetes/v1.20/storage-class.yml<br>
+
+
+
+
+<div class="book-tabs"><input type="radio" class="toggle" name="tabs-storage-class" id="tabs-storage-class-0" checked="checked" />
+  <label for="tabs-storage-class-0">AS-IS</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span>metadata:
+</span></span><span style="display:flex;"><span>  name: synology-iscsi-storage
+</span></span><span style="display:flex;"><span>  # annotations:
+</span></span><span style="display:flex;"><span>  #   storageclass.kubernetes.io/is-default-class: &#34;true&#34;
+</span></span><span style="display:flex;"><span>provisioner: csi.san.synology.com
+</span></span><span style="display:flex;"><span># if all params are empty, synology CSI will choose an available location to create volume
+</span></span><span style="display:flex;"><span># parameters:
+</span></span><span style="display:flex;"><span>#   dsm: &#39;1.1.1.1&#39;
+</span></span><span style="display:flex;"><span>#   location: &#39;/volume1&#39;
+</span></span><span style="display:flex;"><span>#   fsType: &#39;ext4&#39;
+</span></span><span style="display:flex;"><span>reclaimPolicy: Retain
+</span></span><span style="display:flex;"><span>allowVolumeExpansion: true
+</span></span></code></pre></div></div><input type="radio" class="toggle" name="tabs-storage-class" id="tabs-storage-class-1"  />
+  <label for="tabs-storage-class-1">TO-BE</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span>metadata:
+</span></span><span style="display:flex;"><span>  name: synology-iscsi-storage
+</span></span><span style="display:flex;"><span>  annotations:
+</span></span><span style="display:flex;"><span>    storageclass.kubernetes.io/is-default-class: &#34;true&#34;
+</span></span><span style="display:flex;"><span>provisioner: csi.san.synology.com
+</span></span><span style="display:flex;"><span># if all params are empty, synology CSI will choose an available location to create volume
+</span></span><span style="display:flex;"><span>parameters:
+</span></span><span style="display:flex;"><span>  dsm: &#39;192.168.50.xxx&#39; (Synology DS220+ のIPアドレス)
+</span></span><span style="display:flex;"><span>  location: &#39;/volume3&#39; (Synology DS220+ に作成したCluster専用のVolume)
+</span></span><span style="display:flex;"><span>  fsType: &#39;ext4&#39; (ClusterからVolumeをマウントする時のファイルシステム)
+</span></span><span style="display:flex;"><span>reclaimPolicy: Retain
+</span></span><span style="display:flex;"><span>allowVolumeExpansion: true
+</span></span></code></pre></div></div></div>
+</li>
+</ul>
+<hr>
+<h2 id="インストール">
+  インストール
+  <a class="anchor" href="#%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab">#</a>
 </h2>
-<p>&hellip;..</p>
-</article>
+<h4 id="synology-csi-driver-for-kubernetesをビルド">
+  Synology CSI Driver for Kubernetesをビルド
+  <a class="anchor" href="#synology-csi-driver-for-kubernetes%e3%82%92%e3%83%93%e3%83%ab%e3%83%89">#</a>
+</h4>
+<ul>
+<li>Synology CSI Driver for Kubernetesをビルドします。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span>./scripts/deploy.sh build
+</span></span></code></pre></div><h4 id="synology-csi-driver-for-kubernetesをインストール">
+  Synology CSI Driver for Kubernetesをインストール
+  <a class="anchor" href="#synology-csi-driver-for-kubernetes%e3%82%92%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab">#</a>
+</h4>
+<ul>
+<li>Synology CSI Driver for Kubernetesをインストールします。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span>./scripts/deploy.sh install --basic
+</span></span></code></pre></div></article>
  
       
 
@@ -359,8 +474,16 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     <li><a href="#synology-csi">synology-csi</a>
       <ul>
-        <li><a href="#install">install</a></li>
-        <li><a href="#config">config</a></li>
+        <li><a href="#準備">準備</a>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+        <li><a href="#インストール">インストール</a>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>

@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.oblique-rays.cyou/docs/kubernetes/kubespray/</loc>
-    <lastmod>2022-05-15T00:23:36+09:00</lastmod>
+    <lastmod>2022-05-18T00:42:21+09:00</lastmod>
   </url><url>
     <loc>https://www.oblique-rays.cyou/docs/hardware/server/</loc>
     <lastmod>2022-05-17T23:44:47+09:00</lastmod>
@@ -14,14 +14,14 @@
     <loc>https://www.oblique-rays.cyou/docs/java/tbd/</loc>
     <lastmod>2022-03-26T00:12:58+09:00</lastmod>
   </url><url>
+    <loc>https://www.oblique-rays.cyou/docs/kubernetes/synology-csi/</loc>
+    <lastmod>2022-05-15T00:23:36+09:00</lastmod>
+  </url><url>
     <loc>https://www.oblique-rays.cyou/docs/hardware/storage/</loc>
     <lastmod>2022-04-06T22:02:15+09:00</lastmod>
   </url><url>
     <loc>https://www.oblique-rays.cyou/docs/kubernetes/</loc>
     <lastmod>2022-03-23T22:39:46+09:00</lastmod>
-  </url><url>
-    <loc>https://www.oblique-rays.cyou/docs/kubernetes/synology-csi/</loc>
-    <lastmod>2022-05-15T00:23:36+09:00</lastmod>
   </url><url>
     <loc>https://www.oblique-rays.cyou/docs/hardware/router/</loc>
     <lastmod>2022-05-12T00:20:29+09:00</lastmod>
@@ -32,13 +32,13 @@
     <loc>https://www.oblique-rays.cyou/docs/java/</loc>
     <lastmod>2022-03-26T00:12:58+09:00</lastmod>
   </url><url>
+    <loc>https://www.oblique-rays.cyou/docs/</loc>
+    <lastmod>2022-05-18T00:42:21+09:00</lastmod>
+  </url><url>
     <loc>https://www.oblique-rays.cyou/</loc>
-    <lastmod>2022-03-27T09:43:58+09:00</lastmod>
+    <lastmod>2022-05-18T00:42:21+09:00</lastmod>
   </url><url>
     <loc>https://www.oblique-rays.cyou/posts/my-first-blog/</loc>
-    <lastmod>2022-05-17T23:44:47+09:00</lastmod>
-  </url><url>
-    <loc>https://www.oblique-rays.cyou/docs/</loc>
     <lastmod>2022-05-17T23:44:47+09:00</lastmod>
   </url><url>
     <loc>https://www.oblique-rays.cyou/posts/</loc>

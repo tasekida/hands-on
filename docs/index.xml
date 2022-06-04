@@ -36,22 +36,22 @@ AS-IS all:  hosts:  node1:  ansible_host: 192.168.51.1  ip: 192.168.51.1  access
     </item>
     
     <item>
+      <title>synology-csi</title>
+      <link>https://www.oblique-rays.cyou/docs/kubernetes/synology-csi/</link>
+      <pubDate>Sat, 04 Jun 2022 22:00:00 +0900</pubDate>
+      
+      <guid>https://www.oblique-rays.cyou/docs/kubernetes/synology-csi/</guid>
+      <description>synology-csi #  準備 #  CSI Driverを取得 #   githubから Synology CSI Driver for Kubernetesを取得します。  git clone https://github.com/SynologyOpenSource/synology-csi cd synology-csi cp config/client-info-template.yml config/client-info.yml  Synology DS220+ への接続情報を設定 #   config/client-info.yml
+AS-IS --- clients:  - host: 192.168.1.1  port: 5000  https: false  username: username  password: password  - host: 192.168.1.2  port: 5000  https: false  username: username  password: password TO-BE --- clients:  - host: 192.</description>
+    </item>
+    
+    <item>
       <title>storage</title>
       <link>https://www.oblique-rays.cyou/docs/hardware/storage/</link>
       <pubDate>Wed, 06 Apr 2022 00:00:00 +0900</pubDate>
       
       <guid>https://www.oblique-rays.cyou/docs/hardware/storage/</guid>
       <description>Storage #  検討 #  用途 #   On-Premise Kubernetes ClusterでReadWriteManyのPersistentVolumeを使う   条件 #  監視カメラ対応 #   TP-Link Tapo C310の映像を録画したいので  CSI (Container Storage Interface) #   On-Premise Kubernetes ClusterでReadWriteManyのPersistentVolumeを使いたいので  省スペース #   設置スペースが狭いので  静音 #   自宅に設置するので  安価 #   予算が少ないので  省電力 #   自宅に設置するので   候補 #  Synology DiskStation DS220+ #    DS220jより高スペック DS220jより高価  Synology DiskStation DS220j #    DS220+より低スペック DS220+より安価   結果 #  Synology DiskStation DS220+ #  CSI Driverを使う場合、Synology NASか NFS Serverに絞られた。</description>
-    </item>
-    
-    <item>
-      <title>synology-csi</title>
-      <link>https://www.oblique-rays.cyou/docs/kubernetes/synology-csi/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.oblique-rays.cyou/docs/kubernetes/synology-csi/</guid>
-      <description>synology-csi #  install #  &amp;hellip;..
-config #  &amp;hellip;..</description>
     </item>
     
     <item>

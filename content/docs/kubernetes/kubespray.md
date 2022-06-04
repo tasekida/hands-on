@@ -18,8 +18,8 @@ CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inv
 ---
 #### 構成情報を設定  
 - inventory/mycluster/hosts.yaml  
-{{< tabs "uniqueid" >}}
-{{< tab "AS-IS" >}}
+{{< tabs "hosts" >}}
+{{< tab "AS-IS" "hosts-as-is" >}}
 ```tpl
 all:
   hosts:
@@ -63,7 +63,7 @@ all:
       hosts: {}
 ```
 {{< /tab >}}
-{{< tab "TO-BE" >}}
+{{< tab "TO-BE" "hosts-to-be" >}}
 ```tpl
 all:
   hosts:

@@ -19,11 +19,11 @@ AS-IS all:  hosts:  node1:  ansible_host: 192.168.51.1  ip: 192.168.51.1  access
     <item>
       <title>synology-csi</title>
       <link>https://www.oblique-rays.cyou/docs/kubernetes/synology-csi/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 04 Jun 2022 22:00:00 +0900</pubDate>
       
       <guid>https://www.oblique-rays.cyou/docs/kubernetes/synology-csi/</guid>
-      <description>synology-csi #  install #  &amp;hellip;..
-config #  &amp;hellip;..</description>
+      <description>synology-csi #  準備 #  CSI Driverを取得 #   githubから Synology CSI Driver for Kubernetesを取得します。  git clone https://github.com/SynologyOpenSource/synology-csi cd synology-csi cp config/client-info-template.yml config/client-info.yml  Synology DS220+ への接続情報を設定 #   config/client-info.yml
+AS-IS --- clients:  - host: 192.168.1.1  port: 5000  https: false  username: username  password: password  - host: 192.168.1.2  port: 5000  https: false  username: username  password: password TO-BE --- clients:  - host: 192.</description>
     </item>
     
     <item>
