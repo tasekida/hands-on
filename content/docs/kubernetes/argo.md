@@ -5,8 +5,9 @@ date: 2022-06-20T23:00:00+09:00
 ---
 # Argo CD
 ## 設定
+- kubesprayでインストールは完了しているので設定をします。
 #### LoadBalancerの設定
-- kubesprayでインストールは完了しているので、argocd-serverのサービスタイプをLoadBalancerに設定してクラスター外部からアクセス出来るようにします 。
+- argocd-serverのサービスタイプをLoadBalancerに設定してクラスター外部からアクセス出来るようにします。
 ```tpl
 kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
 ```

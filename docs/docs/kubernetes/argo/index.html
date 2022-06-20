@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Argo CD #  設定 #  LoadBalancerの設定 #   kubesprayでインストールは完了しているので、argocd-serverのサービスタイプをLoadBalancerに設定してクラスター外部からアクセス出来るようにします 。  kubectl patch svc argocd-server -n argocd -p &#39;{&#34;spec&#34;: {&#34;type&#34;: &#34;LoadBalancer&#34;}}&#39;  argocd-serverのパスワードを設定 #   初期パスワードを取得  kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath=&#34;{.data.password}&#34; | base64 -d; echo  初期パスワードでログイン  argocd login &lt;service/argocd-serverのEXTERNAL-IP&gt; Username: admin Password: &lt;先ほど取得したパスワード&gt;  パスワードを変更  argocd account update-password ">
+<meta name="description" content="Argo CD #  設定 #   kubesprayでインストールは完了しているので設定をします。  LoadBalancerの設定 #   argocd-serverのサービスタイプをLoadBalancerに設定してクラスター外部からアクセス出来るようにします。  kubectl patch svc argocd-server -n argocd -p &#39;{&#34;spec&#34;: {&#34;type&#34;: &#34;LoadBalancer&#34;}}&#39;  argocd-serverのパスワードを設定 #   初期パスワードを取得  kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath=&#34;{.data.password}&#34; | base64 -d; echo  初期パスワードでログイン  argocd login &lt;service/argocd-serverのEXTERNAL-IP&gt; Username: admin Password: &lt;先ほど取得したパスワード&gt;  パスワードを変更  argocd account update-password ">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="argocd" />
-<meta property="og:description" content="Argo CD #  設定 #  LoadBalancerの設定 #   kubesprayでインストールは完了しているので、argocd-serverのサービスタイプをLoadBalancerに設定してクラスター外部からアクセス出来るようにします 。  kubectl patch svc argocd-server -n argocd -p &#39;{&#34;spec&#34;: {&#34;type&#34;: &#34;LoadBalancer&#34;}}&#39;  argocd-serverのパスワードを設定 #   初期パスワードを取得  kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath=&#34;{.data.password}&#34; | base64 -d; echo  初期パスワードでログイン  argocd login &lt;service/argocd-serverのEXTERNAL-IP&gt; Username: admin Password: &lt;先ほど取得したパスワード&gt;  パスワードを変更  argocd account update-password " />
+<meta property="og:description" content="Argo CD #  設定 #   kubesprayでインストールは完了しているので設定をします。  LoadBalancerの設定 #   argocd-serverのサービスタイプをLoadBalancerに設定してクラスター外部からアクセス出来るようにします。  kubectl patch svc argocd-server -n argocd -p &#39;{&#34;spec&#34;: {&#34;type&#34;: &#34;LoadBalancer&#34;}}&#39;  argocd-serverのパスワードを設定 #   初期パスワードを取得  kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath=&#34;{.data.password}&#34; | base64 -d; echo  初期パスワードでログイン  argocd login &lt;service/argocd-serverのEXTERNAL-IP&gt; Username: admin Password: &lt;先ほど取得したパスワード&gt;  パスワードを変更  argocd account update-password " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.oblique-rays.cyou/docs/kubernetes/argo/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-06-20T23:00:00+09:00" />
@@ -17,7 +17,7 @@
 <link rel="icon" href="https://www.oblique-rays.cyou/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="https://www.oblique-rays.cyou/book.min.d19e0f463a18eecba598e5937004fd8bdb717a8b293157c432039a983b2a097e.css" integrity="sha256-0Z4PRjoY7sulmOWTcAT9i9txeospMVfEMgOamDsqCX4=" crossorigin="anonymous">
   <script defer src="https://www.oblique-rays.cyou/flexsearch.min.js"></script>
-  <script defer src="https://www.oblique-rays.cyou/ja.search.min.75b96300d405aa870741c86816e09dfc067f766c94a5753745345dbc3888ceda.js" integrity="sha256-dbljANQFqocHQchoFuCd/AZ/dmyUpXU3RTRdvDiIzto=" crossorigin="anonymous"></script>
+  <script defer src="https://www.oblique-rays.cyou/ja.search.min.b32b7e1f9e41c23fc3f24c85964babc6c28927cdd1826158dd33c87a77ecfd3c.js" integrity="sha256-syt&#43;H55Bwj/D8kyFlkurxsKJJ83RgmFY3TPIenfs/Tw=" crossorigin="anonymous"></script>
 
   <script defer src="https://www.oblique-rays.cyou/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -313,12 +313,15 @@ https://github.com/alex-shpak/hugo-book
   設定
   <a class="anchor" href="#%e8%a8%ad%e5%ae%9a">#</a>
 </h2>
+<ul>
+<li>kubesprayでインストールは完了しているので設定をします。</li>
+</ul>
 <h4 id="loadbalancerの設定">
   LoadBalancerの設定
   <a class="anchor" href="#loadbalancer%e3%81%ae%e8%a8%ad%e5%ae%9a">#</a>
 </h4>
 <ul>
-<li>kubesprayでインストールは完了しているので、argocd-serverのサービスタイプをLoadBalancerに設定してクラスター外部からアクセス出来るようにします 。</li>
+<li>argocd-serverのサービスタイプをLoadBalancerに設定してクラスター外部からアクセス出来るようにします。</li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span>kubectl patch svc argocd-server -n argocd -p &#39;<span style="color:#75715e">{</span><span style="color:#e6db74">&#34;spec&#34;</span><span style="color:#f92672">:</span> <span style="color:#75715e">{</span><span style="color:#e6db74">&#34;type&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;LoadBalancer&#34;</span><span style="color:#75715e">}}</span>&#39;
 </span></span></code></pre></div><hr>
