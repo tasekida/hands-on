@@ -3,23 +3,21 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="argo #  install #  &hellip;..
-config #  &hellip;..">
+<meta name="description" content="Argo CD #  設定 #  LoadBalancerの設定 #   kubesprayでインストールは完了しているので、argocd-serverのサービスタイプをLoadBalancerに設定してクラスター外部からアクセス出来るようにします 。  kubectl patch svc argocd-server -n argocd -p &#39;{&#34;spec&#34;: {&#34;type&#34;: &#34;LoadBalancer&#34;}}&#39;  argocd-serverのパスワードを設定 #   初期パスワードを取得  kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath=&#34;{.data.password}&#34; | base64 -d; echo  初期パスワードでログイン  argocd login &lt;service/argocd-serverのEXTERNAL-IP&gt; Username: admin Password: &lt;先ほど取得したパスワード&gt;  パスワードを変更  argocd account update-password ">
 <meta name="theme-color" content="#FFFFFF">
-<meta name="color-scheme" content="light dark"><meta property="og:title" content="argo" />
-<meta property="og:description" content="argo #  install #  &hellip;..
-config #  &hellip;.." />
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="argocd" />
+<meta property="og:description" content="Argo CD #  設定 #  LoadBalancerの設定 #   kubesprayでインストールは完了しているので、argocd-serverのサービスタイプをLoadBalancerに設定してクラスター外部からアクセス出来るようにします 。  kubectl patch svc argocd-server -n argocd -p &#39;{&#34;spec&#34;: {&#34;type&#34;: &#34;LoadBalancer&#34;}}&#39;  argocd-serverのパスワードを設定 #   初期パスワードを取得  kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath=&#34;{.data.password}&#34; | base64 -d; echo  初期パスワードでログイン  argocd login &lt;service/argocd-serverのEXTERNAL-IP&gt; Username: admin Password: &lt;先ほど取得したパスワード&gt;  パスワードを変更  argocd account update-password " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.oblique-rays.cyou/docs/kubernetes/argo/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2022-06-20T23:00:00+09:00" />
+<meta property="article:modified_time" content="2022-06-20T22:54:16+09:00" />
 
-<meta property="article:modified_time" content="2022-05-15T00:23:36+09:00" />
-
-<title>argo | Hands on</title>
+<title>argocd | Hands on</title>
 <link rel="manifest" href="https://www.oblique-rays.cyou/manifest.json">
 <link rel="icon" href="https://www.oblique-rays.cyou/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="https://www.oblique-rays.cyou/book.min.d19e0f463a18eecba598e5937004fd8bdb717a8b293157c432039a983b2a097e.css" integrity="sha256-0Z4PRjoY7sulmOWTcAT9i9txeospMVfEMgOamDsqCX4=" crossorigin="anonymous">
   <script defer src="https://www.oblique-rays.cyou/flexsearch.min.js"></script>
-  <script defer src="https://www.oblique-rays.cyou/ja.search.min.5cf520bc4921e9f710de33cb09a74f295db0fe0c4f89ff92a5f307915d6a30db.js" integrity="sha256-XPUgvEkh6fcQ3jPLCadPKV2w/gxPif&#43;SpfMHkV1qMNs=" crossorigin="anonymous"></script>
+  <script defer src="https://www.oblique-rays.cyou/ja.search.min.75b96300d405aa870741c86816e09dfc067f766c94a5753745345dbc3888ceda.js" integrity="sha256-dbljANQFqocHQchoFuCd/AZ/dmyUpXU3RTRdvDiIzto=" crossorigin="anonymous"></script>
 
   <script defer src="https://www.oblique-rays.cyou/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -175,7 +173,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://www.oblique-rays.cyou/docs/kubernetes/argo/" class=" active">argo</a>
+    <a href="https://www.oblique-rays.cyou/docs/kubernetes/argo/" class=" active">argocd</a>
   
 
         </li>
@@ -268,7 +266,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="https://www.oblique-rays.cyou/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>argo</strong>
+  <strong>argocd</strong>
 
   <label for="toc-control">
     
@@ -284,10 +282,13 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#argo">argo</a>
+    <li><a href="#argo-cd">Argo CD</a>
       <ul>
-        <li><a href="#install">install</a></li>
-        <li><a href="#config">config</a></li>
+        <li><a href="#設定">設定</a>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -301,22 +302,45 @@ https://github.com/alex-shpak/hugo-book
       </header>
 
       
+  <h5 style="text-align:center">最終更新日：June 20, 2022</h5>
+
       
-  <article class="markdown"><h1 id="argo">
-  argo
-  <a class="anchor" href="#argo">#</a>
+  <article class="markdown"><h1 id="argo-cd">
+  Argo CD
+  <a class="anchor" href="#argo-cd">#</a>
 </h1>
-<h2 id="install">
-  install
-  <a class="anchor" href="#install">#</a>
+<h2 id="設定">
+  設定
+  <a class="anchor" href="#%e8%a8%ad%e5%ae%9a">#</a>
 </h2>
-<p>&hellip;..</p>
-<h2 id="config">
-  config
-  <a class="anchor" href="#config">#</a>
-</h2>
-<p>&hellip;..</p>
-</article>
+<h4 id="loadbalancerの設定">
+  LoadBalancerの設定
+  <a class="anchor" href="#loadbalancer%e3%81%ae%e8%a8%ad%e5%ae%9a">#</a>
+</h4>
+<ul>
+<li>kubesprayでインストールは完了しているので、argocd-serverのサービスタイプをLoadBalancerに設定してクラスター外部からアクセス出来るようにします 。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span>kubectl patch svc argocd-server -n argocd -p &#39;<span style="color:#75715e">{</span><span style="color:#e6db74">&#34;spec&#34;</span><span style="color:#f92672">:</span> <span style="color:#75715e">{</span><span style="color:#e6db74">&#34;type&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;LoadBalancer&#34;</span><span style="color:#75715e">}}</span>&#39;
+</span></span></code></pre></div><hr>
+<h4 id="argocd-serverのパスワードを設定">
+  argocd-serverのパスワードを設定
+  <a class="anchor" href="#argocd-server%e3%81%ae%e3%83%91%e3%82%b9%e3%83%af%e3%83%bc%e3%83%89%e3%82%92%e8%a8%ad%e5%ae%9a">#</a>
+</h4>
+<ul>
+<li>初期パスワードを取得</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span>kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath=&#34;<span style="color:#75715e">{</span><span style="color:#f92672">.</span><span style="color:#a6e22e">data</span><span style="color:#f92672">.</span><span style="color:#a6e22e">password</span><span style="color:#75715e">}</span>&#34; | base64 -d; echo
+</span></span></code></pre></div><ul>
+<li>初期パスワードでログイン</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span>argocd login &lt;service/argocd-serverのEXTERNAL-IP&gt;
+</span></span><span style="display:flex;"><span>Username: admin
+</span></span><span style="display:flex;"><span>Password: &lt;先ほど取得したパスワード&gt;
+</span></span></code></pre></div><ul>
+<li>パスワードを変更</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span>argocd account update-password
+</span></span></code></pre></div></article>
  
       
 
@@ -357,10 +381,13 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#argo">argo</a>
+    <li><a href="#argo-cd">Argo CD</a>
       <ul>
-        <li><a href="#install">install</a></li>
-        <li><a href="#config">config</a></li>
+        <li><a href="#設定">設定</a>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
