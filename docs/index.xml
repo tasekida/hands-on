@@ -64,16 +64,6 @@ AS-IS --- clients:  - host: 192.168.1.1  port: 5000  https: false  username: use
     </item>
     
     <item>
-      <title>argo</title>
-      <link>https://www.oblique-rays.cyou/docs/kubernetes/argo/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.oblique-rays.cyou/docs/kubernetes/argo/</guid>
-      <description>argo #  install #  &amp;hellip;..
-config #  &amp;hellip;..</description>
-    </item>
-    
-    <item>
       <title>My First Blog</title>
       <link>https://www.oblique-rays.cyou/posts/my-first-blog/</link>
       <pubDate>Tue, 17 May 2022 23:06:47 +0900</pubDate>

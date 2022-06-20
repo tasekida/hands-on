@@ -10,9 +10,8 @@ headless: true
 
 - [kubernetes]({{< relref "/docs/kubernetes" >}})
   - [kubespray]({{< relref "/docs/kubernetes/kubespray" >}})
-  - [metallb]({{< relref "/docs/kubernetes/metallb" >}})
   - [synology-csi]({{< relref "/docs/kubernetes/synology-csi" >}})
-  - [argo]({{< relref "/docs/kubernetes/argo" >}})
+  - [argocd]({{< relref "/docs/kubernetes/argo" >}})
 <br />
 
 - [Java]({{< relref "/docs/java" >}})
