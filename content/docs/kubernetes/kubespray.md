@@ -1,7 +1,7 @@
 ---
 weight: 1
 title: "kubespray"
-date: 2022-05-14T00:00:00+09:00
+date: 2022-08-03T00:00:00+09:00
 ---
 # kubespray
 ## 準備
@@ -10,10 +10,11 @@ date: 2022-05-14T00:00:00+09:00
 ```tpl
 git clone https://github.com/kubernetes-sigs/kubespray.git
 cd kubespray
-sudo pip3 install -r requirements-2.12.txt
+git reset --hard 06f8368ce66359d317deee82b3fe3b9bd2660840
 cp -rfp inventory/sample inventory/mycluster
 declare -a IPS=(192.168.51.1 192.168.51.2 192.168.51.3 192.168.51.4)
 CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]}
+sudo pip install -r requirements-2.12.txt
 ```
 ---
 #### 構成情報を設定  
@@ -113,6 +114,16 @@ all:
 # upstream_dns_servers:
 #   - 8.8.8.8
 #   - 8.8.4.4
+
+## NTP Settings
+# Start the ntpd or chrony service and enable it at system boot.
+ntp_enabled: false
+ntp_manage_config: false
+ntp_servers:
+  - "0.pool.ntp.org iburst"
+  - "1.pool.ntp.org iburst"
+  - "2.pool.ntp.org iburst"
+  - "3.pool.ntp.org iburst"
 ```
 {{< /tab >}}
 {{< tab "TO-BE" "all-to-be" >}}
@@ -121,6 +132,16 @@ all:
 upstream_dns_servers:
   - 8.8.8.8
   - 1.1.1.1
+
+## NTP Settings
+# Start the ntpd or chrony service and enable it at system boot.
+ntp_enabled: true
+ntp_manage_config: true
+ntp_servers:
+  - "0.jp.pool.ntp.org iburst"
+  - "1.jp.pool.ntp.org iburst"
+  - "2.jp.pool.ntp.org iburst"
+  - "3.jp.pool.ntp.org iburst"
 ```
 {{< /tab >}}
 {{< /tabs >}}
@@ -215,9 +236,9 @@ cert_manager_enabled: true
 
 # MetalLB deployment
 metallb_enabled: true
-metallb_speaker_enabled: true
+metallb_speaker_enabled: false
 metallb_ip_range:
-  - "192.168.51.10-192.168.51.230"
+  - "192.168.51.64/26"
 metallb_pool_name: "k8scluster01"
 matallb_auto_assign: true
 # metallb_speaker_nodeselector:
@@ -302,12 +323,22 @@ kubectl_localhost: true
 {{< tabs "k8s-net-calico" >}}
 {{< tab "AS-IS" "k8s-net-calico-as-is" >}}
 ```tpl
+# Adveritse Service LoadBalancer IPs
+# calico_advertise_service_loadbalancer_ips:
+# - x.x.x.x/24
+# - y.y.y.y/16
+
 # Choose Calico iptables backend: "Legacy", "Auto" or "NFT"
 # calico_iptables_backend: "Auto"
 ```
 {{< /tab >}}
 {{< tab "TO-BE" "k8s-net-calico-to-be" >}}
 ```tpl
+# Adveritse Service LoadBalancer IPs
+calico_advertise_service_loadbalancer_ips:
+- 192.168.51.64/26
+# - y.y.y.y/16
+
 # Choose Calico iptables backend: "Legacy", "Auto" or "NFT"
 calico_iptables_backend: "NFT"
 ```

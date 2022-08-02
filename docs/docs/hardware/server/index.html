@@ -9,7 +9,7 @@
 <meta property="og:description" content="Server #  検討 #  用途 #   On-Premise Kubernetes Clusterを構築して自宅Labとする   条件 #  Intel CPU #   コンパイラなどのトラブルを回避したいので  DDR4 SDRAM #   転用しやすいので 入手しやすいので  省スペース #   設置スペースが狭いので  静音 #   自宅に設置するので  安価 #   予算が少ないので  同一スペックを4台 #   On-Premise Kubernetes Clusterを構築するので   候補 #  Intel nuc #   中古も価格が安定して高価 特価も週末を待たずに在庫切れ  Intel mac mini 2020 #   中古も価格が安定して高価  ESPRIMO Q556/M #   電源内蔵では最小レベル 現物中古品を確認した結果、騒音大  EPSON Endeavor ST180E #   現物中古品を確認した結果、静音   結果 #  EPSON Endeavor ST180E #  タイミング良く、オークションに程度の良い中古品を発見したので調達" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.oblique-rays.cyou/docs/hardware/server/" /><meta property="article:section" content="docs" />
-<meta property="article:published_time" content="2022-05-10T00:00:00+09:00" />
+<meta property="article:published_time" content="2022-08-03T00:00:00+09:00" />
 <meta property="article:modified_time" content="2022-05-17T23:44:47+09:00" />
 
 <title>server | Hands on</title>
@@ -17,7 +17,7 @@
 <link rel="icon" href="https://www.oblique-rays.cyou/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="https://www.oblique-rays.cyou/book.min.d19e0f463a18eecba598e5937004fd8bdb717a8b293157c432039a983b2a097e.css" integrity="sha256-0Z4PRjoY7sulmOWTcAT9i9txeospMVfEMgOamDsqCX4=" crossorigin="anonymous">
   <script defer src="https://www.oblique-rays.cyou/flexsearch.min.js"></script>
-  <script defer src="https://www.oblique-rays.cyou/ja.search.min.b32b7e1f9e41c23fc3f24c85964babc6c28927cdd1826158dd33c87a77ecfd3c.js" integrity="sha256-syt&#43;H55Bwj/D8kyFlkurxsKJJ83RgmFY3TPIenfs/Tw=" crossorigin="anonymous"></script>
+  <script defer src="https://www.oblique-rays.cyou/ja.search.min.84a42cb85d8b08c63969ddc65458aaec24ddd9fc58808e5f75c61ec53decc400.js" integrity="sha256-hKQsuF2LCMY5ad3GVFiq7CTd2fxYgI5fdcYexT3sxAA=" crossorigin="anonymous"></script>
 
   <script defer src="https://www.oblique-rays.cyou/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -312,7 +312,7 @@ https://github.com/alex-shpak/hugo-book
       </header>
 
       
-  <h5 style="text-align:center">最終更新日：May 10, 2022</h5>
+  <h5 style="text-align:center">最終更新日：August 3, 2022</h5>
 
       
   <article class="markdown"><h1 id="server">
@@ -437,23 +437,19 @@ https://github.com/alex-shpak/hugo-book
   設定
   <a class="anchor" href="#%e8%a8%ad%e5%ae%9a">#</a>
 </h2>
-<h4 id="centos-stream-8-install">
-  CentOS Stream 8 Install
-  <a class="anchor" href="#centos-stream-8-install">#</a>
+<h4 id="rocky-linux-8-install">
+  Rocky Linux 8 Install
+  <a class="anchor" href="#rocky-linux-8-install">#</a>
 </h4>
 <p>
-  <a href="https://docs.centos.org/en-US/8-docs/standard-install/assembly_preparing-for-your-installation/">CentOS8のドキュメント</a>に従ってCentOS Stream 8をインストールします。<br>
+  <a href="https://docs.rockylinux.org/ja/guides/8_6_installation/">Rocky Linux 8のドキュメント</a>に従ってRocky Linux 8をインストールします。<br>
 ほぼデフォルト設定です。<br>
-<figure><img src="centos01.png"
+<figure><img src="rocky01.png"
          alt="install01" width="800px"/>
 </figure>
 
-<figure><img src="centos02.png"
+<figure><img src="rocky02.png"
          alt="install02" width="800px"/>
-</figure>
-
-<figure><img src="centos02.png"
-         alt="install03" width="800px"/>
 </figure>
 </p>
 <h4 id="ノードの構成">

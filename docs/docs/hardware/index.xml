@@ -9,7 +9,7 @@
     <item>
       <title>server</title>
       <link>https://www.oblique-rays.cyou/docs/hardware/server/</link>
-      <pubDate>Tue, 10 May 2022 00:00:00 +0900</pubDate>
+      <pubDate>Wed, 03 Aug 2022 00:00:00 +0900</pubDate>
       
       <guid>https://www.oblique-rays.cyou/docs/hardware/server/</guid>
       <description>Server #  検討 #  用途 #   On-Premise Kubernetes Clusterを構築して自宅Labとする   条件 #  Intel CPU #   コンパイラなどのトラブルを回避したいので  DDR4 SDRAM #   転用しやすいので 入手しやすいので  省スペース #   設置スペースが狭いので  静音 #   自宅に設置するので  安価 #   予算が少ないので  同一スペックを4台 #   On-Premise Kubernetes Clusterを構築するので   候補 #  Intel nuc #   中古も価格が安定して高価 特価も週末を待たずに在庫切れ  Intel mac mini 2020 #   中古も価格が安定して高価  ESPRIMO Q556/M #   電源内蔵では最小レベル 現物中古品を確認した結果、騒音大  EPSON Endeavor ST180E #   現物中古品を確認した結果、静音   結果 #  EPSON Endeavor ST180E #  タイミング良く、オークションに程度の良い中古品を発見したので調達</description>

@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="kubespray #  準備 #  Kubesprayを取得 #   githubから Kubesprayを取得します。  git clone https://github.com/kubernetes-sigs/kubespray.git cd kubespray sudo pip3 install -r requirements-2.12.txt cp -rfp inventory/sample inventory/mycluster declare -a IPS=(192.168.51.1 192.168.51.2 192.168.51.3 192.168.51.4) CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]}  構成情報を設定 #   inventory/mycluster/hosts.yaml
-AS-IS all:  hosts:  node1:  ansible_host: 192.168.51.1  ip: 192.168.51.1  access_ip: 192.168.51.1  node2:  ansible_host: 192.168.51.2  ip: 192.168.51.2  access_ip: 192.168.51.2  node3:  ansible_host: 192.">
+<meta name="description" content="kubespray #  準備 #  Kubesprayを取得 #   githubから Kubesprayを取得します。  git clone https://github.com/kubernetes-sigs/kubespray.git cd kubespray git reset --hard 06f8368ce66359d317deee82b3fe3b9bd2660840 cp -rfp inventory/sample inventory/mycluster declare -a IPS=(192.168.51.1 192.168.51.2 192.168.51.3 192.168.51.4) CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]} sudo pip install -r requirements-2.12.txt  構成情報を設定 #   inventory/mycluster/hosts.yaml
+AS-IS all:  hosts:  node1:  ansible_host: 192.168.51.1  ip: 192.168.51.1  access_ip: 192.168.51.1  node2:  ansible_host: 192.168.51.2  ip: 192.168.51.2  access_ip: 192.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="kubespray" />
-<meta property="og:description" content="kubespray #  準備 #  Kubesprayを取得 #   githubから Kubesprayを取得します。  git clone https://github.com/kubernetes-sigs/kubespray.git cd kubespray sudo pip3 install -r requirements-2.12.txt cp -rfp inventory/sample inventory/mycluster declare -a IPS=(192.168.51.1 192.168.51.2 192.168.51.3 192.168.51.4) CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]}  構成情報を設定 #   inventory/mycluster/hosts.yaml
-AS-IS all:  hosts:  node1:  ansible_host: 192.168.51.1  ip: 192.168.51.1  access_ip: 192.168.51.1  node2:  ansible_host: 192.168.51.2  ip: 192.168.51.2  access_ip: 192.168.51.2  node3:  ansible_host: 192." />
+<meta property="og:description" content="kubespray #  準備 #  Kubesprayを取得 #   githubから Kubesprayを取得します。  git clone https://github.com/kubernetes-sigs/kubespray.git cd kubespray git reset --hard 06f8368ce66359d317deee82b3fe3b9bd2660840 cp -rfp inventory/sample inventory/mycluster declare -a IPS=(192.168.51.1 192.168.51.2 192.168.51.3 192.168.51.4) CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]} sudo pip install -r requirements-2.12.txt  構成情報を設定 #   inventory/mycluster/hosts.yaml
+AS-IS all:  hosts:  node1:  ansible_host: 192.168.51.1  ip: 192.168.51.1  access_ip: 192.168.51.1  node2:  ansible_host: 192.168.51.2  ip: 192.168.51.2  access_ip: 192." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.oblique-rays.cyou/docs/kubernetes/kubespray/" /><meta property="article:section" content="docs" />
-<meta property="article:published_time" content="2022-05-14T00:00:00+09:00" />
+<meta property="article:published_time" content="2022-08-03T00:00:00+09:00" />
 <meta property="article:modified_time" content="2022-06-05T00:39:18+09:00" />
 
 <title>kubespray | Hands on</title>
@@ -19,7 +19,7 @@ AS-IS all:  hosts:  node1:  ansible_host: 192.168.51.1  ip: 192.168.51.1  access
 <link rel="icon" href="https://www.oblique-rays.cyou/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="https://www.oblique-rays.cyou/book.min.d19e0f463a18eecba598e5937004fd8bdb717a8b293157c432039a983b2a097e.css" integrity="sha256-0Z4PRjoY7sulmOWTcAT9i9txeospMVfEMgOamDsqCX4=" crossorigin="anonymous">
   <script defer src="https://www.oblique-rays.cyou/flexsearch.min.js"></script>
-  <script defer src="https://www.oblique-rays.cyou/ja.search.min.b32b7e1f9e41c23fc3f24c85964babc6c28927cdd1826158dd33c87a77ecfd3c.js" integrity="sha256-syt&#43;H55Bwj/D8kyFlkurxsKJJ83RgmFY3TPIenfs/Tw=" crossorigin="anonymous"></script>
+  <script defer src="https://www.oblique-rays.cyou/ja.search.min.84a42cb85d8b08c63969ddc65458aaec24ddd9fc58808e5f75c61ec53decc400.js" integrity="sha256-hKQsuF2LCMY5ad3GVFiq7CTd2fxYgI5fdcYexT3sxAA=" crossorigin="anonymous"></script>
 
   <script defer src="https://www.oblique-rays.cyou/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -304,7 +304,7 @@ https://github.com/alex-shpak/hugo-book
       </header>
 
       
-  <h5 style="text-align:center">最終更新日：May 14, 2022</h5>
+  <h5 style="text-align:center">最終更新日：August 3, 2022</h5>
 
       
   <article class="markdown"><h1 id="kubespray">
@@ -325,10 +325,11 @@ https://github.com/alex-shpak/hugo-book
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span>git clone https://github.com/kubernetes-sigs/kubespray.git
 </span></span><span style="display:flex;"><span>cd kubespray
-</span></span><span style="display:flex;"><span>sudo pip3 install -r requirements-2.12.txt
+</span></span><span style="display:flex;"><span>git reset --hard 06f8368ce66359d317deee82b3fe3b9bd2660840
 </span></span><span style="display:flex;"><span>cp -rfp inventory/sample inventory/mycluster
 </span></span><span style="display:flex;"><span>declare -a IPS=(192.168.51.1 192.168.51.2 192.168.51.3 192.168.51.4)
 </span></span><span style="display:flex;"><span>CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py $<span style="color:#75715e">{</span><span style="color:#a6e22e">IPS</span><span style="color:#f92672">[@]</span><span style="color:#75715e">}</span>
+</span></span><span style="display:flex;"><span>sudo pip install -r requirements-2.12.txt
 </span></span></code></pre></div><hr>
 <h4 id="構成情報を設定">
   構成情報を設定
@@ -439,12 +440,32 @@ https://github.com/alex-shpak/hugo-book
 </span></span><span style="display:flex;"><span># upstream_dns_servers:
 </span></span><span style="display:flex;"><span>#   - 8.8.8.8
 </span></span><span style="display:flex;"><span>#   - 8.8.4.4
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>## NTP Settings
+</span></span><span style="display:flex;"><span># Start the ntpd or chrony service and enable it at system boot.
+</span></span><span style="display:flex;"><span>ntp_enabled: false
+</span></span><span style="display:flex;"><span>ntp_manage_config: false
+</span></span><span style="display:flex;"><span>ntp_servers:
+</span></span><span style="display:flex;"><span>  - &#34;0.pool.ntp.org iburst&#34;
+</span></span><span style="display:flex;"><span>  - &#34;1.pool.ntp.org iburst&#34;
+</span></span><span style="display:flex;"><span>  - &#34;2.pool.ntp.org iburst&#34;
+</span></span><span style="display:flex;"><span>  - &#34;3.pool.ntp.org iburst&#34;
 </span></span></code></pre></div></div><input type="radio" class="toggle" name="tabs-all" id="tabs-all-1"  />
   <label for="tabs-all-1">TO-BE</label>
   <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span>## Upstream dns servers
 </span></span><span style="display:flex;"><span>upstream_dns_servers:
 </span></span><span style="display:flex;"><span>  - 8.8.8.8
 </span></span><span style="display:flex;"><span>  - 1.1.1.1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>## NTP Settings
+</span></span><span style="display:flex;"><span># Start the ntpd or chrony service and enable it at system boot.
+</span></span><span style="display:flex;"><span>ntp_enabled: true
+</span></span><span style="display:flex;"><span>ntp_manage_config: true
+</span></span><span style="display:flex;"><span>ntp_servers:
+</span></span><span style="display:flex;"><span>  - &#34;0.jp.pool.ntp.org iburst&#34;
+</span></span><span style="display:flex;"><span>  - &#34;1.jp.pool.ntp.org iburst&#34;
+</span></span><span style="display:flex;"><span>  - &#34;2.jp.pool.ntp.org iburst&#34;
+</span></span><span style="display:flex;"><span>  - &#34;3.jp.pool.ntp.org iburst&#34;
 </span></span></code></pre></div></div></div>
 </li>
 </ul>
@@ -549,9 +570,9 @@ https://github.com/alex-shpak/hugo-book
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span># MetalLB deployment
 </span></span><span style="display:flex;"><span>metallb_enabled: true
-</span></span><span style="display:flex;"><span>metallb_speaker_enabled: true
+</span></span><span style="display:flex;"><span>metallb_speaker_enabled: false
 </span></span><span style="display:flex;"><span>metallb_ip_range:
-</span></span><span style="display:flex;"><span>  - &#34;192.168.51.10-192.168.51.230&#34;
+</span></span><span style="display:flex;"><span>  - &#34;192.168.51.64/26&#34;
 </span></span><span style="display:flex;"><span>metallb_pool_name: &#34;k8scluster01&#34;
 </span></span><span style="display:flex;"><span>matallb_auto_assign: true
 </span></span><span style="display:flex;"><span># metallb_speaker_nodeselector:
@@ -648,11 +669,21 @@ https://github.com/alex-shpak/hugo-book
 
 <div class="book-tabs"><input type="radio" class="toggle" name="tabs-k8s-net-calico" id="tabs-k8s-net-calico-0" checked="checked" />
   <label for="tabs-k8s-net-calico-0">AS-IS</label>
-  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span># Choose Calico iptables backend: &#34;Legacy&#34;, &#34;Auto&#34; or &#34;NFT&#34;
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span># Adveritse Service LoadBalancer IPs
+</span></span><span style="display:flex;"><span># calico_advertise_service_loadbalancer_ips:
+</span></span><span style="display:flex;"><span># - x.x.x.x/24
+</span></span><span style="display:flex;"><span># - y.y.y.y/16
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># Choose Calico iptables backend: &#34;Legacy&#34;, &#34;Auto&#34; or &#34;NFT&#34;
 </span></span><span style="display:flex;"><span># calico_iptables_backend: &#34;Auto&#34;
 </span></span></code></pre></div></div><input type="radio" class="toggle" name="tabs-k8s-net-calico" id="tabs-k8s-net-calico-1"  />
   <label for="tabs-k8s-net-calico-1">TO-BE</label>
-  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span># Choose Calico iptables backend: &#34;Legacy&#34;, &#34;Auto&#34; or &#34;NFT&#34;
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span># Adveritse Service LoadBalancer IPs
+</span></span><span style="display:flex;"><span>calico_advertise_service_loadbalancer_ips:
+</span></span><span style="display:flex;"><span>- 192.168.51.64/26
+</span></span><span style="display:flex;"><span># - y.y.y.y/16
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># Choose Calico iptables backend: &#34;Legacy&#34;, &#34;Auto&#34; or &#34;NFT&#34;
 </span></span><span style="display:flex;"><span>calico_iptables_backend: &#34;NFT&#34;
 </span></span></code></pre></div></div></div>
 </li>

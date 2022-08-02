@@ -1,7 +1,7 @@
 ---
 weight: 1
 title: "server"
-date: 2022-05-10T00:00:00+09:00
+date: 2022-08-03T00:00:00+09:00
 ---
 # Server
 ## 検討
@@ -49,12 +49,11 @@ date: 2022-05-10T00:00:00+09:00
 
 ---
 ## 設定  
-#### CentOS Stream 8 Install  
-[CentOS8のドキュメント](https://docs.centos.org/en-US/8-docs/standard-install/assembly_preparing-for-your-installation/)に従ってCentOS Stream 8をインストールします。  
+#### Rocky Linux 8 Install  
+[Rocky Linux 8のドキュメント](https://docs.rockylinux.org/ja/guides/8_6_installation/)に従ってRocky Linux 8をインストールします。  
 ほぼデフォルト設定です。  
-{{< figure src="centos01.png" alt="install01" width=800px >}}
-{{< figure src="centos02.png" alt="install02" width=800px >}}
-{{< figure src="centos02.png" alt="install03" width=800px >}}
+{{< figure src="rocky01.png" alt="install01" width=800px >}}
+{{< figure src="rocky02.png" alt="install02" width=800px >}}
 
 #### ノードの構成  
   hostname | IP address | gateway
