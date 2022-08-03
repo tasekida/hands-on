@@ -1,7 +1,7 @@
 ---
 weight: 1
 title: "kubespray"
-date: 2022-08-03T00:00:00+09:00
+date: 2022-08-04T00:00:00+09:00
 ---
 # kubespray
 ## 準備
@@ -238,7 +238,7 @@ cert_manager_enabled: true
 metallb_enabled: true
 metallb_speaker_enabled: false
 metallb_ip_range:
-  - "192.168.51.64/26"
+  - "192.168.51.100/24"
 metallb_pool_name: "k8scluster01"
 matallb_auto_assign: true
 # metallb_speaker_nodeselector:
@@ -336,7 +336,7 @@ kubectl_localhost: true
 ```tpl
 # Adveritse Service LoadBalancer IPs
 calico_advertise_service_loadbalancer_ips:
-- 192.168.51.64/26
+- 192.168.51.100/24
 # - y.y.y.y/16
 
 # Choose Calico iptables backend: "Legacy", "Auto" or "NFT"
