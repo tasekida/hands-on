@@ -1,7 +1,7 @@
 ---
 weight: 1
 title: "kubespray"
-date: 2022-08-04T00:00:00+09:00
+date: 2022-08-08T20:00:00+09:00
 ---
 # kubespray
 ## 準備
@@ -10,7 +10,7 @@ date: 2022-08-04T00:00:00+09:00
 ```tpl
 git clone https://github.com/kubernetes-sigs/kubespray.git
 cd kubespray
-git reset --hard 06f8368ce66359d317deee82b3fe3b9bd2660840
+git reset --hard 7e862939dbbc933cb13a67a388c0ab430fa3547d
 cp -rfp inventory/sample inventory/mycluster
 declare -a IPS=(192.168.51.1 192.168.51.2 192.168.51.3 192.168.51.4)
 CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]}
@@ -236,11 +236,11 @@ cert_manager_enabled: true
 
 # MetalLB deployment
 metallb_enabled: true
-metallb_speaker_enabled: false
+metallb_speaker_enabled: true
 metallb_ip_range:
-  - "192.168.51.129/25"
+  - "192.168.51.128/26"
 metallb_pool_name: "k8scluster01"
-matallb_auto_assign: true
+metallb_auto_assign: true
 # metallb_speaker_nodeselector:
 #   kubernetes.io/os: "linux"
 # metallb_controller_nodeselector:
@@ -270,9 +270,9 @@ metallb_controller_tolerations:
 # metallb_additional_address_pools:
 #   kube_service_pool:
 #     ip_range:
-#       - "192.168.51.10-192.168.51.230"
-#     protocol: "bgp"
-#     auto_assign: true
+#       - "10.5.1.50-10.5.1.99"
+#     protocol: "layer2"
+#     auto_assign: false
 metallb_protocol: "bgp"
 metallb_peers:
   - peer_address: 192.168.51.254
@@ -323,6 +323,14 @@ kubectl_localhost: true
 {{< tabs "k8s-net-calico" >}}
 {{< tab "AS-IS" "k8s-net-calico-as-is" >}}
 ```tpl
+# Advertise Cluster IPs
+# calico_advertise_cluster_ips: true
+
+# Advertise Service External IPs
+# calico_advertise_service_external_ips:
+# - x.x.x.x/24
+# - y.y.y.y/32
+
 # Adveritse Service LoadBalancer IPs
 # calico_advertise_service_loadbalancer_ips:
 # - x.x.x.x/24
@@ -334,9 +342,17 @@ kubectl_localhost: true
 {{< /tab >}}
 {{< tab "TO-BE" "k8s-net-calico-to-be" >}}
 ```tpl
+# Advertise Cluster IPs
+calico_advertise_cluster_ips: true
+
+# Advertise Service External IPs
+calico_advertise_service_external_ips:
+- 10.233.0.0/18
+# - y.y.y.y/32
+
 # Adveritse Service LoadBalancer IPs
 calico_advertise_service_loadbalancer_ips:
-- 192.168.51.129/25
+- 192.168.51.128/26
 # - y.y.y.y/16
 
 # Choose Calico iptables backend: "Legacy", "Auto" or "NFT"

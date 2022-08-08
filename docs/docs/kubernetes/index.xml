@@ -9,10 +9,10 @@
     <item>
       <title>kubespray</title>
       <link>https://www.oblique-rays.cyou/docs/kubernetes/kubespray/</link>
-      <pubDate>Thu, 04 Aug 2022 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 08 Aug 2022 20:00:00 +0900</pubDate>
       
       <guid>https://www.oblique-rays.cyou/docs/kubernetes/kubespray/</guid>
-      <description>kubespray #  準備 #  Kubesprayを取得 #   githubから Kubesprayを取得します。  git clone https://github.com/kubernetes-sigs/kubespray.git cd kubespray git reset --hard 06f8368ce66359d317deee82b3fe3b9bd2660840 cp -rfp inventory/sample inventory/mycluster declare -a IPS=(192.168.51.1 192.168.51.2 192.168.51.3 192.168.51.4) CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]} sudo pip install -r requirements-2.12.txt  構成情報を設定 #   inventory/mycluster/hosts.yaml
+      <description>kubespray #  準備 #  Kubesprayを取得 #   githubから Kubesprayを取得します。  git clone https://github.com/kubernetes-sigs/kubespray.git cd kubespray git reset --hard 7e862939dbbc933cb13a67a388c0ab430fa3547d cp -rfp inventory/sample inventory/mycluster declare -a IPS=(192.168.51.1 192.168.51.2 192.168.51.3 192.168.51.4) CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]} sudo pip install -r requirements-2.12.txt  構成情報を設定 #   inventory/mycluster/hosts.yaml
 AS-IS all:  hosts:  node1:  ansible_host: 192.168.51.1  ip: 192.168.51.1  access_ip: 192.168.51.1  node2:  ansible_host: 192.168.51.2  ip: 192.168.51.2  access_ip: 192.</description>
     </item>
     
