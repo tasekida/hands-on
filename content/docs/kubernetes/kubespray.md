@@ -1,7 +1,7 @@
 ---
 weight: 1
 title: "kubespray"
-date: 2022-08-08T20:00:00+09:00
+date: 2022-08-24T23:00:00+09:00
 ---
 # kubespray
 ## 準備
@@ -10,7 +10,7 @@ date: 2022-08-08T20:00:00+09:00
 ```tpl
 git clone https://github.com/kubernetes-sigs/kubespray.git
 cd kubespray
-git reset --hard 7e862939dbbc933cb13a67a388c0ab430fa3547d
+git reset --hard 1c75ec9ec19a78b6889781729c5af5f2c73b681f
 cp -rfp inventory/sample inventory/mycluster
 declare -a IPS=(192.168.51.1 192.168.51.2 192.168.51.3 192.168.51.4)
 CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]}
@@ -160,7 +160,6 @@ containerd_registries:
   "docker.io":
     - "https://mirror.gcr.io"
     - "https://registry-1.docker.io"
-image_command_tool: crictl
 ```
 {{< /tab >}}
 {{< /tabs >}}
@@ -323,14 +322,6 @@ kubectl_localhost: true
 {{< tabs "k8s-net-calico" >}}
 {{< tab "AS-IS" "k8s-net-calico-as-is" >}}
 ```tpl
-# Advertise Cluster IPs
-# calico_advertise_cluster_ips: true
-
-# Advertise Service External IPs
-# calico_advertise_service_external_ips:
-# - x.x.x.x/24
-# - y.y.y.y/32
-
 # Adveritse Service LoadBalancer IPs
 # calico_advertise_service_loadbalancer_ips:
 # - x.x.x.x/24
@@ -342,14 +333,6 @@ kubectl_localhost: true
 {{< /tab >}}
 {{< tab "TO-BE" "k8s-net-calico-to-be" >}}
 ```tpl
-# Advertise Cluster IPs
-calico_advertise_cluster_ips: true
-
-# Advertise Service External IPs
-calico_advertise_service_external_ips:
-- 10.233.0.0/18
-# - y.y.y.y/32
-
 # Adveritse Service LoadBalancer IPs
 calico_advertise_service_loadbalancer_ips:
 - 192.168.51.128/26
@@ -364,7 +347,7 @@ calico_iptables_backend: "NFT"
 #### Kubesprayを実行
 - Kubesprayを実行します。
 ```tpl
-sudo ansible-playbook -i inventory/mycluster/hosts.yaml cluster.yml -b -v --private-key=~/.ssh/k8scluster.pem --timeout=3000
+sudo ansible-playbook -i inventory/mycluster/hosts.yaml cluster.yml --become --become-user=root -v --private-key=~/.ssh/k8scluster.pem
 ```
 ---
 #### kubectlを設定
