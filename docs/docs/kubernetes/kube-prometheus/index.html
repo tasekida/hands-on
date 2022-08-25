@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="kube-prometheus #  準備 #  kube-prometheusを取得 #  mkdir my-kube-prometheus; cd my-kube-prometheus jb init jb install github.com/prometheus-operator/kube-prometheus/jsonnet/kube-prometheus@main wget https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/main/build.sh -O build.sh chmod 0755 build.sh  自分用にカスタマイズ #   ここでは事前に用意していた自分用にカスタマイズ済みのファイルを使います。  wget https://www.oblique-rays.cyou/docs/kubernetes/kube-prometheus/original.jsonnet -O original.jsonnet ./build.sh original.jsonnet  インストール #  kubectl apply --server-side -f manifests/setup kubectl apply -f manifests/  LoadBalancerの設定 #  kubectl patch svc grafana -n monitoring -p &#39;{&#34;spec&#34;: {&#34;type&#34;: &#34;LoadBalancer&#34;}}&#39; kubectl patch svc prometheus-k8s -n monitoring -p &#39;{&#34;spec&#34;: {&#34;type&#34;: &#34;LoadBalancer&#34;}}&#39;  確認 #  kubectl get all,cm,ing,pvc,pv,storageclass,secret,networkpolicies -n monitoring ">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="kube-prometheus" />
+<meta property="og:description" content="kube-prometheus #  準備 #  kube-prometheusを取得 #  mkdir my-kube-prometheus; cd my-kube-prometheus jb init jb install github.com/prometheus-operator/kube-prometheus/jsonnet/kube-prometheus@main wget https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/main/build.sh -O build.sh chmod 0755 build.sh  自分用にカスタマイズ #   ここでは事前に用意していた自分用にカスタマイズ済みのファイルを使います。  wget https://www.oblique-rays.cyou/docs/kubernetes/kube-prometheus/original.jsonnet -O original.jsonnet ./build.sh original.jsonnet  インストール #  kubectl apply --server-side -f manifests/setup kubectl apply -f manifests/  LoadBalancerの設定 #  kubectl patch svc grafana -n monitoring -p &#39;{&#34;spec&#34;: {&#34;type&#34;: &#34;LoadBalancer&#34;}}&#39; kubectl patch svc prometheus-k8s -n monitoring -p &#39;{&#34;spec&#34;: {&#34;type&#34;: &#34;LoadBalancer&#34;}}&#39;  確認 #  kubectl get all,cm,ing,pvc,pv,storageclass,secret,networkpolicies -n monitoring " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.oblique-rays.cyou/docs/kubernetes/kube-prometheus/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2022-08-26T00:00:00+09:00" />
+<meta property="article:modified_time" content="2022-08-26T00:00:00+09:00" />
+
+<title>kube-prometheus | Hands on</title>
+<link rel="manifest" href="https://www.oblique-rays.cyou/manifest.json">
+<link rel="icon" href="https://www.oblique-rays.cyou/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="https://www.oblique-rays.cyou/book.min.d19e0f463a18eecba598e5937004fd8bdb717a8b293157c432039a983b2a097e.css" integrity="sha256-0Z4PRjoY7sulmOWTcAT9i9txeospMVfEMgOamDsqCX4=" crossorigin="anonymous">
+  <script defer src="https://www.oblique-rays.cyou/flexsearch.min.js"></script>
+  <script defer src="https://www.oblique-rays.cyou/ja.search.min.3714b2af498a42d49cb9b62a7094e6a02794f253af884c11c6a58e788888b644.js" integrity="sha256-NxSyr0mKQtScubYqcJTmoCeU8lOviEwRxqWOeIiItkQ=" crossorigin="anonymous"></script>
+
+  <script defer src="https://www.oblique-rays.cyou/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="https://www.oblique-rays.cyou/"><span>Hands on</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="検索" aria-label="検索" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-783344d2ec59d69b3c85b46b97bfaa3b" class="toggle"  />
+    <label for="section-783344d2ec59d69b3c85b46b97bfaa3b" class="flex justify-between">
+      <a role="button" class="">hardware</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.oblique-rays.cyou/docs/hardware/server/" class="">server</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.oblique-rays.cyou/docs/hardware/storage/" class="">storage</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.oblique-rays.cyou/docs/hardware/router/" class="">router</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-87f45e72e9046a94302e37ea137e2a5c" class="toggle" checked />
+    <label for="section-87f45e72e9046a94302e37ea137e2a5c" class="flex justify-between">
+      <a role="button" class="">kubernetes</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.oblique-rays.cyou/docs/kubernetes/kubespray/" class="">kubespray</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.oblique-rays.cyou/docs/kubernetes/synology-csi/" class="">synology-csi</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.oblique-rays.cyou/docs/kubernetes/argo/" class="">argocd</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.oblique-rays.cyou/docs/kubernetes/kube-prometheus/" class=" active">kube-prometheus</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-eca69da21de5b0cd25d8421dec09a327" class="toggle"  />
+    <label for="section-eca69da21de5b0cd25d8421dec09a327" class="flex justify-between">
+      <a role="button" class="">Java</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://www.oblique-rays.cyou/docs/java/tbd/" class="">Tbd</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://www.oblique-rays.cyou/posts/" >
+        Blog
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="https://www.oblique-rays.cyou/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>kube-prometheus</strong>
+
+  <label for="toc-control">
+    
+    <img src="https://www.oblique-rays.cyou/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#kube-prometheus">kube-prometheus</a>
+      <ul>
+        <li><a href="#準備">準備</a>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+  <h5 style="text-align:center">最終更新日：August 26, 2022</h5>
+
+      
+  <article class="markdown"><h1 id="kube-prometheus">
+  kube-prometheus
+  <a class="anchor" href="#kube-prometheus">#</a>
+</h1>
+<h2 id="準備">
+  準備
+  <a class="anchor" href="#%e6%ba%96%e5%82%99">#</a>
+</h2>
+<h4 id="kube-prometheushttpsgithubcomprometheus-operatorkube-prometheusを取得">
+  
+  <a href="https://github.com/prometheus-operator/kube-prometheus">kube-prometheus</a>を取得
+  <a class="anchor" href="#kube-prometheushttpsgithubcomprometheus-operatorkube-prometheus%e3%82%92%e5%8f%96%e5%be%97">#</a>
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span>mkdir my-kube-prometheus; cd my-kube-prometheus
+</span></span><span style="display:flex;"><span>jb init
+</span></span><span style="display:flex;"><span>jb install github.com/prometheus-operator/kube-prometheus/jsonnet/kube-prometheus@main
+</span></span><span style="display:flex;"><span>wget https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/main/build.sh -O build.sh
+</span></span><span style="display:flex;"><span>chmod 0755 build.sh
+</span></span></code></pre></div><hr>
+<h4 id="自分用にカスタマイズ">
+  自分用にカスタマイズ
+  <a class="anchor" href="#%e8%87%aa%e5%88%86%e7%94%a8%e3%81%ab%e3%82%ab%e3%82%b9%e3%82%bf%e3%83%9e%e3%82%a4%e3%82%ba">#</a>
+</h4>
+<ul>
+<li>ここでは事前に用意していた自分用にカスタマイズ済みのファイルを使います。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span>wget https://www.oblique-rays.cyou/docs/kubernetes/kube-prometheus/original.jsonnet -O original.jsonnet
+</span></span><span style="display:flex;"><span>./build.sh original.jsonnet
+</span></span></code></pre></div><hr>
+<h4 id="インストール">
+  インストール
+  <a class="anchor" href="#%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab">#</a>
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span>kubectl apply --server-side -f manifests/setup
+</span></span><span style="display:flex;"><span>kubectl apply -f manifests/
+</span></span></code></pre></div><hr>
+<h4 id="loadbalancerの設定">
+  LoadBalancerの設定
+  <a class="anchor" href="#loadbalancer%e3%81%ae%e8%a8%ad%e5%ae%9a">#</a>
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span>kubectl patch svc grafana -n monitoring -p &#39;<span style="color:#75715e">{</span><span style="color:#e6db74">&#34;spec&#34;</span><span style="color:#f92672">:</span> <span style="color:#75715e">{</span><span style="color:#e6db74">&#34;type&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;LoadBalancer&#34;</span><span style="color:#75715e">}}</span>&#39;
+</span></span><span style="display:flex;"><span>kubectl patch svc prometheus-k8s -n monitoring -p &#39;<span style="color:#75715e">{</span><span style="color:#e6db74">&#34;spec&#34;</span><span style="color:#f92672">:</span> <span style="color:#75715e">{</span><span style="color:#e6db74">&#34;type&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;LoadBalancer&#34;</span><span style="color:#75715e">}}</span>&#39;
+</span></span></code></pre></div><hr>
+<h4 id="確認">
+  確認
+  <a class="anchor" href="#%e7%a2%ba%e8%aa%8d">#</a>
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span>kubectl get all,cm,ing,pvc,pv,storageclass,secret,networkpolicies -n monitoring
+</span></span></code></pre></div></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#kube-prometheus">kube-prometheus</a>
+      <ul>
+        <li><a href="#準備">準備</a>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

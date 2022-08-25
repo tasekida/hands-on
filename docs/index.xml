@@ -73,6 +73,15 @@ AS-IS --- clients:  - host: 192.168.1.1  port: 5000  https: false  username: use
     </item>
     
     <item>
+      <title>kube-prometheus</title>
+      <link>https://www.oblique-rays.cyou/docs/kubernetes/kube-prometheus/</link>
+      <pubDate>Fri, 26 Aug 2022 00:00:00 +0900</pubDate>
+      
+      <guid>https://www.oblique-rays.cyou/docs/kubernetes/kube-prometheus/</guid>
+      <description>kube-prometheus #  準備 #  kube-prometheusを取得 #  mkdir my-kube-prometheus; cd my-kube-prometheus jb init jb install github.com/prometheus-operator/kube-prometheus/jsonnet/kube-prometheus@main wget https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/main/build.sh -O build.sh chmod 0755 build.sh  自分用にカスタマイズ #   ここでは事前に用意していた自分用にカスタマイズ済みのファイルを使います。  wget https://www.oblique-rays.cyou/docs/kubernetes/kube-prometheus/original.jsonnet -O original.jsonnet ./build.sh original.jsonnet  インストール #  kubectl apply --server-side -f manifests/setup kubectl apply -f manifests/  LoadBalancerの設定 #  kubectl patch svc grafana -n monitoring -p &amp;#39;{&amp;#34;spec&amp;#34;: {&amp;#34;type&amp;#34;: &amp;#34;LoadBalancer&amp;#34;}}&amp;#39; kubectl patch svc prometheus-k8s -n monitoring -p &amp;#39;{&amp;#34;spec&amp;#34;: {&amp;#34;type&amp;#34;: &amp;#34;LoadBalancer&amp;#34;}}&amp;#39;  確認 #  kubectl get all,cm,ing,pvc,pv,storageclass,secret,networkpolicies -n monitoring </description>
+    </item>
+    
+    <item>
       <title>My First Blog</title>
       <link>https://www.oblique-rays.cyou/posts/my-first-blog/</link>
       <pubDate>Tue, 17 May 2022 23:06:47 +0900</pubDate>
