@@ -1,7 +1,7 @@
 ---
 weight: 1
 title: "kubespray"
-date: 2022-08-24T23:00:00+09:00
+date: 2022-09-19T23:00:00+09:00
 ---
 # kubespray
 ## 準備
@@ -10,7 +10,7 @@ date: 2022-08-24T23:00:00+09:00
 ```tpl
 git clone https://github.com/kubernetes-sigs/kubespray.git
 cd kubespray
-git reset --hard 1c75ec9ec19a78b6889781729c5af5f2c73b681f
+git reset --hard 5ac614f97d2547e7c21059494c885d289aa94635
 cp -rfp inventory/sample inventory/mycluster
 declare -a IPS=(192.168.51.1 192.168.51.2 192.168.51.3 192.168.51.4)
 CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]}
@@ -168,6 +168,9 @@ containerd_registries:
 {{< tabs "addons" >}}
 {{< tab "AS-IS" "addons-as-is" >}}
 ```tpl
+# Helm deployment
+helm_enabled: false
+
 # Nginx ingress controller deployment
 ingress_nginx_enabled: false
 
@@ -227,6 +230,9 @@ argocd_enabled: false
 {{< /tab >}}
 {{< tab "TO-BE" "addons-to-be" >}}
 ```tpl
+# Helm deployment
+helm_enabled: true
+
 # Nginx ingress controller deployment
 ingress_nginx_enabled: true
 
@@ -357,5 +363,5 @@ mkdir -p ~/.kube
 sudo cp inventory/mycluster/artifacts/kubectl /usr/local/bin/kubectl
 sudo cp inventory/mycluster/artifacts/admin.conf ~/.kube/config
 kubectl get node -o wide
-kubectl get all,cm,pvc,pv,storageclass,secret --all-namespaces -o wide
+kubectl get all,cm,ing,pvc,pv,storageclass,secret,networkpolicies --all-namespaces -o wide
 ```
