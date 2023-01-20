@@ -1,7 +1,7 @@
 ---
 weight: 1
 title: "kubespray"
-date: 2022-09-19T23:00:00+09:00
+date: 2023-01-20T23:00:00+09:00
 ---
 # kubespray
 ## 準備
@@ -10,7 +10,7 @@ date: 2022-09-19T23:00:00+09:00
 ```tpl
 git clone https://github.com/kubernetes-sigs/kubespray.git
 cd kubespray
-git reset --hard 5ac614f97d2547e7c21059494c885d289aa94635
+git reset --hard c4346e590f12239fe9f597cebdb00b5c0ffdc7b3
 cp -rfp inventory/sample inventory/mycluster
 declare -a IPS=(192.168.51.1 192.168.51.2 192.168.51.3 192.168.51.4)
 CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]}
@@ -171,6 +171,10 @@ containerd_registries:
 # Helm deployment
 helm_enabled: false
 
+# csi_snapshot_controller_enabled: false
+# csi snapshot namespace
+# snapshot_controller_namespace: kube-system
+
 # Nginx ingress controller deployment
 ingress_nginx_enabled: false
 
@@ -232,6 +236,10 @@ argocd_enabled: false
 ```tpl
 # Helm deployment
 helm_enabled: true
+
+csi_snapshot_controller_enabled: true
+# csi snapshot namespace
+snapshot_controller_namespace: synology-csi
 
 # Nginx ingress controller deployment
 ingress_nginx_enabled: true
