@@ -1,7 +1,7 @@
 ---
 weight: 2
 title: "synology-csi"
-date: 2022-06-04T22:00:00+09:00
+date: 2023-01-29T23:00:00+09:00
 ---
 # synology-csi
   
@@ -81,6 +81,31 @@ allowVolumeExpansion: true
 ```
 {{< /tab >}}
 {{< /tabs >}}
+#### VolumeSnapshotClassesの情報を設定  
+- deploy/kubernetes/v1.20/snapshotter/volume-snapshot-class.yml  
+{{< tabs "volume-snapshot-class" >}}
+{{< tab "AS-IS" "volume-snapshot-class-as-is" >}}
+```tpl
+metadata:
+  name: synology-snapshotclass
+  annotations:
+    storageclass.kubernetes.io/is-default-class: "false"
+driver: csi.san.synology.com
+deletionPolicy: Delete
+```
+{{< /tab >}}
+{{< tab "TO-BE" "volume-snapshot-class-to-be" >}}
+```tpl
+metadata:
+  name: synology-snapshotclass
+  namespace: synology-csi
+  annotations:
+    storageclass.kubernetes.io/is-default-class: "false"
+driver: csi.san.synology.com
+deletionPolicy: Delete
+```
+{{< /tab >}}
+{{< /tabs >}}
 ---
 ## インストール
 #### Synology CSI Driver for Kubernetesをビルド
@@ -91,5 +116,5 @@ allowVolumeExpansion: true
 #### Synology CSI Driver for Kubernetesをインストール
 - Synology CSI Driver for Kubernetesをインストールします。
 ```tpl
-./scripts/deploy.sh install --basic
+./scripts/deploy.sh install --all
 ```

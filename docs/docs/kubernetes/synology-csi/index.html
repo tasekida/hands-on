@@ -11,7 +11,7 @@ AS-IS --- clients:  - host: 192.168.1.1  port: 5000  https: false  username: use
 AS-IS --- clients:  - host: 192.168.1.1  port: 5000  https: false  username: username  password: password  - host: 192.168.1.2  port: 5000  https: false  username: username  password: password TO-BE --- clients:  - host: 192." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.oblique-rays.cyou/docs/kubernetes/synology-csi/" /><meta property="article:section" content="docs" />
-<meta property="article:published_time" content="2022-06-04T22:00:00+09:00" />
+<meta property="article:published_time" content="2023-01-29T23:00:00+09:00" />
 <meta property="article:modified_time" content="2022-06-05T00:39:18+09:00" />
 
 <title>synology-csi | Hands on</title>
@@ -19,7 +19,7 @@ AS-IS --- clients:  - host: 192.168.1.1  port: 5000  https: false  username: use
 <link rel="icon" href="https://www.oblique-rays.cyou/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="https://www.oblique-rays.cyou/book.min.d19e0f463a18eecba598e5937004fd8bdb717a8b293157c432039a983b2a097e.css" integrity="sha256-0Z4PRjoY7sulmOWTcAT9i9txeospMVfEMgOamDsqCX4=" crossorigin="anonymous">
   <script defer src="https://www.oblique-rays.cyou/flexsearch.min.js"></script>
-  <script defer src="https://www.oblique-rays.cyou/ja.search.min.92a4f3684a574b0fbcb2080bf8087bfbb6282a2eff1f52b9884fba6022d7038b.js" integrity="sha256-kqTzaEpXSw&#43;8sggL&#43;Ah7&#43;7YoKi7/H1K5iE&#43;6YCLXA4s=" crossorigin="anonymous"></script>
+  <script defer src="https://www.oblique-rays.cyou/ja.search.min.39dbfa228161181a15ab138ed8f5f17d8bb256ddbb191a3407e3bf75e8e48627.js" integrity="sha256-Odv6IoFhGBoVqxOO2PXxfYuyVt27GRo0B&#43;O/dejkhic=" crossorigin="anonymous"></script>
 
   <script defer src="https://www.oblique-rays.cyou/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -322,7 +322,7 @@ https://github.com/alex-shpak/hugo-book
       </header>
 
       
-  <h5 style="text-align:center">最終更新日：June 4, 2022</h5>
+  <h5 style="text-align:center">最終更新日：January 29, 2023</h5>
 
       
   <article class="markdown"><h1 id="synology-csi">
@@ -423,6 +423,36 @@ https://github.com/alex-shpak/hugo-book
 </span></span></code></pre></div></div></div>
 </li>
 </ul>
+<h4 id="volumesnapshotclassesの情報を設定">
+  VolumeSnapshotClassesの情報を設定
+  <a class="anchor" href="#volumesnapshotclasses%e3%81%ae%e6%83%85%e5%a0%b1%e3%82%92%e8%a8%ad%e5%ae%9a">#</a>
+</h4>
+<ul>
+<li>deploy/kubernetes/v1.20/snapshotter/volume-snapshot-class.yml<br>
+
+
+
+
+<div class="book-tabs"><input type="radio" class="toggle" name="tabs-volume-snapshot-class" id="tabs-volume-snapshot-class-0" checked="checked" />
+  <label for="tabs-volume-snapshot-class-0">AS-IS</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span>metadata:
+</span></span><span style="display:flex;"><span>  name: synology-snapshotclass
+</span></span><span style="display:flex;"><span>  annotations:
+</span></span><span style="display:flex;"><span>    storageclass.kubernetes.io/is-default-class: &#34;false&#34;
+</span></span><span style="display:flex;"><span>driver: csi.san.synology.com
+</span></span><span style="display:flex;"><span>deletionPolicy: Delete
+</span></span></code></pre></div></div><input type="radio" class="toggle" name="tabs-volume-snapshot-class" id="tabs-volume-snapshot-class-1"  />
+  <label for="tabs-volume-snapshot-class-1">TO-BE</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span>metadata:
+</span></span><span style="display:flex;"><span>  name: synology-snapshotclass
+</span></span><span style="display:flex;"><span>  namespace: synology-csi
+</span></span><span style="display:flex;"><span>  annotations:
+</span></span><span style="display:flex;"><span>    storageclass.kubernetes.io/is-default-class: &#34;false&#34;
+</span></span><span style="display:flex;"><span>driver: csi.san.synology.com
+</span></span><span style="display:flex;"><span>deletionPolicy: Delete
+</span></span></code></pre></div></div></div>
+</li>
+</ul>
 <hr>
 <h2 id="インストール">
   インストール
@@ -443,7 +473,7 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li>Synology CSI Driver for Kubernetesをインストールします。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span>./scripts/deploy.sh install --basic
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span>./scripts/deploy.sh install --all
 </span></span></code></pre></div></article>
  
       
