@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>router on Hands on</title>
+    <link>https://www.oblique-rays.cyou/docs/hardware/router/</link>
+    <description>Recent content in router on Hands on</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Fri, 24 Feb 2023 20:30:00 +0900</lastBuildDate><atom:link href="https://www.oblique-rays.cyou/docs/hardware/router/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ER-X</title>
+      <link>https://www.oblique-rays.cyou/docs/hardware/router/er-x/</link>
+      <pubDate>Tue, 29 Mar 2022 00:00:00 +0900</pubDate>
+      
+      <guid>https://www.oblique-rays.cyou/docs/hardware/router/er-x/</guid>
+      <description>EdgeRouter ER-X #  検討 #  用途 #   On-Premise Kubernetes ClusterでServiceのtype:Loadbalancerを使う   条件 #  BGP #   On-Premise Kubernetes ClusterでServiceのtype:Loadbalancerを使いたいので  省スペース #   設置スペースが狭いので  静音 #   自宅に設置するので  安価 #   予算が少ないので  省電力 #   自宅に設置するので   候補 #  Ubiquiti Networks EdgeRouter ER-X #   日本語情報が多い 値上がり傾向  mikrotik hEX RB750Gr3 #   日本語情報が少ない ER-Xより安価   結果 #  Ubiquiti Networks EdgeRouter ER-X #  こちらの方が情報を集めやすそうだった。</description>
+    </item>
+    
+    <item>
+      <title>WZR-900DHP</title>
+      <link>https://www.oblique-rays.cyou/docs/hardware/router/wzr-900dhp/</link>
+      <pubDate>Fri, 24 Feb 2023 20:30:00 +0900</pubDate>
+      
+      <guid>https://www.oblique-rays.cyou/docs/hardware/router/wzr-900dhp/</guid>
+      <description>WZR-900DHP #  検討 #  用途 #   iPhone USBテザリングをLANのGatewayとして使う   条件 #  USB #   iPhone USBテザリングを使いたいので  省スペース #   設置スペースが狭いので  静音 #   自宅に設置するので  安価 #   予算が少ないので  省電力 #   自宅に設置するので  OpenWrtサポート #   日本語情報があり、導入が簡単な機種   候補 #  Buffalo WZR-HP-AG300H #   日本語情報が多い USB2.0  Buffalo WZR-900DHP #   日本語情報がある USB3.</description>
+    </item>
+    
+  </channel>
+</rss>

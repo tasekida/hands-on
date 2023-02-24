@@ -1,9 +1,9 @@
 ---
-weight: 3
-title: "router"
-date: 2022-03-29
+weight: 1
+title: "ER-X"
+date: 2022-03-29T00:00:00+09:00
 ---
-# Router
+# EdgeRouter ER-X
 ## 検討
 #### 用途
 - On-Premise Kubernetes ClusterでServiceのtype:Loadbalancerを使う
