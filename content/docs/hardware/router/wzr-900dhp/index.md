@@ -1,7 +1,7 @@
 ---
 weight: 2
 title: "WZR-900DHP"
-date: 2023-02-24T20:30:00+09:00
+date: 2023-03-03T23:30:00+09:00
 ---
 # WZR-900DHP
 ## 検討
@@ -73,18 +73,55 @@ nvram commit
 #### OpenWrtのインストール  
 OpenWrtをDownloadします。
 ```tpl
-curl -OL https://downloads.openwrt.org/releases/21.02.5/targets/bcm53xx/generic/openwrt-21.02.5-bcm53xx-generic-buffalo_wzr-900dhp-squashfs.trx
+curl -OL https://downloads.openwrt.org/snapshots/targets/bcm53xx/generic/openwrt-bcm53xx-generic-buffalo_wzr-900dhp-squashfs.trx
 ```
 作業端末のIPを192.168.1.2/24にします。  
 コンソールを開いて192.168.1.1にpingを送信します。
 {{< figure src="wzr-900dhp03.jpg" alt="switch" width=800px >}}
-
+WZR-900DHPを再起動します。  
 pingにttl=100の応答が来たらOpenWrtをInstallします。  
 ttl=100の応答は先ほど設定した「nvram set wait_time=30」の秒数で終わるので、応答中に下記を実施します。  
 ```tpl
-curl -F "name=@/mnt/d/develop/workspace/wzr900dhp/openwrt-21.02.5-bcm53xx-generic-buffalo_wzr-900dhp-squashfs.trx" http://192.168.1.1/f2.htm
+curl -F "name=@/mnt/d/develop/workspace/wzr900dhp/openwrt-bcm53xx-generic-buffalo_wzr-900dhp-squashfs.trx" http://192.168.1.1/f2.htm
 curl http://192.168.1.1/do.htm?cmd=nvram+erase
 ```
 「Upload completed」が返ってくればInstall成功です。  
-pingにttl=64の応答が来るまで待って、OpenWrtのWEB設定画面を開きます。  
-http://192.168.1.1/
+pingにttl=64の応答が来るとOpenWrtの起動も完了です。  
+#### OpenWrtの設定  
+WEB画面とドライバーをインストールします。
+```tpl
+ssh root@192.168.1.1
+opkg update
+opkg install luci luci-ssl luci-i18n-base-ja kmod-usb-net-ipheth usbmuxd usbutils
+/etc/init.d/uhttpd restart
+exit
+```
+[OpenWrtのWEB設定画面](http://192.168.1.1/)を開きます。  
+- システム>管理>ルーターパスワード - パスワードを設定
+{{< figure src="wzr-900dhp04.jpg" alt="switch" width=800px >}}
+- システム>管理>SSHアクセス - インターフェースをlanに限定
+{{< figure src="wzr-900dhp05.jpg" alt="switch" width=800px >}}
+- システム>管理>HTTP(S)アクセス - HTTPSリダイレクトの設定
+{{< figure src="wzr-900dhp06.jpg" alt="switch" width=800px >}}
+- システム>管理>HTTP(S)アクセス - HTTPSリダイレクトの設定
+{{< figure src="wzr-900dhp06.jpg" alt="switch" width=800px >}}
+- ネットワーク>インターフェース>インターフェース - iPhoneとiPhone6を作成
+{{< figure src="wzr-900dhp07.jpg" alt="switch" width=800px >}}
+- ネットワーク>インターフェース>インターフェース>iPhone>一般設定 - DHCPクライアント
+{{< figure src="wzr-900dhp08.jpg" alt="switch" width=800px >}}
+- ネットワーク>インターフェース>インターフェース>iPhone>ファイアウォール設定 - wan
+{{< figure src="wzr-900dhp09.jpg" alt="switch" width=800px >}}
+- ネットワーク>インターフェース>インターフェース>iPhone6>一般設定 - DHCPv6クライアント
+{{< figure src="wzr-900dhp10.jpg" alt="switch" width=800px >}}
+- ネットワーク>インターフェース>インターフェース>iPhone6>ファイアウォール設定 - wan
+{{< figure src="wzr-900dhp11.jpg" alt="switch" width=800px >}}
+- ネットワーク>インターフェース>インターフェース>iPhone6>DHCPサーバー>IPv6設定 - リレーモード
+{{< figure src="wzr-900dhp12.jpg" alt="switch" width=800px >}}
+- ネットワーク>インターフェース>インターフェース>lan>DHCPサーバー>IPv6設定 - リレーモード
+{{< figure src="wzr-900dhp13.jpg" alt="switch" width=800px >}}
+- ネットワーク>ファイアウォール>一般設定 - ハードウェア フローオフロード
+{{< figure src="wzr-900dhp14.jpg" alt="switch" width=800px >}}
+- ネットワーク>ファイアウォール>ポートフォワーディング - dmz追加
+{{< figure src="wzr-900dhp15.jpg" alt="switch" width=800px >}}
+- ネットワーク>ファイアウォール>ポートフォワーディング>dmz - ルール設定
+{{< figure src="wzr-900dhp16.jpg" alt="switch" width=800px >}}

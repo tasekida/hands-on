@@ -5,8 +5,7 @@
     <link>https://www.oblique-rays.cyou/docs/hardware/router/</link>
     <description>Recent content in router on Hands on</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja</language>
-    <lastBuildDate>Fri, 24 Feb 2023 20:30:00 +0900</lastBuildDate><atom:link href="https://www.oblique-rays.cyou/docs/hardware/router/index.xml" rel="self" type="application/rss+xml" />
+    <language>ja</language><atom:link href="https://www.oblique-rays.cyou/docs/hardware/router/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ER-X</title>
       <link>https://www.oblique-rays.cyou/docs/hardware/router/er-x/</link>
@@ -19,7 +18,7 @@
     <item>
       <title>WZR-900DHP</title>
       <link>https://www.oblique-rays.cyou/docs/hardware/router/wzr-900dhp/</link>
-      <pubDate>Fri, 24 Feb 2023 20:30:00 +0900</pubDate>
+      <pubDate>Fri, 03 Mar 2023 23:30:00 +0900</pubDate>
       
       <guid>https://www.oblique-rays.cyou/docs/hardware/router/wzr-900dhp/</guid>
       <description>WZR-900DHP #  検討 #  用途 #   iPhone USBテザリングをLANのGatewayとして使う   条件 #  USB #   iPhone USBテザリングを使いたいので  省スペース #   設置スペースが狭いので  静音 #   自宅に設置するので  安価 #   予算が少ないので  省電力 #   自宅に設置するので  OpenWrtサポート #   日本語情報があり、導入が簡単な機種   候補 #  Buffalo WZR-HP-AG300H #   日本語情報が多い USB2.0  Buffalo WZR-900DHP #   日本語情報がある USB3.</description>
