@@ -1,7 +1,7 @@
 ---
 weight: 2
 title: "WZR-900DHP"
-date: 2023-03-03T23:30:00+09:00
+date: 2023-03-04T00:30:00+09:00
 ---
 # WZR-900DHP
 ## 検討
@@ -125,3 +125,18 @@ exit
 {{< figure src="wzr-900dhp15.jpg" alt="switch" width=800px >}}
 - ネットワーク>ファイアウォール>ポートフォワーディング>dmz - ルール設定
 {{< figure src="wzr-900dhp16.jpg" alt="switch" width=800px >}}
+#### オリジナルFirmへ戻す時  
+PCでコンソールを開いて192.168.1.1へpingを送信します。  
+WZR-900DHPのAOSSボタンを押しながら電源をOFFにしてONにします。  
+pingにttl=100の応答が来たら下記のコマンドを実行します。  
+```tpl
+curl http://192.168.1.1/do.htm?cmd=nvram+set+boot_wait=on; curl http://192.168.1.1/do.htm?cmd=nvram+set+wait_time=30; curl http://192.168.1.1/do.htm?cmd=nvram+commit
+```
+WZR-900DHPの電源をOFFにしてONにします。  
+pingにttl=100の応答が来たら下記のコマンドを実行します。  
+```tpl
+curl -F "name=@/mnt/d/develop/workspace/wzr900dhp/original_firm/wzr900dhp_cfe.trx" http://192.168.1.1/f2.htm
+curl http://192.168.1.1/do.htm?cmd=nvram+erase
+```
+「Upload completed」が返ってくれば成功です。  
+pingにttl=64の応答が来ると完了です。  

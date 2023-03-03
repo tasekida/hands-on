@@ -9,15 +9,15 @@
 <meta property="og:description" content="WZR-900DHP #  検討 #  用途 #   iPhone USBテザリングをLANのGatewayとして使う   条件 #  USB #   iPhone USBテザリングを使いたいので  省スペース #   設置スペースが狭いので  静音 #   自宅に設置するので  安価 #   予算が少ないので  省電力 #   自宅に設置するので  OpenWrtサポート #   日本語情報があり、導入が簡単な機種   候補 #  Buffalo WZR-HP-AG300H #   日本語情報が多い USB2.0  Buffalo WZR-900DHP #   日本語情報がある USB3." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.oblique-rays.cyou/docs/hardware/router/wzr-900dhp/" /><meta property="article:section" content="docs" />
-<meta property="article:published_time" content="2023-03-03T23:30:00+09:00" />
-<meta property="article:modified_time" content="2023-02-24T20:52:35+09:00" />
+<meta property="article:published_time" content="2023-03-04T00:30:00+09:00" />
+<meta property="article:modified_time" content="2023-03-04T00:30:03+09:00" />
 
 <title>WZR-900DHP | Hands on</title>
 <link rel="manifest" href="https://www.oblique-rays.cyou/manifest.json">
 <link rel="icon" href="https://www.oblique-rays.cyou/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="https://www.oblique-rays.cyou/book.min.d19e0f463a18eecba598e5937004fd8bdb717a8b293157c432039a983b2a097e.css" integrity="sha256-0Z4PRjoY7sulmOWTcAT9i9txeospMVfEMgOamDsqCX4=" crossorigin="anonymous">
   <script defer src="https://www.oblique-rays.cyou/flexsearch.min.js"></script>
-  <script defer src="https://www.oblique-rays.cyou/ja.search.min.3c3a17e01f09267d1338863969e7cc9fbf6f1b1d89b2bc6863dca689d1107787.js" integrity="sha256-PDoX4B8JJn0TOIY5aefMn79vGx2JsrxoY9ymidEQd4c=" crossorigin="anonymous"></script>
+  <script defer src="https://www.oblique-rays.cyou/ja.search.min.9eb93375e3548c6a028bca259137e8dbfd5fb7ab87282d0bcab6a0e20231337f.js" integrity="sha256-nrkzdeNUjGoCi8olkTfo2/1ft6uHKC0Lyrag4gIxM38=" crossorigin="anonymous"></script>
 
   <script defer src="https://www.oblique-rays.cyou/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -359,7 +359,7 @@ https://github.com/alex-shpak/hugo-book
       </header>
 
       
-  <h5 style="text-align:center">最終更新日：March 3, 2023</h5>
+  <h5 style="text-align:center">最終更新日：March 4, 2023</h5>
 
       
   <article class="markdown"><h1 id="wzr-900dhp">
@@ -612,6 +612,20 @@ pingにttl=64の応答が来るとOpenWrtの起動も完了です。</p>
 </figure>
 </li>
 </ul>
+<h4 id="オリジナルfirmへ戻す時">
+  オリジナルFirmへ戻す時
+  <a class="anchor" href="#%e3%82%aa%e3%83%aa%e3%82%b8%e3%83%8a%e3%83%abfirm%e3%81%b8%e6%88%bb%e3%81%99%e6%99%82">#</a>
+</h4>
+<p>PCでコンソールを開いて192.168.1.1へpingを送信します。<br>
+WZR-900DHPのAOSSボタンを押しながら電源をOFFにしてONにします。<br>
+pingにttl=100の応答が来たら下記のコマンドを実行します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span>curl http://192.168.1.1/do.htm?cmd=nvram+set+boot_wait=on; curl http://192.168.1.1/do.htm?cmd=nvram+set+wait_time=30; curl http://192.168.1.1/do.htm?cmd=nvram+commit
+</span></span></code></pre></div><p>WZR-900DHPの電源をOFFにしてONにします。<br>
+pingにttl=100の応答が来たら下記のコマンドを実行します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span>curl -F &#34;name=@/mnt/d/develop/workspace/wzr900dhp/original_firm/wzr900dhp_cfe.trx&#34; http://192.168.1.1/f2.htm
+</span></span><span style="display:flex;"><span>curl http://192.168.1.1/do.htm?cmd=nvram+erase
+</span></span></code></pre></div><p>「Upload completed」が返ってくれば成功です。<br>
+pingにttl=64の応答が来ると完了です。</p>
 </article>
  
       
