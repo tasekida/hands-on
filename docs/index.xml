@@ -6,98 +6,77 @@
     <description>Recent content in hands on on Hands on</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 18 May 2022 00:00:00 +0900</lastBuildDate><atom:link href="https://www.oblique-rays.cyou/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 04 Mar 2023 00:44:33 +0900</lastBuildDate>
+    <atom:link href="https://www.oblique-rays.cyou/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>server</title>
       <link>https://www.oblique-rays.cyou/docs/hardware/server/</link>
       <pubDate>Thu, 16 Feb 2023 00:00:00 +0900</pubDate>
-      
       <guid>https://www.oblique-rays.cyou/docs/hardware/server/</guid>
-      <description>Server #  検討 #  用途 #   On-Premise Kubernetes Clusterを構築して自宅Labとする   条件 #  Intel CPU #   コンパイラなどのトラブルを回避したいので  DDR4 SDRAM #   転用しやすいので 入手しやすいので  省スペース #   設置スペースが狭いので  静音 #   自宅に設置するので  安価 #   予算が少ないので  同一スペックを4台 #   On-Premise Kubernetes Clusterを構築するので   候補 #  Intel nuc #   中古も価格が安定して高価 特価も週末を待たずに在庫切れ  Intel mac mini 2020 #   中古も価格が安定して高価  ESPRIMO Q556/M #   電源内蔵では最小レベル 現物中古品を確認した結果、騒音大  EPSON Endeavor ST180E #   現物中古品を確認した結果、静音   結果 #  EPSON Endeavor ST180E #  タイミング良く、オークションに程度の良い中古品を発見したので調達</description>
+      <description>Server # 検討 # 用途 # On-Premise Kubernetes Clusterを構築して自宅Labとする 条件 # DDR4 SDRAM # 転用しやすいので 入手しやすいので 省スペース # 設置スペースが狭いので 静音 # 自宅に設置するので 安価 # 予算が少ないので 同一スペックを4台 # On-Premise Kubernetes Clusterを構築するので 候補 # Intel nuc # 中古も価格が安定して高価 特価も週末を待たずに在庫切れ Intel mac mini 2020 # 中古も価格が安定して高価 ESPRIMO Q556/M # 電源内蔵では最小レベル 現物中古品を確認した結果、騒音大 EPSON Endeavor ST180E # 現物中古品を確認した結果、静音 結果 # EPSON Endeavor ST180E # タイミング良く、オークションに程度の良い中古品を発見したので調達&#xA;メモリーもオークションで16GBを調達、取り外した8GBは売却&#xA;Intel 第6世代 Core i5-6500T DDR4 SDRAM 8GB → 16GB 500GB SATA 2.</description>
     </item>
-    
     <item>
       <title>kubespray</title>
       <link>https://www.oblique-rays.cyou/docs/kubernetes/kubespray/</link>
       <pubDate>Fri, 20 Jan 2023 23:00:00 +0900</pubDate>
-      
       <guid>https://www.oblique-rays.cyou/docs/kubernetes/kubespray/</guid>
-      <description>kubespray #  準備 #  Kubesprayを取得 #   githubから Kubesprayを取得します。  git clone https://github.com/kubernetes-sigs/kubespray.git cd kubespray git reset --hard c4346e590f12239fe9f597cebdb00b5c0ffdc7b3 cp -rfp inventory/sample inventory/mycluster declare -a IPS=(192.168.51.1 192.168.51.2 192.168.51.3 192.168.51.4) CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]} sudo pip install -r requirements-2.12.txt  構成情報を設定 #   inventory/mycluster/hosts.yaml
-AS-IS all:  hosts:  node1:  ansible_host: 192.168.51.1  ip: 192.168.51.1  access_ip: 192.168.51.1  node2:  ansible_host: 192.168.51.2  ip: 192.168.51.2  access_ip: 192.</description>
+      <description>kubespray # 準備 # Kubesprayを取得 # githubから Kubesprayを取得します。 git clone https://github.com/kubernetes-sigs/kubespray.git cd kubespray git reset --hard c4346e590f12239fe9f597cebdb00b5c0ffdc7b3 cp -rfp inventory/sample inventory/mycluster declare -a IPS=(192.168.51.1 192.168.51.2 192.168.51.3 192.168.51.4) CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]} sudo pip install -r requirements-2.12.txt 構成情報を設定 # inventory/mycluster/hosts.yaml&#xA;AS-IS all: hosts: node1: ansible_host: 192.168.51.1 ip: 192.168.51.1 access_ip: 192.168.51.1 node2: ansible_host: 192.168.51.2 ip: 192.168.51.2 access_ip: 192.168.51.2 node3: ansible_host: 192.168.51.3 ip: 192.168.51.3 access_ip: 192.168.51.3 node4: ansible_host: 192.168.51.4 ip: 192.168.51.4 access_ip: 192.</description>
     </item>
-    
     <item>
       <title>ER-X</title>
       <link>https://www.oblique-rays.cyou/docs/hardware/router/er-x/</link>
       <pubDate>Tue, 29 Mar 2022 00:00:00 +0900</pubDate>
-      
       <guid>https://www.oblique-rays.cyou/docs/hardware/router/er-x/</guid>
-      <description>EdgeRouter ER-X #  検討 #  用途 #   On-Premise Kubernetes ClusterでServiceのtype:Loadbalancerを使う   条件 #  BGP #   On-Premise Kubernetes ClusterでServiceのtype:Loadbalancerを使いたいので  省スペース #   設置スペースが狭いので  静音 #   自宅に設置するので  安価 #   予算が少ないので  省電力 #   自宅に設置するので   候補 #  Ubiquiti Networks EdgeRouter ER-X #   日本語情報が多い 値上がり傾向  mikrotik hEX RB750Gr3 #   日本語情報が少ない ER-Xより安価   結果 #  Ubiquiti Networks EdgeRouter ER-X #  こちらの方が情報を集めやすそうだった。</description>
+      <description>EdgeRouter ER-X # 検討 # 用途 # On-Premise Kubernetes ClusterでServiceのtype:Loadbalancerを使う 条件 # BGP # On-Premise Kubernetes ClusterでServiceのtype:Loadbalancerを使いたいので 省スペース # 設置スペースが狭いので 静音 # 自宅に設置するので 安価 # 予算が少ないので 省電力 # 自宅に設置するので 候補 # Ubiquiti Networks EdgeRouter ER-X # 日本語情報が多い 値上がり傾向 mikrotik hEX RB750Gr3 # 日本語情報が少ない ER-Xより安価 結果 # Ubiquiti Networks EdgeRouter ER-X # こちらの方が情報を集めやすそうだった。&#xA;RB750Gr3は入手するまでに日数が掛かりそうだった。&#xA;Mediatek MT7621A 880MHz MIPS1004Kc 2Core DDR3 256MB 256MB ROM EdgeOS 110×75×22 mm 静音 16,400円 購入について&#xA;私は上記の価格でAmazonより購入しました。</description>
     </item>
-    
     <item>
       <title>Tbd</title>
       <link>https://www.oblique-rays.cyou/docs/java/tbd/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://www.oblique-rays.cyou/docs/java/tbd/</guid>
-      <description>TBD #  TBD #  </description>
+      <description> TBD # TBD # </description>
     </item>
-    
     <item>
       <title>WZR-900DHP</title>
       <link>https://www.oblique-rays.cyou/docs/hardware/router/wzr-900dhp/</link>
       <pubDate>Sat, 04 Mar 2023 00:30:00 +0900</pubDate>
-      
       <guid>https://www.oblique-rays.cyou/docs/hardware/router/wzr-900dhp/</guid>
-      <description>WZR-900DHP #  検討 #  用途 #   iPhone USBテザリングをLANのGatewayとして使う   条件 #  USB #   iPhone USBテザリングを使いたいので  省スペース #   設置スペースが狭いので  静音 #   自宅に設置するので  安価 #   予算が少ないので  省電力 #   自宅に設置するので  OpenWrtサポート #   日本語情報があり、導入が簡単な機種   候補 #  Buffalo WZR-HP-AG300H #   日本語情報が多い USB2.0  Buffalo WZR-900DHP #   日本語情報がある USB3.</description>
+      <description>WZR-900DHP # 検討 # 用途 # iPhone USBテザリングをLANのGatewayとして使う 条件 # USB # iPhone USBテザリングを使いたいので 省スペース # 設置スペースが狭いので 静音 # 自宅に設置するので 安価 # 予算が少ないので 省電力 # 自宅に設置するので OpenWrtサポート # 日本語情報があり、導入が簡単な機種 候補 # Buffalo WZR-HP-AG300H # 日本語情報が多い USB2.0 Buffalo WZR-900DHP # 日本語情報がある USB3.0 Buffalo WXR-2533DHP # 日本語情報がある USB3.0 結果 # Buffalo WZR-900DHP # スペックだけ見るとWXR-2533DHPが良かったがデカすぎた。&#xA;USB3.0が欲しかったのでWZR-900DHP。&#xA;Broadcom BCM47081A0 800MHz 1Core Flash 128MB RAM 256MB USB 3.0 Type-A 196×185×28 mm 880円 設定 # オリジナルFirmのBackup # オリジナルのFirmは配布されていないのでBackupが無いとOpenWrtをインストールした後に元に戻せなくなります。</description>
     </item>
-    
     <item>
       <title>synology-csi</title>
       <link>https://www.oblique-rays.cyou/docs/kubernetes/synology-csi/</link>
       <pubDate>Sun, 29 Jan 2023 23:00:00 +0900</pubDate>
-      
       <guid>https://www.oblique-rays.cyou/docs/kubernetes/synology-csi/</guid>
-      <description>synology-csi #  準備 #  CSI Driverを取得 #   githubから Synology CSI Driver for Kubernetesを取得します。  git clone https://github.com/SynologyOpenSource/synology-csi cd synology-csi cp config/client-info-template.yml config/client-info.yml  Synology DS220+ への接続情報を設定 #   config/client-info.yml
-AS-IS --- clients:  - host: 192.168.1.1  port: 5000  https: false  username: username  password: password  - host: 192.168.1.2  port: 5000  https: false  username: username  password: password TO-BE --- clients:  - host: 192.</description>
+      <description>synology-csi # 準備 # CSI Driverを取得 # githubから Synology CSI Driver for Kubernetesを取得します。 git clone https://github.com/SynologyOpenSource/synology-csi cd synology-csi cp config/client-info-template.yml config/client-info.yml Synology DS220+ への接続情報を設定 # config/client-info.yml&#xA;AS-IS --- clients: - host: 192.168.1.1 port: 5000 https: false username: username password: password - host: 192.168.1.2 port: 5000 https: false username: username password: password TO-BE --- clients: - host: 192.168.50.xxx (Synology DS220+ のIPアドレス) port: 5001 https: true username: xxxxxxxxxx (Synology DS220+ のユーザー) password: xxxxxxxxxx (Synology DS220+ のパスワード) StrageClassの情報を設定 # deploy/kubernetes/v1.</description>
     </item>
-    
     <item>
       <title>storage</title>
       <link>https://www.oblique-rays.cyou/docs/hardware/storage/</link>
       <pubDate>Wed, 06 Apr 2022 00:00:00 +0900</pubDate>
-      
       <guid>https://www.oblique-rays.cyou/docs/hardware/storage/</guid>
-      <description>Storage #  検討 #  用途 #   On-Premise Kubernetes ClusterでReadWriteManyのPersistentVolumeを使う   条件 #  監視カメラ対応 #   TP-Link Tapo C310の映像を録画したいので  CSI (Container Storage Interface) #   On-Premise Kubernetes ClusterでReadWriteManyのPersistentVolumeを使いたいので  省スペース #   設置スペースが狭いので  静音 #   自宅に設置するので  安価 #   予算が少ないので  省電力 #   自宅に設置するので   候補 #  Synology DiskStation DS220+ #    DS220jより高スペック DS220jより高価  Synology DiskStation DS220j #    DS220+より低スペック DS220+より安価   結果 #  Synology DiskStation DS220+ #  CSI Driverを使う場合、Synology NASか NFS Serverに絞られた。</description>
+      <description>Storage # 検討 # 用途 # On-Premise Kubernetes ClusterでReadWriteManyのPersistentVolumeを使う 条件 # 監視カメラ対応 # TP-Link Tapo C310の映像を録画したいので CSI (Container Storage Interface) # On-Premise Kubernetes ClusterでReadWriteManyのPersistentVolumeを使いたいので 省スペース # 設置スペースが狭いので 静音 # 自宅に設置するので 安価 # 予算が少ないので 省電力 # 自宅に設置するので 候補 # Synology DiskStation DS220+ # DS220jより高スペック DS220jより高価 Synology DiskStation DS220j # DS220+より低スペック DS220+より安価 結果 # Synology DiskStation DS220+ # CSI Driverを使う場合、Synology NASか NFS Serverに絞られた。&#xA;ROOK Cephも考えたが、ClusterとStorageは分離したかった。&#xA;監視カメラも設置したかった。&#xA;もっと高スペックも調べたが、予算とスペックでDS220+がFITした。&#xA;Intel Celeron J4025 2GB + 4GB(追加) 165 x 108 x 232.</description>
     </item>
-    
     <item>
       <title>argocd</title>
       <link>https://www.oblique-rays.cyou/docs/kubernetes/argo/</link>
       <pubDate>Mon, 20 Jun 2022 23:00:00 +0900</pubDate>
-      
       <guid>https://www.oblique-rays.cyou/docs/kubernetes/argo/</guid>
-      <description>Argo CD #  設定 #   kubesprayでインストールは完了しているので設定をします。  LoadBalancerの設定 #   argocd-serverのサービスタイプをLoadBalancerに設定してクラスター外部からアクセス出来るようにします。  kubectl patch svc argocd-server -n argocd -p &amp;#39;{&amp;#34;spec&amp;#34;: {&amp;#34;type&amp;#34;: &amp;#34;LoadBalancer&amp;#34;}}&amp;#39;  argocd-serverのパスワードを設定 #   初期パスワードを取得  kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath=&amp;#34;{.data.password}&amp;#34; | base64 -d; echo  初期パスワードでログイン  argocd login &amp;lt;service/argocd-serverのEXTERNAL-IP&amp;gt; Username: admin Password: &amp;lt;先ほど取得したパスワード&amp;gt;  パスワードを変更  argocd account update-password </description>
+      <description> Argo CD # 設定 # kubesprayでインストールは完了しているので設定をします。 LoadBalancerの設定 # argocd-serverのサービスタイプをLoadBalancerに設定してクラスター外部からアクセス出来るようにします。 kubectl patch svc argocd-server -n argocd -p &amp;#39;{&amp;#34;spec&amp;#34;: {&amp;#34;type&amp;#34;: &amp;#34;LoadBalancer&amp;#34;}}&amp;#39; argocd-serverのパスワードを設定 # 初期パスワードを取得 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath=&amp;#34;{.data.password}&amp;#34; | base64 -d; echo 初期パスワードでログイン argocd login &amp;lt;service/argocd-serverのEXTERNAL-IP&amp;gt; Username: admin Password: &amp;lt;先ほど取得したパスワード&amp;gt; パスワードを変更 argocd account update-password </description>
     </item>
-    
     <item>
       <title>kube-prometheus</title>
       <link>https://www.oblique-rays.cyou/docs/kubernetes/kube-prometheus/</link>
       <pubDate>Fri, 26 Aug 2022 00:00:00 +0900</pubDate>
-      
       <guid>https://www.oblique-rays.cyou/docs/kubernetes/kube-prometheus/</guid>
-      <description>kube-prometheus #  準備 #  kube-prometheusを取得 #  mkdir my-kube-prometheus; cd my-kube-prometheus jb init jb install github.com/prometheus-operator/kube-prometheus/jsonnet/kube-prometheus@main wget https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/main/build.sh -O build.sh chmod 0755 build.sh  自分用にカスタマイズ #   ここでは事前に用意していた自分用にカスタマイズ済みのファイルを使います。  wget https://www.oblique-rays.cyou/docs/kubernetes/kube-prometheus/original.jsonnet -O original.jsonnet ./build.sh original.jsonnet  インストール #  kubectl apply --server-side -f manifests/setup kubectl apply -f manifests/  LoadBalancerの設定 #  kubectl patch svc grafana -n monitoring -p &amp;#39;{&amp;#34;spec&amp;#34;: {&amp;#34;type&amp;#34;: &amp;#34;LoadBalancer&amp;#34;}}&amp;#39; kubectl patch svc prometheus-k8s -n monitoring -p &amp;#39;{&amp;#34;spec&amp;#34;: {&amp;#34;type&amp;#34;: &amp;#34;LoadBalancer&amp;#34;}}&amp;#39;  確認 #  kubectl get all,cm,ing,pvc,pv,storageclass,secret,networkpolicies -n monitoring </description>
+      <description> kube-prometheus # 準備 # kube-prometheusを取得 # mkdir my-kube-prometheus; cd my-kube-prometheus jb init jb install github.com/prometheus-operator/kube-prometheus/jsonnet/kube-prometheus@main wget https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/main/build.sh -O build.sh chmod 0755 build.sh 自分用にカスタマイズ # ここでは事前に用意していた自分用にカスタマイズ済みのファイルを使います。 wget https://www.oblique-rays.cyou/docs/kubernetes/kube-prometheus/original.jsonnet -O original.jsonnet ./build.sh original.jsonnet インストール # kubectl apply --server-side -f manifests/setup kubectl apply -f manifests/ LoadBalancerの設定 # kubectl patch svc grafana -n monitoring -p &amp;#39;{&amp;#34;spec&amp;#34;: {&amp;#34;type&amp;#34;: &amp;#34;LoadBalancer&amp;#34;}}&amp;#39; kubectl patch svc prometheus-k8s -n monitoring -p &amp;#39;{&amp;#34;spec&amp;#34;: {&amp;#34;type&amp;#34;: &amp;#34;LoadBalancer&amp;#34;}}&amp;#39; 確認 # kubectl get all,cm,ing,pvc,pv,storageclass,secret,networkpolicies -n monitoring </description>
     </item>
-    
     <item>
       <title>My First Blog</title>
       <link>https://www.oblique-rays.cyou/posts/my-first-blog/</link>
       <pubDate>Tue, 17 May 2022 23:06:47 +0900</pubDate>
-      
       <guid>https://www.oblique-rays.cyou/posts/my-first-blog/</guid>
-      <description>My First Blog #  TEST</description>
+      <description>My First Blog # TEST</description>
     </item>
-    
   </channel>
 </rss>

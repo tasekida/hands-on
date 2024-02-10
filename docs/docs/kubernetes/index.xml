@@ -5,44 +5,35 @@
     <link>https://www.oblique-rays.cyou/docs/kubernetes/</link>
     <description>Recent content in kubernetes on Hands on</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja</language><atom:link href="https://www.oblique-rays.cyou/docs/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <language>ja</language>
+    <atom:link href="https://www.oblique-rays.cyou/docs/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>kubespray</title>
       <link>https://www.oblique-rays.cyou/docs/kubernetes/kubespray/</link>
       <pubDate>Fri, 20 Jan 2023 23:00:00 +0900</pubDate>
-      
       <guid>https://www.oblique-rays.cyou/docs/kubernetes/kubespray/</guid>
-      <description>kubespray #  準備 #  Kubesprayを取得 #   githubから Kubesprayを取得します。  git clone https://github.com/kubernetes-sigs/kubespray.git cd kubespray git reset --hard c4346e590f12239fe9f597cebdb00b5c0ffdc7b3 cp -rfp inventory/sample inventory/mycluster declare -a IPS=(192.168.51.1 192.168.51.2 192.168.51.3 192.168.51.4) CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]} sudo pip install -r requirements-2.12.txt  構成情報を設定 #   inventory/mycluster/hosts.yaml
-AS-IS all:  hosts:  node1:  ansible_host: 192.168.51.1  ip: 192.168.51.1  access_ip: 192.168.51.1  node2:  ansible_host: 192.168.51.2  ip: 192.168.51.2  access_ip: 192.</description>
+      <description>kubespray # 準備 # Kubesprayを取得 # githubから Kubesprayを取得します。 git clone https://github.com/kubernetes-sigs/kubespray.git cd kubespray git reset --hard c4346e590f12239fe9f597cebdb00b5c0ffdc7b3 cp -rfp inventory/sample inventory/mycluster declare -a IPS=(192.168.51.1 192.168.51.2 192.168.51.3 192.168.51.4) CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]} sudo pip install -r requirements-2.12.txt 構成情報を設定 # inventory/mycluster/hosts.yaml&#xA;AS-IS all: hosts: node1: ansible_host: 192.168.51.1 ip: 192.168.51.1 access_ip: 192.168.51.1 node2: ansible_host: 192.168.51.2 ip: 192.168.51.2 access_ip: 192.168.51.2 node3: ansible_host: 192.168.51.3 ip: 192.168.51.3 access_ip: 192.168.51.3 node4: ansible_host: 192.168.51.4 ip: 192.168.51.4 access_ip: 192.</description>
     </item>
-    
     <item>
       <title>synology-csi</title>
       <link>https://www.oblique-rays.cyou/docs/kubernetes/synology-csi/</link>
       <pubDate>Sun, 29 Jan 2023 23:00:00 +0900</pubDate>
-      
       <guid>https://www.oblique-rays.cyou/docs/kubernetes/synology-csi/</guid>
-      <description>synology-csi #  準備 #  CSI Driverを取得 #   githubから Synology CSI Driver for Kubernetesを取得します。  git clone https://github.com/SynologyOpenSource/synology-csi cd synology-csi cp config/client-info-template.yml config/client-info.yml  Synology DS220+ への接続情報を設定 #   config/client-info.yml
-AS-IS --- clients:  - host: 192.168.1.1  port: 5000  https: false  username: username  password: password  - host: 192.168.1.2  port: 5000  https: false  username: username  password: password TO-BE --- clients:  - host: 192.</description>
+      <description>synology-csi # 準備 # CSI Driverを取得 # githubから Synology CSI Driver for Kubernetesを取得します。 git clone https://github.com/SynologyOpenSource/synology-csi cd synology-csi cp config/client-info-template.yml config/client-info.yml Synology DS220+ への接続情報を設定 # config/client-info.yml&#xA;AS-IS --- clients: - host: 192.168.1.1 port: 5000 https: false username: username password: password - host: 192.168.1.2 port: 5000 https: false username: username password: password TO-BE --- clients: - host: 192.168.50.xxx (Synology DS220+ のIPアドレス) port: 5001 https: true username: xxxxxxxxxx (Synology DS220+ のユーザー) password: xxxxxxxxxx (Synology DS220+ のパスワード) StrageClassの情報を設定 # deploy/kubernetes/v1.</description>
     </item>
-    
     <item>
       <title>argocd</title>
       <link>https://www.oblique-rays.cyou/docs/kubernetes/argo/</link>
       <pubDate>Mon, 20 Jun 2022 23:00:00 +0900</pubDate>
-      
       <guid>https://www.oblique-rays.cyou/docs/kubernetes/argo/</guid>
-      <description>Argo CD #  設定 #   kubesprayでインストールは完了しているので設定をします。  LoadBalancerの設定 #   argocd-serverのサービスタイプをLoadBalancerに設定してクラスター外部からアクセス出来るようにします。  kubectl patch svc argocd-server -n argocd -p &amp;#39;{&amp;#34;spec&amp;#34;: {&amp;#34;type&amp;#34;: &amp;#34;LoadBalancer&amp;#34;}}&amp;#39;  argocd-serverのパスワードを設定 #   初期パスワードを取得  kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath=&amp;#34;{.data.password}&amp;#34; | base64 -d; echo  初期パスワードでログイン  argocd login &amp;lt;service/argocd-serverのEXTERNAL-IP&amp;gt; Username: admin Password: &amp;lt;先ほど取得したパスワード&amp;gt;  パスワードを変更  argocd account update-password </description>
+      <description> Argo CD # 設定 # kubesprayでインストールは完了しているので設定をします。 LoadBalancerの設定 # argocd-serverのサービスタイプをLoadBalancerに設定してクラスター外部からアクセス出来るようにします。 kubectl patch svc argocd-server -n argocd -p &amp;#39;{&amp;#34;spec&amp;#34;: {&amp;#34;type&amp;#34;: &amp;#34;LoadBalancer&amp;#34;}}&amp;#39; argocd-serverのパスワードを設定 # 初期パスワードを取得 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath=&amp;#34;{.data.password}&amp;#34; | base64 -d; echo 初期パスワードでログイン argocd login &amp;lt;service/argocd-serverのEXTERNAL-IP&amp;gt; Username: admin Password: &amp;lt;先ほど取得したパスワード&amp;gt; パスワードを変更 argocd account update-password </description>
     </item>
-    
     <item>
       <title>kube-prometheus</title>
       <link>https://www.oblique-rays.cyou/docs/kubernetes/kube-prometheus/</link>
       <pubDate>Fri, 26 Aug 2022 00:00:00 +0900</pubDate>
-      
       <guid>https://www.oblique-rays.cyou/docs/kubernetes/kube-prometheus/</guid>
-      <description>kube-prometheus #  準備 #  kube-prometheusを取得 #  mkdir my-kube-prometheus; cd my-kube-prometheus jb init jb install github.com/prometheus-operator/kube-prometheus/jsonnet/kube-prometheus@main wget https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/main/build.sh -O build.sh chmod 0755 build.sh  自分用にカスタマイズ #   ここでは事前に用意していた自分用にカスタマイズ済みのファイルを使います。  wget https://www.oblique-rays.cyou/docs/kubernetes/kube-prometheus/original.jsonnet -O original.jsonnet ./build.sh original.jsonnet  インストール #  kubectl apply --server-side -f manifests/setup kubectl apply -f manifests/  LoadBalancerの設定 #  kubectl patch svc grafana -n monitoring -p &amp;#39;{&amp;#34;spec&amp;#34;: {&amp;#34;type&amp;#34;: &amp;#34;LoadBalancer&amp;#34;}}&amp;#39; kubectl patch svc prometheus-k8s -n monitoring -p &amp;#39;{&amp;#34;spec&amp;#34;: {&amp;#34;type&amp;#34;: &amp;#34;LoadBalancer&amp;#34;}}&amp;#39;  確認 #  kubectl get all,cm,ing,pvc,pv,storageclass,secret,networkpolicies -n monitoring </description>
+      <description> kube-prometheus # 準備 # kube-prometheusを取得 # mkdir my-kube-prometheus; cd my-kube-prometheus jb init jb install github.com/prometheus-operator/kube-prometheus/jsonnet/kube-prometheus@main wget https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/main/build.sh -O build.sh chmod 0755 build.sh 自分用にカスタマイズ # ここでは事前に用意していた自分用にカスタマイズ済みのファイルを使います。 wget https://www.oblique-rays.cyou/docs/kubernetes/kube-prometheus/original.jsonnet -O original.jsonnet ./build.sh original.jsonnet インストール # kubectl apply --server-side -f manifests/setup kubectl apply -f manifests/ LoadBalancerの設定 # kubectl patch svc grafana -n monitoring -p &amp;#39;{&amp;#34;spec&amp;#34;: {&amp;#34;type&amp;#34;: &amp;#34;LoadBalancer&amp;#34;}}&amp;#39; kubectl patch svc prometheus-k8s -n monitoring -p &amp;#39;{&amp;#34;spec&amp;#34;: {&amp;#34;type&amp;#34;: &amp;#34;LoadBalancer&amp;#34;}}&amp;#39; 確認 # kubectl get all,cm,ing,pvc,pv,storageclass,secret,networkpolicies -n monitoring </description>
     </item>
-    
   </channel>
 </rss>

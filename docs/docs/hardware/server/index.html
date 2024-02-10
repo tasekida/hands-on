@@ -3,10 +3,14 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Server #  検討 #  用途 #   On-Premise Kubernetes Clusterを構築して自宅Labとする   条件 #  Intel CPU #   コンパイラなどのトラブルを回避したいので  DDR4 SDRAM #   転用しやすいので 入手しやすいので  省スペース #   設置スペースが狭いので  静音 #   自宅に設置するので  安価 #   予算が少ないので  同一スペックを4台 #   On-Premise Kubernetes Clusterを構築するので   候補 #  Intel nuc #   中古も価格が安定して高価 特価も週末を待たずに在庫切れ  Intel mac mini 2020 #   中古も価格が安定して高価  ESPRIMO Q556/M #   電源内蔵では最小レベル 現物中古品を確認した結果、騒音大  EPSON Endeavor ST180E #   現物中古品を確認した結果、静音   結果 #  EPSON Endeavor ST180E #  タイミング良く、オークションに程度の良い中古品を発見したので調達">
+<meta name="description" content="Server # 検討 # 用途 # On-Premise Kubernetes Clusterを構築して自宅Labとする 条件 # DDR4 SDRAM # 転用しやすいので 入手しやすいので 省スペース # 設置スペースが狭いので 静音 # 自宅に設置するので 安価 # 予算が少ないので 同一スペックを4台 # On-Premise Kubernetes Clusterを構築するので 候補 # Intel nuc # 中古も価格が安定して高価 特価も週末を待たずに在庫切れ Intel mac mini 2020 # 中古も価格が安定して高価 ESPRIMO Q556/M # 電源内蔵では最小レベル 現物中古品を確認した結果、騒音大 EPSON Endeavor ST180E # 現物中古品を確認した結果、静音 結果 # EPSON Endeavor ST180E # タイミング良く、オークションに程度の良い中古品を発見したので調達
+メモリーもオークションで16GBを調達、取り外した8GBは売却
+Intel 第6世代 Core i5-6500T DDR4 SDRAM 8GB → 16GB 500GB SATA 2.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="server" />
-<meta property="og:description" content="Server #  検討 #  用途 #   On-Premise Kubernetes Clusterを構築して自宅Labとする   条件 #  Intel CPU #   コンパイラなどのトラブルを回避したいので  DDR4 SDRAM #   転用しやすいので 入手しやすいので  省スペース #   設置スペースが狭いので  静音 #   自宅に設置するので  安価 #   予算が少ないので  同一スペックを4台 #   On-Premise Kubernetes Clusterを構築するので   候補 #  Intel nuc #   中古も価格が安定して高価 特価も週末を待たずに在庫切れ  Intel mac mini 2020 #   中古も価格が安定して高価  ESPRIMO Q556/M #   電源内蔵では最小レベル 現物中古品を確認した結果、騒音大  EPSON Endeavor ST180E #   現物中古品を確認した結果、静音   結果 #  EPSON Endeavor ST180E #  タイミング良く、オークションに程度の良い中古品を発見したので調達" />
+<meta property="og:description" content="Server # 検討 # 用途 # On-Premise Kubernetes Clusterを構築して自宅Labとする 条件 # DDR4 SDRAM # 転用しやすいので 入手しやすいので 省スペース # 設置スペースが狭いので 静音 # 自宅に設置するので 安価 # 予算が少ないので 同一スペックを4台 # On-Premise Kubernetes Clusterを構築するので 候補 # Intel nuc # 中古も価格が安定して高価 特価も週末を待たずに在庫切れ Intel mac mini 2020 # 中古も価格が安定して高価 ESPRIMO Q556/M # 電源内蔵では最小レベル 現物中古品を確認した結果、騒音大 EPSON Endeavor ST180E # 現物中古品を確認した結果、静音 結果 # EPSON Endeavor ST180E # タイミング良く、オークションに程度の良い中古品を発見したので調達
+メモリーもオークションで16GBを調達、取り外した8GBは売却
+Intel 第6世代 Core i5-6500T DDR4 SDRAM 8GB → 16GB 500GB SATA 2." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.oblique-rays.cyou/docs/hardware/server/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2023-02-16T00:00:00+09:00" />
@@ -17,7 +21,7 @@
 <link rel="icon" href="https://www.oblique-rays.cyou/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="https://www.oblique-rays.cyou/book.min.d19e0f463a18eecba598e5937004fd8bdb717a8b293157c432039a983b2a097e.css" integrity="sha256-0Z4PRjoY7sulmOWTcAT9i9txeospMVfEMgOamDsqCX4=" crossorigin="anonymous">
   <script defer src="https://www.oblique-rays.cyou/flexsearch.min.js"></script>
-  <script defer src="https://www.oblique-rays.cyou/ja.search.min.9eb93375e3548c6a028bca259137e8dbfd5fb7ab87282d0bcab6a0e20231337f.js" integrity="sha256-nrkzdeNUjGoCi8olkTfo2/1ft6uHKC0Lyrag4gIxM38=" crossorigin="anonymous"></script>
+  <script defer src="https://www.oblique-rays.cyou/ja.search.min.d331bc2f4793d1ee3ae43ab0f9bc4fe8e2d60ad32f7e4d46061d076c53c944ff.js" integrity="sha256-0zG8L0eT0e465Dqw&#43;bxP6OLWCtMvfk1GBh0HbFPJRP8=" crossorigin="anonymous"></script>
 
   <script defer src="https://www.oblique-rays.cyou/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -382,13 +386,6 @@ https://github.com/alex-shpak/hugo-book
   条件
   <a class="anchor" href="#%e6%9d%a1%e4%bb%b6">#</a>
 </h4>
-<h6 id="intel-cpu">
-  Intel CPU
-  <a class="anchor" href="#intel-cpu">#</a>
-</h6>
-<ul>
-<li>コンパイラなどのトラブルを回避したいので</li>
-</ul>
 <h6 id="ddr4-sdram">
   DDR4 SDRAM
   <a class="anchor" href="#ddr4-sdram">#</a>
@@ -485,18 +482,18 @@ https://github.com/alex-shpak/hugo-book
   設定
   <a class="anchor" href="#%e8%a8%ad%e5%ae%9a">#</a>
 </h2>
-<h4 id="rocky-linux-8-install">
-  Rocky Linux 8 Install
-  <a class="anchor" href="#rocky-linux-8-install">#</a>
+<h4 id="alma-linux-9-install">
+  Alma Linux 9 Install
+  <a class="anchor" href="#alma-linux-9-install">#</a>
 </h4>
 <p>
-  <a href="https://docs.rockylinux.org/ja/guides/8_6_installation/">Rocky Linux 8のドキュメント</a>に従ってRocky Linux 8をインストールします。<br>
+  <a href="https://wiki.almalinux.org/documentation/installation-guide.html">Alma Linux 9のドキュメント</a>に従ってAlma Linux 9をインストールします。<br>
 ほぼデフォルト設定です。<br>
-<figure><img src="rocky01.png"
+<figure><img src="alma01.png"
          alt="install01" width="800px"/>
 </figure>
 
-<figure><img src="rocky02.png"
+<figure><img src="alma02.png"
          alt="install02" width="800px"/>
 </figure>
 </p>
@@ -539,10 +536,10 @@ https://github.com/alex-shpak/hugo-book
   ssh server 鍵認証
   <a class="anchor" href="#ssh-server-%e9%8d%b5%e8%aa%8d%e8%a8%bc">#</a>
 </h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span>ssh root@192.168.51.1 &#34;mkdir -p ~/.ssh&#34;; scp ~/.ssh/authorized_keys root@192.168.51.1:/root/.ssh/; ssh -i ~/.ssh/k8scluster.pem root@192.168.51.1 &#34;chmod 0600 ~/.ssh/authorized_keys; chmod 0700 ~/.ssh; ls -al ~/.ssh; sed -i.bak -e &#39;/^PasswordAuthentication/s/yes/no/&#39; /etc/ssh/sshd_config; swapoff -a; systemctl stop firewalld; systemctl disable firewalld&#34;
-</span></span><span style="display:flex;"><span>ssh root@192.168.51.2 &#34;mkdir -p ~/.ssh&#34;; scp ~/.ssh/authorized_keys root@192.168.51.2:/root/.ssh/; ssh -i ~/.ssh/k8scluster.pem root@192.168.51.2 &#34;chmod 0600 ~/.ssh/authorized_keys; chmod 0700 ~/.ssh; ls -al ~/.ssh; sed -i.bak -e &#39;/^PasswordAuthentication/s/yes/no/&#39; /etc/ssh/sshd_config; swapoff -a; systemctl stop firewalld; systemctl disable firewalld&#34;
-</span></span><span style="display:flex;"><span>ssh root@192.168.51.3 &#34;mkdir -p ~/.ssh&#34;; scp ~/.ssh/authorized_keys root@192.168.51.3:/root/.ssh/; ssh -i ~/.ssh/k8scluster.pem root@192.168.51.3 &#34;chmod 0600 ~/.ssh/authorized_keys; chmod 0700 ~/.ssh; ls -al ~/.ssh; sed -i.bak -e &#39;/^PasswordAuthentication/s/yes/no/&#39; /etc/ssh/sshd_config; swapoff -a; systemctl stop firewalld; systemctl disable firewalld&#34;
-</span></span><span style="display:flex;"><span>ssh root@192.168.51.4 &#34;mkdir -p ~/.ssh&#34;; scp ~/.ssh/authorized_keys root@192.168.51.4:/root/.ssh/; ssh -i ~/.ssh/k8scluster.pem root@192.168.51.4 &#34;chmod 0600 ~/.ssh/authorized_keys; chmod 0700 ~/.ssh; ls -al ~/.ssh; sed -i.bak -e &#39;/^PasswordAuthentication/s/yes/no/&#39; /etc/ssh/sshd_config; swapoff -a; systemctl stop firewalld; systemctl disable firewalld&#34;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tpl" data-lang="tpl"><span style="display:flex;"><span>ssh root@192.168.51.1 &#34;mkdir -p ~/.ssh&#34;; scp ~/.ssh/authorized_keys root@192.168.51.1:/root/.ssh/; ssh -i ~/.ssh/k8scluster.pem root@192.168.51.1 &#34;chmod 0600 ~/.ssh/authorized_keys; chmod 0700 ~/.ssh; ls -al ~/.ssh; sed -i.bak -e &#39;s/^#PasswordAuthentication/PasswordAuthentication/g&#39; -e &#39;/^PasswordAuthentication/s/yes/no/&#39; /etc/ssh/sshd_config; swapoff -a; systemctl stop firewalld; systemctl disable firewalld&#34;
+</span></span><span style="display:flex;"><span>ssh root@192.168.51.2 &#34;mkdir -p ~/.ssh&#34;; scp ~/.ssh/authorized_keys root@192.168.51.2:/root/.ssh/; ssh -i ~/.ssh/k8scluster.pem root@192.168.51.2 &#34;chmod 0600 ~/.ssh/authorized_keys; chmod 0700 ~/.ssh; ls -al ~/.ssh; sed -i.bak -e &#39;s/^#PasswordAuthentication/PasswordAuthentication/g&#39; -e &#39;/^PasswordAuthentication/s/yes/no/&#39; /etc/ssh/sshd_config; swapoff -a; systemctl stop firewalld; systemctl disable firewalld&#34;
+</span></span><span style="display:flex;"><span>ssh root@192.168.51.3 &#34;mkdir -p ~/.ssh&#34;; scp ~/.ssh/authorized_keys root@192.168.51.3:/root/.ssh/; ssh -i ~/.ssh/k8scluster.pem root@192.168.51.3 &#34;chmod 0600 ~/.ssh/authorized_keys; chmod 0700 ~/.ssh; ls -al ~/.ssh; sed -i.bak -e &#39;s/^#PasswordAuthentication/PasswordAuthentication/g&#39; -e &#39;/^PasswordAuthentication/s/yes/no/&#39; /etc/ssh/sshd_config; swapoff -a; systemctl stop firewalld; systemctl disable firewalld&#34;
+</span></span><span style="display:flex;"><span>ssh root@192.168.51.4 &#34;mkdir -p ~/.ssh&#34;; scp ~/.ssh/authorized_keys root@192.168.51.4:/root/.ssh/; ssh -i ~/.ssh/k8scluster.pem root@192.168.51.4 &#34;chmod 0600 ~/.ssh/authorized_keys; chmod 0700 ~/.ssh; ls -al ~/.ssh; sed -i.bak -e &#39;s/^#PasswordAuthentication/PasswordAuthentication/g&#39; -e &#39;/^PasswordAuthentication/s/yes/no/&#39; /etc/ssh/sshd_config; swapoff -a; systemctl stop firewalld; systemctl disable firewalld&#34;
 </span></span></code></pre></div></article>
  
       
@@ -559,7 +556,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
  

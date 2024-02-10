@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="synology-csi #  準備 #  CSI Driverを取得 #   githubから Synology CSI Driver for Kubernetesを取得します。  git clone https://github.com/SynologyOpenSource/synology-csi cd synology-csi cp config/client-info-template.yml config/client-info.yml  Synology DS220&#43; への接続情報を設定 #   config/client-info.yml
-AS-IS --- clients:  - host: 192.168.1.1  port: 5000  https: false  username: username  password: password  - host: 192.168.1.2  port: 5000  https: false  username: username  password: password TO-BE --- clients:  - host: 192.">
+<meta name="description" content="synology-csi # 準備 # CSI Driverを取得 # githubから Synology CSI Driver for Kubernetesを取得します。 git clone https://github.com/SynologyOpenSource/synology-csi cd synology-csi cp config/client-info-template.yml config/client-info.yml Synology DS220&#43; への接続情報を設定 # config/client-info.yml
+AS-IS --- clients: - host: 192.168.1.1 port: 5000 https: false username: username password: password - host: 192.168.1.2 port: 5000 https: false username: username password: password TO-BE --- clients: - host: 192.168.50.xxx (Synology DS220&#43; のIPアドレス) port: 5001 https: true username: xxxxxxxxxx (Synology DS220&#43; のユーザー) password: xxxxxxxxxx (Synology DS220&#43; のパスワード) StrageClassの情報を設定 # deploy/kubernetes/v1.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="synology-csi" />
-<meta property="og:description" content="synology-csi #  準備 #  CSI Driverを取得 #   githubから Synology CSI Driver for Kubernetesを取得します。  git clone https://github.com/SynologyOpenSource/synology-csi cd synology-csi cp config/client-info-template.yml config/client-info.yml  Synology DS220&#43; への接続情報を設定 #   config/client-info.yml
-AS-IS --- clients:  - host: 192.168.1.1  port: 5000  https: false  username: username  password: password  - host: 192.168.1.2  port: 5000  https: false  username: username  password: password TO-BE --- clients:  - host: 192." />
+<meta property="og:description" content="synology-csi # 準備 # CSI Driverを取得 # githubから Synology CSI Driver for Kubernetesを取得します。 git clone https://github.com/SynologyOpenSource/synology-csi cd synology-csi cp config/client-info-template.yml config/client-info.yml Synology DS220&#43; への接続情報を設定 # config/client-info.yml
+AS-IS --- clients: - host: 192.168.1.1 port: 5000 https: false username: username password: password - host: 192.168.1.2 port: 5000 https: false username: username password: password TO-BE --- clients: - host: 192.168.50.xxx (Synology DS220&#43; のIPアドレス) port: 5001 https: true username: xxxxxxxxxx (Synology DS220&#43; のユーザー) password: xxxxxxxxxx (Synology DS220&#43; のパスワード) StrageClassの情報を設定 # deploy/kubernetes/v1." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.oblique-rays.cyou/docs/kubernetes/synology-csi/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2023-01-29T23:00:00+09:00" />
@@ -19,7 +19,7 @@ AS-IS --- clients:  - host: 192.168.1.1  port: 5000  https: false  username: use
 <link rel="icon" href="https://www.oblique-rays.cyou/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="https://www.oblique-rays.cyou/book.min.d19e0f463a18eecba598e5937004fd8bdb717a8b293157c432039a983b2a097e.css" integrity="sha256-0Z4PRjoY7sulmOWTcAT9i9txeospMVfEMgOamDsqCX4=" crossorigin="anonymous">
   <script defer src="https://www.oblique-rays.cyou/flexsearch.min.js"></script>
-  <script defer src="https://www.oblique-rays.cyou/ja.search.min.9eb93375e3548c6a028bca259137e8dbfd5fb7ab87282d0bcab6a0e20231337f.js" integrity="sha256-nrkzdeNUjGoCi8olkTfo2/1ft6uHKC0Lyrag4gIxM38=" crossorigin="anonymous"></script>
+  <script defer src="https://www.oblique-rays.cyou/ja.search.min.d331bc2f4793d1ee3ae43ab0f9bc4fe8e2d60ad32f7e4d46061d076c53c944ff.js" integrity="sha256-0zG8L0eT0e465Dqw&#43;bxP6OLWCtMvfk1GBh0HbFPJRP8=" crossorigin="anonymous"></script>
 
   <script defer src="https://www.oblique-rays.cyou/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -524,7 +524,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
  

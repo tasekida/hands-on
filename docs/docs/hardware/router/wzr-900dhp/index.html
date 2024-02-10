@@ -3,21 +3,25 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="WZR-900DHP #  検討 #  用途 #   iPhone USBテザリングをLANのGatewayとして使う   条件 #  USB #   iPhone USBテザリングを使いたいので  省スペース #   設置スペースが狭いので  静音 #   自宅に設置するので  安価 #   予算が少ないので  省電力 #   自宅に設置するので  OpenWrtサポート #   日本語情報があり、導入が簡単な機種   候補 #  Buffalo WZR-HP-AG300H #   日本語情報が多い USB2.0  Buffalo WZR-900DHP #   日本語情報がある USB3.">
+<meta name="description" content="WZR-900DHP # 検討 # 用途 # iPhone USBテザリングをLANのGatewayとして使う 条件 # USB # iPhone USBテザリングを使いたいので 省スペース # 設置スペースが狭いので 静音 # 自宅に設置するので 安価 # 予算が少ないので 省電力 # 自宅に設置するので OpenWrtサポート # 日本語情報があり、導入が簡単な機種 候補 # Buffalo WZR-HP-AG300H # 日本語情報が多い USB2.0 Buffalo WZR-900DHP # 日本語情報がある USB3.0 Buffalo WXR-2533DHP # 日本語情報がある USB3.0 結果 # Buffalo WZR-900DHP # スペックだけ見るとWXR-2533DHPが良かったがデカすぎた。
+USB3.0が欲しかったのでWZR-900DHP。
+Broadcom BCM47081A0 800MHz 1Core Flash 128MB RAM 256MB USB 3.0 Type-A 196×185×28 mm 880円 設定 # オリジナルFirmのBackup # オリジナルのFirmは配布されていないのでBackupが無いとOpenWrtをインストールした後に元に戻せなくなります。">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="WZR-900DHP" />
-<meta property="og:description" content="WZR-900DHP #  検討 #  用途 #   iPhone USBテザリングをLANのGatewayとして使う   条件 #  USB #   iPhone USBテザリングを使いたいので  省スペース #   設置スペースが狭いので  静音 #   自宅に設置するので  安価 #   予算が少ないので  省電力 #   自宅に設置するので  OpenWrtサポート #   日本語情報があり、導入が簡単な機種   候補 #  Buffalo WZR-HP-AG300H #   日本語情報が多い USB2.0  Buffalo WZR-900DHP #   日本語情報がある USB3." />
+<meta property="og:description" content="WZR-900DHP # 検討 # 用途 # iPhone USBテザリングをLANのGatewayとして使う 条件 # USB # iPhone USBテザリングを使いたいので 省スペース # 設置スペースが狭いので 静音 # 自宅に設置するので 安価 # 予算が少ないので 省電力 # 自宅に設置するので OpenWrtサポート # 日本語情報があり、導入が簡単な機種 候補 # Buffalo WZR-HP-AG300H # 日本語情報が多い USB2.0 Buffalo WZR-900DHP # 日本語情報がある USB3.0 Buffalo WXR-2533DHP # 日本語情報がある USB3.0 結果 # Buffalo WZR-900DHP # スペックだけ見るとWXR-2533DHPが良かったがデカすぎた。
+USB3.0が欲しかったのでWZR-900DHP。
+Broadcom BCM47081A0 800MHz 1Core Flash 128MB RAM 256MB USB 3.0 Type-A 196×185×28 mm 880円 設定 # オリジナルFirmのBackup # オリジナルのFirmは配布されていないのでBackupが無いとOpenWrtをインストールした後に元に戻せなくなります。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.oblique-rays.cyou/docs/hardware/router/wzr-900dhp/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2023-03-04T00:30:00+09:00" />
-<meta property="article:modified_time" content="2023-03-04T00:30:03+09:00" />
+<meta property="article:modified_time" content="2023-03-04T00:44:33+09:00" />
 
 <title>WZR-900DHP | Hands on</title>
 <link rel="manifest" href="https://www.oblique-rays.cyou/manifest.json">
 <link rel="icon" href="https://www.oblique-rays.cyou/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="https://www.oblique-rays.cyou/book.min.d19e0f463a18eecba598e5937004fd8bdb717a8b293157c432039a983b2a097e.css" integrity="sha256-0Z4PRjoY7sulmOWTcAT9i9txeospMVfEMgOamDsqCX4=" crossorigin="anonymous">
   <script defer src="https://www.oblique-rays.cyou/flexsearch.min.js"></script>
-  <script defer src="https://www.oblique-rays.cyou/ja.search.min.9eb93375e3548c6a028bca259137e8dbfd5fb7ab87282d0bcab6a0e20231337f.js" integrity="sha256-nrkzdeNUjGoCi8olkTfo2/1ft6uHKC0Lyrag4gIxM38=" crossorigin="anonymous"></script>
+  <script defer src="https://www.oblique-rays.cyou/ja.search.min.d331bc2f4793d1ee3ae43ab0f9bc4fe8e2d60ad32f7e4d46061d076c53c944ff.js" integrity="sha256-0zG8L0eT0e465Dqw&#43;bxP6OLWCtMvfk1GBh0HbFPJRP8=" crossorigin="anonymous"></script>
 
   <script defer src="https://www.oblique-rays.cyou/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -642,7 +646,7 @@ pingにttl=64の応答が来ると完了です。</p>
 
 
 
-  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
  

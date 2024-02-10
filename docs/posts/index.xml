@@ -5,15 +5,14 @@
     <link>https://www.oblique-rays.cyou/posts/</link>
     <description>Recent content in Blog on Hands on</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja</language><atom:link href="https://www.oblique-rays.cyou/posts/index.xml" rel="self" type="application/rss+xml" />
+    <language>ja</language>
+    <atom:link href="https://www.oblique-rays.cyou/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My First Blog</title>
       <link>https://www.oblique-rays.cyou/posts/my-first-blog/</link>
       <pubDate>Tue, 17 May 2022 23:06:47 +0900</pubDate>
-      
       <guid>https://www.oblique-rays.cyou/posts/my-first-blog/</guid>
-      <description>My First Blog #  TEST</description>
+      <description>My First Blog # TEST</description>
     </item>
-    
   </channel>
 </rss>

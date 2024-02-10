@@ -9,8 +9,6 @@ date: 2023-02-16T00:00:00+09:00
 - On-Premise Kubernetes Clusterを構築して自宅Labとする
 ---
 #### 条件
-###### Intel CPU  
-- コンパイラなどのトラブルを回避したいので
 ###### DDR4 SDRAM  
 - 転用しやすいので  
 - 入手しやすいので
@@ -50,11 +48,11 @@ date: 2023-02-16T00:00:00+09:00
 
 ---
 ## 設定  
-#### Rocky Linux 8 Install  
-[Rocky Linux 8のドキュメント](https://docs.rockylinux.org/ja/guides/8_6_installation/)に従ってRocky Linux 8をインストールします。  
+#### Alma Linux 9 Install  
+[Alma Linux 9のドキュメント](https://wiki.almalinux.org/documentation/installation-guide.html)に従ってAlma Linux 9をインストールします。  
 ほぼデフォルト設定です。  
-{{< figure src="rocky01.png" alt="install01" width=800px >}}
-{{< figure src="rocky02.png" alt="install02" width=800px >}}
+{{< figure src="alma01.png" alt="install01" width=800px >}}
+{{< figure src="alma02.png" alt="install02" width=800px >}}
 
 #### ノードの構成  
   hostname | IP address | gateway
@@ -66,8 +64,8 @@ date: 2023-02-16T00:00:00+09:00
 
 #### ssh server 鍵認証  
 ```tpl
-ssh root@192.168.51.1 "mkdir -p ~/.ssh"; scp ~/.ssh/authorized_keys root@192.168.51.1:/root/.ssh/; ssh -i ~/.ssh/k8scluster.pem root@192.168.51.1 "chmod 0600 ~/.ssh/authorized_keys; chmod 0700 ~/.ssh; ls -al ~/.ssh; sed -i.bak -e '/^PasswordAuthentication/s/yes/no/' /etc/ssh/sshd_config; swapoff -a; systemctl stop firewalld; systemctl disable firewalld"
-ssh root@192.168.51.2 "mkdir -p ~/.ssh"; scp ~/.ssh/authorized_keys root@192.168.51.2:/root/.ssh/; ssh -i ~/.ssh/k8scluster.pem root@192.168.51.2 "chmod 0600 ~/.ssh/authorized_keys; chmod 0700 ~/.ssh; ls -al ~/.ssh; sed -i.bak -e '/^PasswordAuthentication/s/yes/no/' /etc/ssh/sshd_config; swapoff -a; systemctl stop firewalld; systemctl disable firewalld"
-ssh root@192.168.51.3 "mkdir -p ~/.ssh"; scp ~/.ssh/authorized_keys root@192.168.51.3:/root/.ssh/; ssh -i ~/.ssh/k8scluster.pem root@192.168.51.3 "chmod 0600 ~/.ssh/authorized_keys; chmod 0700 ~/.ssh; ls -al ~/.ssh; sed -i.bak -e '/^PasswordAuthentication/s/yes/no/' /etc/ssh/sshd_config; swapoff -a; systemctl stop firewalld; systemctl disable firewalld"
-ssh root@192.168.51.4 "mkdir -p ~/.ssh"; scp ~/.ssh/authorized_keys root@192.168.51.4:/root/.ssh/; ssh -i ~/.ssh/k8scluster.pem root@192.168.51.4 "chmod 0600 ~/.ssh/authorized_keys; chmod 0700 ~/.ssh; ls -al ~/.ssh; sed -i.bak -e '/^PasswordAuthentication/s/yes/no/' /etc/ssh/sshd_config; swapoff -a; systemctl stop firewalld; systemctl disable firewalld"
+ssh root@192.168.51.1 "mkdir -p ~/.ssh"; scp ~/.ssh/authorized_keys root@192.168.51.1:/root/.ssh/; ssh -i ~/.ssh/k8scluster.pem root@192.168.51.1 "chmod 0600 ~/.ssh/authorized_keys; chmod 0700 ~/.ssh; ls -al ~/.ssh; sed -i.bak -e 's/^#PasswordAuthentication/PasswordAuthentication/g' -e '/^PasswordAuthentication/s/yes/no/' /etc/ssh/sshd_config; swapoff -a; systemctl stop firewalld; systemctl disable firewalld"
+ssh root@192.168.51.2 "mkdir -p ~/.ssh"; scp ~/.ssh/authorized_keys root@192.168.51.2:/root/.ssh/; ssh -i ~/.ssh/k8scluster.pem root@192.168.51.2 "chmod 0600 ~/.ssh/authorized_keys; chmod 0700 ~/.ssh; ls -al ~/.ssh; sed -i.bak -e 's/^#PasswordAuthentication/PasswordAuthentication/g' -e '/^PasswordAuthentication/s/yes/no/' /etc/ssh/sshd_config; swapoff -a; systemctl stop firewalld; systemctl disable firewalld"
+ssh root@192.168.51.3 "mkdir -p ~/.ssh"; scp ~/.ssh/authorized_keys root@192.168.51.3:/root/.ssh/; ssh -i ~/.ssh/k8scluster.pem root@192.168.51.3 "chmod 0600 ~/.ssh/authorized_keys; chmod 0700 ~/.ssh; ls -al ~/.ssh; sed -i.bak -e 's/^#PasswordAuthentication/PasswordAuthentication/g' -e '/^PasswordAuthentication/s/yes/no/' /etc/ssh/sshd_config; swapoff -a; systemctl stop firewalld; systemctl disable firewalld"
+ssh root@192.168.51.4 "mkdir -p ~/.ssh"; scp ~/.ssh/authorized_keys root@192.168.51.4:/root/.ssh/; ssh -i ~/.ssh/k8scluster.pem root@192.168.51.4 "chmod 0600 ~/.ssh/authorized_keys; chmod 0700 ~/.ssh; ls -al ~/.ssh; sed -i.bak -e 's/^#PasswordAuthentication/PasswordAuthentication/g' -e '/^PasswordAuthentication/s/yes/no/' /etc/ssh/sshd_config; swapoff -a; systemctl stop firewalld; systemctl disable firewalld"
 ```

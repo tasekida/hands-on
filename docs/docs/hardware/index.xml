@@ -5,24 +5,21 @@
     <link>https://www.oblique-rays.cyou/docs/hardware/</link>
     <description>Recent content in hardware on Hands on</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja</language><atom:link href="https://www.oblique-rays.cyou/docs/hardware/index.xml" rel="self" type="application/rss+xml" />
+    <language>ja</language>
+    <atom:link href="https://www.oblique-rays.cyou/docs/hardware/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>server</title>
       <link>https://www.oblique-rays.cyou/docs/hardware/server/</link>
       <pubDate>Thu, 16 Feb 2023 00:00:00 +0900</pubDate>
-      
       <guid>https://www.oblique-rays.cyou/docs/hardware/server/</guid>
-      <description>Server #  検討 #  用途 #   On-Premise Kubernetes Clusterを構築して自宅Labとする   条件 #  Intel CPU #   コンパイラなどのトラブルを回避したいので  DDR4 SDRAM #   転用しやすいので 入手しやすいので  省スペース #   設置スペースが狭いので  静音 #   自宅に設置するので  安価 #   予算が少ないので  同一スペックを4台 #   On-Premise Kubernetes Clusterを構築するので   候補 #  Intel nuc #   中古も価格が安定して高価 特価も週末を待たずに在庫切れ  Intel mac mini 2020 #   中古も価格が安定して高価  ESPRIMO Q556/M #   電源内蔵では最小レベル 現物中古品を確認した結果、騒音大  EPSON Endeavor ST180E #   現物中古品を確認した結果、静音   結果 #  EPSON Endeavor ST180E #  タイミング良く、オークションに程度の良い中古品を発見したので調達</description>
+      <description>Server # 検討 # 用途 # On-Premise Kubernetes Clusterを構築して自宅Labとする 条件 # DDR4 SDRAM # 転用しやすいので 入手しやすいので 省スペース # 設置スペースが狭いので 静音 # 自宅に設置するので 安価 # 予算が少ないので 同一スペックを4台 # On-Premise Kubernetes Clusterを構築するので 候補 # Intel nuc # 中古も価格が安定して高価 特価も週末を待たずに在庫切れ Intel mac mini 2020 # 中古も価格が安定して高価 ESPRIMO Q556/M # 電源内蔵では最小レベル 現物中古品を確認した結果、騒音大 EPSON Endeavor ST180E # 現物中古品を確認した結果、静音 結果 # EPSON Endeavor ST180E # タイミング良く、オークションに程度の良い中古品を発見したので調達&#xA;メモリーもオークションで16GBを調達、取り外した8GBは売却&#xA;Intel 第6世代 Core i5-6500T DDR4 SDRAM 8GB → 16GB 500GB SATA 2.</description>
     </item>
-    
     <item>
       <title>storage</title>
       <link>https://www.oblique-rays.cyou/docs/hardware/storage/</link>
       <pubDate>Wed, 06 Apr 2022 00:00:00 +0900</pubDate>
-      
       <guid>https://www.oblique-rays.cyou/docs/hardware/storage/</guid>
-      <description>Storage #  検討 #  用途 #   On-Premise Kubernetes ClusterでReadWriteManyのPersistentVolumeを使う   条件 #  監視カメラ対応 #   TP-Link Tapo C310の映像を録画したいので  CSI (Container Storage Interface) #   On-Premise Kubernetes ClusterでReadWriteManyのPersistentVolumeを使いたいので  省スペース #   設置スペースが狭いので  静音 #   自宅に設置するので  安価 #   予算が少ないので  省電力 #   自宅に設置するので   候補 #  Synology DiskStation DS220+ #    DS220jより高スペック DS220jより高価  Synology DiskStation DS220j #    DS220+より低スペック DS220+より安価   結果 #  Synology DiskStation DS220+ #  CSI Driverを使う場合、Synology NASか NFS Serverに絞られた。</description>
+      <description>Storage # 検討 # 用途 # On-Premise Kubernetes ClusterでReadWriteManyのPersistentVolumeを使う 条件 # 監視カメラ対応 # TP-Link Tapo C310の映像を録画したいので CSI (Container Storage Interface) # On-Premise Kubernetes ClusterでReadWriteManyのPersistentVolumeを使いたいので 省スペース # 設置スペースが狭いので 静音 # 自宅に設置するので 安価 # 予算が少ないので 省電力 # 自宅に設置するので 候補 # Synology DiskStation DS220+ # DS220jより高スペック DS220jより高価 Synology DiskStation DS220j # DS220+より低スペック DS220+より安価 結果 # Synology DiskStation DS220+ # CSI Driverを使う場合、Synology NASか NFS Serverに絞られた。&#xA;ROOK Cephも考えたが、ClusterとStorageは分離したかった。&#xA;監視カメラも設置したかった。&#xA;もっと高スペックも調べたが、予算とスペックでDS220+がFITした。&#xA;Intel Celeron J4025 2GB + 4GB(追加) 165 x 108 x 232.</description>
     </item>
-    
   </channel>
 </rss>

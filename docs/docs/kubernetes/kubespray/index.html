@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="kubespray #  準備 #  Kubesprayを取得 #   githubから Kubesprayを取得します。  git clone https://github.com/kubernetes-sigs/kubespray.git cd kubespray git reset --hard c4346e590f12239fe9f597cebdb00b5c0ffdc7b3 cp -rfp inventory/sample inventory/mycluster declare -a IPS=(192.168.51.1 192.168.51.2 192.168.51.3 192.168.51.4) CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]} sudo pip install -r requirements-2.12.txt  構成情報を設定 #   inventory/mycluster/hosts.yaml
-AS-IS all:  hosts:  node1:  ansible_host: 192.168.51.1  ip: 192.168.51.1  access_ip: 192.168.51.1  node2:  ansible_host: 192.168.51.2  ip: 192.168.51.2  access_ip: 192.">
+<meta name="description" content="kubespray # 準備 # Kubesprayを取得 # githubから Kubesprayを取得します。 git clone https://github.com/kubernetes-sigs/kubespray.git cd kubespray git reset --hard c4346e590f12239fe9f597cebdb00b5c0ffdc7b3 cp -rfp inventory/sample inventory/mycluster declare -a IPS=(192.168.51.1 192.168.51.2 192.168.51.3 192.168.51.4) CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]} sudo pip install -r requirements-2.12.txt 構成情報を設定 # inventory/mycluster/hosts.yaml
+AS-IS all: hosts: node1: ansible_host: 192.168.51.1 ip: 192.168.51.1 access_ip: 192.168.51.1 node2: ansible_host: 192.168.51.2 ip: 192.168.51.2 access_ip: 192.168.51.2 node3: ansible_host: 192.168.51.3 ip: 192.168.51.3 access_ip: 192.168.51.3 node4: ansible_host: 192.168.51.4 ip: 192.168.51.4 access_ip: 192.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="kubespray" />
-<meta property="og:description" content="kubespray #  準備 #  Kubesprayを取得 #   githubから Kubesprayを取得します。  git clone https://github.com/kubernetes-sigs/kubespray.git cd kubespray git reset --hard c4346e590f12239fe9f597cebdb00b5c0ffdc7b3 cp -rfp inventory/sample inventory/mycluster declare -a IPS=(192.168.51.1 192.168.51.2 192.168.51.3 192.168.51.4) CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]} sudo pip install -r requirements-2.12.txt  構成情報を設定 #   inventory/mycluster/hosts.yaml
-AS-IS all:  hosts:  node1:  ansible_host: 192.168.51.1  ip: 192.168.51.1  access_ip: 192.168.51.1  node2:  ansible_host: 192.168.51.2  ip: 192.168.51.2  access_ip: 192." />
+<meta property="og:description" content="kubespray # 準備 # Kubesprayを取得 # githubから Kubesprayを取得します。 git clone https://github.com/kubernetes-sigs/kubespray.git cd kubespray git reset --hard c4346e590f12239fe9f597cebdb00b5c0ffdc7b3 cp -rfp inventory/sample inventory/mycluster declare -a IPS=(192.168.51.1 192.168.51.2 192.168.51.3 192.168.51.4) CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]} sudo pip install -r requirements-2.12.txt 構成情報を設定 # inventory/mycluster/hosts.yaml
+AS-IS all: hosts: node1: ansible_host: 192.168.51.1 ip: 192.168.51.1 access_ip: 192.168.51.1 node2: ansible_host: 192.168.51.2 ip: 192.168.51.2 access_ip: 192.168.51.2 node3: ansible_host: 192.168.51.3 ip: 192.168.51.3 access_ip: 192.168.51.3 node4: ansible_host: 192.168.51.4 ip: 192.168.51.4 access_ip: 192." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.oblique-rays.cyou/docs/kubernetes/kubespray/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2023-01-20T23:00:00+09:00" />
@@ -19,7 +19,7 @@ AS-IS all:  hosts:  node1:  ansible_host: 192.168.51.1  ip: 192.168.51.1  access
 <link rel="icon" href="https://www.oblique-rays.cyou/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="https://www.oblique-rays.cyou/book.min.d19e0f463a18eecba598e5937004fd8bdb717a8b293157c432039a983b2a097e.css" integrity="sha256-0Z4PRjoY7sulmOWTcAT9i9txeospMVfEMgOamDsqCX4=" crossorigin="anonymous">
   <script defer src="https://www.oblique-rays.cyou/flexsearch.min.js"></script>
-  <script defer src="https://www.oblique-rays.cyou/ja.search.min.9eb93375e3548c6a028bca259137e8dbfd5fb7ab87282d0bcab6a0e20231337f.js" integrity="sha256-nrkzdeNUjGoCi8olkTfo2/1ft6uHKC0Lyrag4gIxM38=" crossorigin="anonymous"></script>
+  <script defer src="https://www.oblique-rays.cyou/ja.search.min.d331bc2f4793d1ee3ae43ab0f9bc4fe8e2d60ad32f7e4d46061d076c53c944ff.js" integrity="sha256-0zG8L0eT0e465Dqw&#43;bxP6OLWCtMvfk1GBh0HbFPJRP8=" crossorigin="anonymous"></script>
 
   <script defer src="https://www.oblique-rays.cyou/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -786,7 +786,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
  

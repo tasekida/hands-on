@@ -3,10 +3,18 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Storage #  検討 #  用途 #   On-Premise Kubernetes ClusterでReadWriteManyのPersistentVolumeを使う   条件 #  監視カメラ対応 #   TP-Link Tapo C310の映像を録画したいので  CSI (Container Storage Interface) #   On-Premise Kubernetes ClusterでReadWriteManyのPersistentVolumeを使いたいので  省スペース #   設置スペースが狭いので  静音 #   自宅に設置するので  安価 #   予算が少ないので  省電力 #   自宅に設置するので   候補 #  Synology DiskStation DS220&#43; #    DS220jより高スペック DS220jより高価  Synology DiskStation DS220j #    DS220&#43;より低スペック DS220&#43;より安価   結果 #  Synology DiskStation DS220&#43; #  CSI Driverを使う場合、Synology NASか NFS Serverに絞られた。">
+<meta name="description" content="Storage # 検討 # 用途 # On-Premise Kubernetes ClusterでReadWriteManyのPersistentVolumeを使う 条件 # 監視カメラ対応 # TP-Link Tapo C310の映像を録画したいので CSI (Container Storage Interface) # On-Premise Kubernetes ClusterでReadWriteManyのPersistentVolumeを使いたいので 省スペース # 設置スペースが狭いので 静音 # 自宅に設置するので 安価 # 予算が少ないので 省電力 # 自宅に設置するので 候補 # Synology DiskStation DS220&#43; # DS220jより高スペック DS220jより高価 Synology DiskStation DS220j # DS220&#43;より低スペック DS220&#43;より安価 結果 # Synology DiskStation DS220&#43; # CSI Driverを使う場合、Synology NASか NFS Serverに絞られた。
+ROOK Cephも考えたが、ClusterとStorageは分離したかった。
+監視カメラも設置したかった。
+もっと高スペックも調べたが、予算とスペックでDS220&#43;がFITした。
+Intel Celeron J4025 2GB &#43; 4GB(追加) 165 x 108 x 232.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light dark"><meta property="og:title" content="storage" />
-<meta property="og:description" content="Storage #  検討 #  用途 #   On-Premise Kubernetes ClusterでReadWriteManyのPersistentVolumeを使う   条件 #  監視カメラ対応 #   TP-Link Tapo C310の映像を録画したいので  CSI (Container Storage Interface) #   On-Premise Kubernetes ClusterでReadWriteManyのPersistentVolumeを使いたいので  省スペース #   設置スペースが狭いので  静音 #   自宅に設置するので  安価 #   予算が少ないので  省電力 #   自宅に設置するので   候補 #  Synology DiskStation DS220&#43; #    DS220jより高スペック DS220jより高価  Synology DiskStation DS220j #    DS220&#43;より低スペック DS220&#43;より安価   結果 #  Synology DiskStation DS220&#43; #  CSI Driverを使う場合、Synology NASか NFS Serverに絞られた。" />
+<meta property="og:description" content="Storage # 検討 # 用途 # On-Premise Kubernetes ClusterでReadWriteManyのPersistentVolumeを使う 条件 # 監視カメラ対応 # TP-Link Tapo C310の映像を録画したいので CSI (Container Storage Interface) # On-Premise Kubernetes ClusterでReadWriteManyのPersistentVolumeを使いたいので 省スペース # 設置スペースが狭いので 静音 # 自宅に設置するので 安価 # 予算が少ないので 省電力 # 自宅に設置するので 候補 # Synology DiskStation DS220&#43; # DS220jより高スペック DS220jより高価 Synology DiskStation DS220j # DS220&#43;より低スペック DS220&#43;より安価 結果 # Synology DiskStation DS220&#43; # CSI Driverを使う場合、Synology NASか NFS Serverに絞られた。
+ROOK Cephも考えたが、ClusterとStorageは分離したかった。
+監視カメラも設置したかった。
+もっと高スペックも調べたが、予算とスペックでDS220&#43;がFITした。
+Intel Celeron J4025 2GB &#43; 4GB(追加) 165 x 108 x 232." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.oblique-rays.cyou/docs/hardware/storage/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-04-06T00:00:00+09:00" />
@@ -17,7 +25,7 @@
 <link rel="icon" href="https://www.oblique-rays.cyou/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="https://www.oblique-rays.cyou/book.min.d19e0f463a18eecba598e5937004fd8bdb717a8b293157c432039a983b2a097e.css" integrity="sha256-0Z4PRjoY7sulmOWTcAT9i9txeospMVfEMgOamDsqCX4=" crossorigin="anonymous">
   <script defer src="https://www.oblique-rays.cyou/flexsearch.min.js"></script>
-  <script defer src="https://www.oblique-rays.cyou/ja.search.min.9eb93375e3548c6a028bca259137e8dbfd5fb7ab87282d0bcab6a0e20231337f.js" integrity="sha256-nrkzdeNUjGoCi8olkTfo2/1ft6uHKC0Lyrag4gIxM38=" crossorigin="anonymous"></script>
+  <script defer src="https://www.oblique-rays.cyou/ja.search.min.d331bc2f4793d1ee3ae43ab0f9bc4fe8e2d60ad32f7e4d46061d076c53c944ff.js" integrity="sha256-0zG8L0eT0e465Dqw&#43;bxP6OLWCtMvfk1GBh0HbFPJRP8=" crossorigin="anonymous"></script>
 
   <script defer src="https://www.oblique-rays.cyou/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
 <!--
@@ -503,7 +511,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
 
 
  
