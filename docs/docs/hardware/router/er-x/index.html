@@ -3,29 +3,152 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="EdgeRouter ER-X # 検討 # 用途 # On-Premise Kubernetes ClusterでServiceのtype:Loadbalancerを使う 条件 # BGP # On-Premise Kubernetes ClusterでServiceのtype:Loadbalancerを使いたいので 省スペース # 設置スペースが狭いので 静音 # 自宅に設置するので 安価 # 予算が少ないので 省電力 # 自宅に設置するので 候補 # Ubiquiti Networks EdgeRouter ER-X # 日本語情報が多い 値上がり傾向 mikrotik hEX RB750Gr3 # 日本語情報が少ない ER-Xより安価 結果 # Ubiquiti Networks EdgeRouter ER-X # こちらの方が情報を集めやすそうだった。
+<meta name="description" content="
+  EdgeRouter ER-X
+  #
+
+
+  検討
+  #
+
+
+  用途
+  #
+
+
+On-Premise Kubernetes ClusterでServiceのtype:Loadbalancerを使う
+
+
+
+  条件
+  #
+
+
+  BGP
+  #
+
+
+On-Premise Kubernetes ClusterでServiceのtype:Loadbalancerを使いたいので
+
+
+  省スペース
+  #
+
+
+設置スペースが狭いので
+
+
+  静音
+  #
+
+
+自宅に設置するので
+
+
+  安価
+  #
+
+
+予算が少ないので
+
+
+  省電力
+  #
+
+
+自宅に設置するので
+
+
+
+  候補
+  #
+
+
+  Ubiquiti Networks EdgeRouter ER-X
+  #
+
+
+日本語情報が多い
+値上がり傾向
+
+
+  mikrotik hEX RB750Gr3
+  #
+
+
+日本語情報が少ない
+ER-Xより安価
+
+
+
+  結果
+  #
+
+
+  Ubiquiti Networks EdgeRouter ER-X
+  #
+
+こちらの方が情報を集めやすそうだった。
 RB750Gr3は入手するまでに日数が掛かりそうだった。
-Mediatek MT7621A 880MHz MIPS1004Kc 2Core DDR3 256MB 256MB ROM EdgeOS 110×75×22 mm 静音 16,400円 購入について
-私は上記の価格でAmazonより購入しました。">
+
+Mediatek MT7621A 880MHz MIPS1004Kc 2Core
+DDR3 256MB
+256MB ROM
+EdgeOS
+110×75×22 mm
+静音
+16,400円
+
+
+
+  購入について
+私は上記の価格でAmazonより購入しました。
+その時は
+  eurodk.comが、日本へのShippingを停止していたからです。
+今は、
+  getic.comで、購入確定前まで進めます。
+日本へのShippingに対応してくれるかも知れません。
+
+
+
+
+  設定
+  #
+
+
+  Switch
+  #
+
+Routerとして機能させるまでは、GUIのWizardsが便利でした。
+「Only use one LAN」にチェックをすると、LAN側にSwitchデバイスが作成されて、ハードウェアが処理します。
+
+
+">
 <meta name="theme-color" content="#FFFFFF">
-<meta name="color-scheme" content="light dark"><meta property="og:title" content="ER-X" />
-<meta property="og:description" content="EdgeRouter ER-X # 検討 # 用途 # On-Premise Kubernetes ClusterでServiceのtype:Loadbalancerを使う 条件 # BGP # On-Premise Kubernetes ClusterでServiceのtype:Loadbalancerを使いたいので 省スペース # 設置スペースが狭いので 静音 # 自宅に設置するので 安価 # 予算が少ないので 省電力 # 自宅に設置するので 候補 # Ubiquiti Networks EdgeRouter ER-X # 日本語情報が多い 値上がり傾向 mikrotik hEX RB750Gr3 # 日本語情報が少ない ER-Xより安価 結果 # Ubiquiti Networks EdgeRouter ER-X # こちらの方が情報を集めやすそうだった。
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://tasekida.github.io/hands-on/docs/hardware/router/er-x/">
+  <meta property="og:site_name" content="Hands on">
+  <meta property="og:title" content="ER-X">
+  <meta property="og:description" content="EdgeRouter ER-X # 検討 # 用途 # On-Premise Kubernetes ClusterでServiceのtype:Loadbalancerを使う 条件 # BGP # On-Premise Kubernetes ClusterでServiceのtype:Loadbalancerを使いたいので 省スペース # 設置スペースが狭いので 静音 # 自宅に設置するので 安価 # 予算が少ないので 省電力 # 自宅に設置するので 候補 # Ubiquiti Networks EdgeRouter ER-X # 日本語情報が多い 値上がり傾向 mikrotik hEX RB750Gr3 # 日本語情報が少ない ER-Xより安価 結果 # Ubiquiti Networks EdgeRouter ER-X # こちらの方が情報を集めやすそうだった。
 RB750Gr3は入手するまでに日数が掛かりそうだった。
 Mediatek MT7621A 880MHz MIPS1004Kc 2Core DDR3 256MB 256MB ROM EdgeOS 110×75×22 mm 静音 16,400円 購入について
-私は上記の価格でAmazonより購入しました。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.oblique-rays.cyou/docs/hardware/router/er-x/" /><meta property="article:section" content="docs" />
-<meta property="article:published_time" content="2022-03-29T00:00:00+09:00" />
-<meta property="article:modified_time" content="2023-02-24T20:52:35+09:00" />
-
+私は上記の価格でAmazonより購入しました。
+その時は eurodk.comが、日本へのShippingを停止していたからです。
+今は、 getic.comで、購入確定前まで進めます。
+日本へのShippingに対応してくれるかも知れません。 設定 # Switch # Routerとして機能させるまでは、GUIのWizardsが便利でした。
+「Only use one LAN」にチェックをすると、LAN側にSwitchデバイスが作成されて、ハードウェアが処理します。">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+    <meta property="article:published_time" content="2022-03-29T00:00:00+09:00">
+    <meta property="article:modified_time" content="2023-02-24T20:52:35+09:00">
 <title>ER-X | Hands on</title>
-<link rel="manifest" href="https://www.oblique-rays.cyou/manifest.json">
-<link rel="icon" href="https://www.oblique-rays.cyou/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="https://www.oblique-rays.cyou/book.min.d19e0f463a18eecba598e5937004fd8bdb717a8b293157c432039a983b2a097e.css" integrity="sha256-0Z4PRjoY7sulmOWTcAT9i9txeospMVfEMgOamDsqCX4=" crossorigin="anonymous">
-  <script defer src="https://www.oblique-rays.cyou/flexsearch.min.js"></script>
-  <script defer src="https://www.oblique-rays.cyou/ja.search.min.d331bc2f4793d1ee3ae43ab0f9bc4fe8e2d60ad32f7e4d46061d076c53c944ff.js" integrity="sha256-0zG8L0eT0e465Dqw&#43;bxP6OLWCtMvfk1GBh0HbFPJRP8=" crossorigin="anonymous"></script>
+<link rel="manifest" href="https://tasekida.github.io/hands-on/hands-on/manifest.json">
+<link rel="icon" href="https://tasekida.github.io/hands-on/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="https://tasekida.github.io/hands-on/hands-on/book.min.d19e0f463a18eecba598e5937004fd8bdb717a8b293157c432039a983b2a097e.css" integrity="sha256-0Z4PRjoY7sulmOWTcAT9i9txeospMVfEMgOamDsqCX4=" crossorigin="anonymous">
+  <script defer src="https://tasekida.github.io/hands-on/flexsearch.min.js"></script>
+  <script defer src="https://tasekida.github.io/hands-on/hands-on/ja.search.min.36fe6e69b2c12f2bce9530a21a0f8a1f35df5d8263d8a2d548d15e58b001fe6b.js" integrity="sha256-Nv5uabLBLyvOlTCiGg&#43;KHzXfXYJj2KLVSNFeWLAB/ms=" crossorigin="anonymous"></script>
 
-  <script defer src="https://www.oblique-rays.cyou/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
+  <script defer src="https://tasekida.github.io/hands-on/hands-on/sw.min.3215b38756cb4c18f18e782ee7cdd7bca646b45a65cce3457d6cf21c231f4ba8.js" integrity="sha256-MhWzh1bLTBjxjngu583XvKZGtFplzONFfWzyHCMfS6g=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -41,7 +164,7 @@ https://github.com/alex-shpak/hugo-book
         
   <nav>
 <h2 class="book-brand">
-  <a class="flex align-center" href="https://www.oblique-rays.cyou/"><span>Hands on</span>
+  <a class="flex align-center" href="https://tasekida.github.io/hands-on/"><span>Hands on</span>
   </a>
 </h2>
 
@@ -77,8 +200,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-783344d2ec59d69b3c85b46b97bfaa3b" class="toggle" checked />
-    <label for="section-783344d2ec59d69b3c85b46b97bfaa3b" class="flex justify-between">
+    <input type="checkbox" id="section-b8a6a4526e37bb0d5df7f97710f46847" class="toggle" checked />
+    <label for="section-b8a6a4526e37bb0d5df7f97710f46847" class="flex justify-between">
       <a role="button" class="">hardware</a>
     </label>
   
@@ -93,7 +216,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://www.oblique-rays.cyou/docs/hardware/server/" class="">server</a>
+    <a href="https://tasekida.github.io/hands-on/docs/hardware/server/" class="">server</a>
   
 
         </li>
@@ -106,7 +229,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://www.oblique-rays.cyou/docs/hardware/storage/" class="">storage</a>
+    <a href="https://tasekida.github.io/hands-on/docs/hardware/storage/" class="">storage</a>
   
 
         </li>
@@ -119,8 +242,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-485cb8a9037900ad8f492b47fc13d80c" class="toggle" checked />
-    <label for="section-485cb8a9037900ad8f492b47fc13d80c" class="flex justify-between">
+    <input type="checkbox" id="section-501f500dfb66532f1ffe19388a6522af" class="toggle" checked />
+    <label for="section-501f500dfb66532f1ffe19388a6522af" class="flex justify-between">
       <a role="button" class="">router</a>
     </label>
   
@@ -135,7 +258,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://www.oblique-rays.cyou/docs/hardware/router/er-x/" class=" active">ER-X</a>
+    <a href="https://tasekida.github.io/hands-on/docs/hardware/router/er-x/" class=" active">ER-X</a>
   
 
         </li>
@@ -148,7 +271,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://www.oblique-rays.cyou/docs/hardware/router/wzr-900dhp/" class="">WZR-900DHP</a>
+    <a href="https://tasekida.github.io/hands-on/docs/hardware/router/wzr-900dhp/" class="">WZR-900DHP</a>
   
 
         </li>
@@ -171,8 +294,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-87f45e72e9046a94302e37ea137e2a5c" class="toggle"  />
-    <label for="section-87f45e72e9046a94302e37ea137e2a5c" class="flex justify-between">
+    <input type="checkbox" id="section-6e13cf8c47c6103e27499069b251e921" class="toggle"  />
+    <label for="section-6e13cf8c47c6103e27499069b251e921" class="flex justify-between">
       <a role="button" class="">kubernetes</a>
     </label>
   
@@ -187,7 +310,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://www.oblique-rays.cyou/docs/kubernetes/kubespray/" class="">kubespray</a>
+    <a href="https://tasekida.github.io/hands-on/docs/kubernetes/kubespray/" class="">kubespray</a>
   
 
         </li>
@@ -200,7 +323,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://www.oblique-rays.cyou/docs/kubernetes/synology-csi/" class="">synology-csi</a>
+    <a href="https://tasekida.github.io/hands-on/docs/kubernetes/synology-csi/" class="">synology-csi</a>
   
 
         </li>
@@ -213,7 +336,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://www.oblique-rays.cyou/docs/kubernetes/argo/" class="">argocd</a>
+    <a href="https://tasekida.github.io/hands-on/docs/kubernetes/argo/" class="">argocd</a>
   
 
         </li>
@@ -226,7 +349,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://www.oblique-rays.cyou/docs/kubernetes/kube-prometheus/" class="">kube-prometheus</a>
+    <a href="https://tasekida.github.io/hands-on/docs/kubernetes/kube-prometheus/" class="">kube-prometheus</a>
   
 
         </li>
@@ -244,8 +367,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-eca69da21de5b0cd25d8421dec09a327" class="toggle"  />
-    <label for="section-eca69da21de5b0cd25d8421dec09a327" class="flex justify-between">
+    <input type="checkbox" id="section-f71731bbbf7325fca1c287ab629a9fd4" class="toggle"  />
+    <label for="section-f71731bbbf7325fca1c287ab629a9fd4" class="flex justify-between">
       <a role="button" class="">Java</a>
     </label>
   
@@ -260,7 +383,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://www.oblique-rays.cyou/docs/java/tbd/" class="">Tbd</a>
+    <a href="https://tasekida.github.io/hands-on/docs/java/tbd/" class="">Tbd</a>
   
 
         </li>
@@ -287,7 +410,7 @@ https://github.com/alex-shpak/hugo-book
 <ul>
   
   <li>
-    <a href="https://www.oblique-rays.cyou/posts/" >
+    <a href="https://tasekida.github.io/hands-on/posts/" >
         Blog
       </a>
   </li>
@@ -316,14 +439,14 @@ https://github.com/alex-shpak/hugo-book
         
   <div class="flex align-center justify-between">
   <label for="menu-control">
-    <img src="https://www.oblique-rays.cyou/svg/menu.svg" class="book-icon" alt="Menu" />
+    <img src="https://tasekida.github.io/hands-on/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
   <strong>ER-X</strong>
 
   <label for="toc-control">
     
-    <img src="https://www.oblique-rays.cyou/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    <img src="https://tasekida.github.io/hands-on/svg/toc.svg" class="book-icon" alt="Table of Contents" />
     
   </label>
 </div>
@@ -486,8 +609,8 @@ RB750Gr3は入手するまでに日数が掛かりそうだった。</p>
 </h4>
 <p>Routerとして機能させるまでは、GUIのWizardsが便利でした。<br>
 「Only use one LAN」にチェックをすると、LAN側にSwitchデバイスが作成されて、ハードウェアが処理します。<br>
-<figure><img src="switch.jpg"
-         alt="switch" width="800px"/>
+<figure><img src="https://tasekida.github.io/hands-on/hands-on/docs/hardware/router/er-x/switch.jpg"
+    alt="switch" width="800px">
 </figure>
 </p>
 <h4 id="bgp-1">

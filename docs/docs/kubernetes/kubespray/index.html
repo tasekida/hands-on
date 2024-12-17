@@ -3,25 +3,447 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="kubespray # 準備 # Kubesprayを取得 # githubから Kubesprayを取得します。 git clone https://github.com/kubernetes-sigs/kubespray.git cd kubespray git reset --hard c4346e590f12239fe9f597cebdb00b5c0ffdc7b3 cp -rfp inventory/sample inventory/mycluster declare -a IPS=(192.168.51.1 192.168.51.2 192.168.51.3 192.168.51.4) CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]} sudo pip install -r requirements-2.12.txt 構成情報を設定 # inventory/mycluster/hosts.yaml
-AS-IS all: hosts: node1: ansible_host: 192.168.51.1 ip: 192.168.51.1 access_ip: 192.168.51.1 node2: ansible_host: 192.168.51.2 ip: 192.168.51.2 access_ip: 192.168.51.2 node3: ansible_host: 192.168.51.3 ip: 192.168.51.3 access_ip: 192.168.51.3 node4: ansible_host: 192.168.51.4 ip: 192.168.51.4 access_ip: 192.">
+<meta name="description" content="
+  kubespray
+  #
+
+
+  準備
+  #
+
+
+  Kubesprayを取得
+  #
+
+
+githubから
+  Kubesprayを取得します。
+
+git clone https://github.com/kubernetes-sigs/kubespray.git
+cd kubespray
+git reset --hard c4346e590f12239fe9f597cebdb00b5c0ffdc7b3
+cp -rfp inventory/sample inventory/mycluster
+declare -a IPS=(192.168.51.1 192.168.51.2 192.168.51.3 192.168.51.4)
+CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]}
+sudo pip install -r requirements-2.12.txt
+
+
+  構成情報を設定
+  #
+
+
+inventory/mycluster/hosts.yaml
+
+
+
+
+
+  AS-IS
+  all:
+  hosts:
+    node1:
+      ansible_host: 192.168.51.1
+      ip: 192.168.51.1
+      access_ip: 192.168.51.1
+    node2:
+      ansible_host: 192.168.51.2
+      ip: 192.168.51.2
+      access_ip: 192.168.51.2
+    node3:
+      ansible_host: 192.168.51.3
+      ip: 192.168.51.3
+      access_ip: 192.168.51.3
+    node4:
+      ansible_host: 192.168.51.4
+      ip: 192.168.51.4
+      access_ip: 192.168.51.4
+  children:
+    kube_control_plane:
+      hosts:
+        node1:
+        node2:
+    kube_node:
+      hosts:
+        node1:
+        node2:
+        node3:
+        node4:
+    etcd:
+      hosts:
+        node1:
+        node2:
+        node3:
+    k8s_cluster:
+      children:
+        kube_control_plane:
+        kube_node:
+    calico_rr:
+      hosts: {}
+
+  TO-BE
+  all:
+  hosts:
+    k8smaster01:
+      ansible_host: 192.168.51.1
+      ip: 192.168.51.1
+      access_ip: 192.168.51.1
+    k8sworker01:
+      ansible_host: 192.168.51.2
+      ip: 192.168.51.2
+      access_ip: 192.168.51.2
+    k8sworker02:
+      ansible_host: 192.168.51.3
+      ip: 192.168.51.3
+      access_ip: 192.168.51.3
+    k8sworker03:
+      ansible_host: 192.168.51.4
+      ip: 192.168.51.4
+      access_ip: 192.168.51.4
+  children:
+    kube_control_plane:
+      hosts:
+        k8smaster01:
+    kube_node:
+      hosts:
+        k8sworker01:
+        k8sworker02:
+        k8sworker03:
+    etcd:
+      hosts:
+        k8smaster01:
+    k8s_cluster:
+      children:
+        kube_control_plane:
+        kube_node:
+    calico_rr:
+      hosts: {}
+
+
+
+
+  Cluster全体の設定
+  #
+
+
+inventory/mycluster/group_vars/all/all.yml
+
+
+
+
+
+  AS-IS
+  ## Upstream dns servers
+# upstream_dns_servers:
+#   - 8.8.8.8
+#   - 8.8.4.4
+
+## NTP Settings
+# Start the ntpd or chrony service and enable it at system boot.
+ntp_enabled: false
+ntp_manage_config: false
+ntp_servers:
+  - &#34;0.pool.ntp.org iburst&#34;
+  - &#34;1.pool.ntp.org iburst&#34;
+  - &#34;2.pool.ntp.org iburst&#34;
+  - &#34;3.pool.ntp.org iburst&#34;
+
+  TO-BE
+  ## Upstream dns servers
+upstream_dns_servers:
+  - 8.8.8.8
+  - 1.1.1.1
+
+## NTP Settings
+# Start the ntpd or chrony service and enable it at system boot.
+ntp_enabled: true
+ntp_manage_config: true
+ntp_servers:
+  - &#34;0.jp.pool.ntp.org iburst&#34;
+  - &#34;1.jp.pool.ntp.org iburst&#34;
+  - &#34;2.jp.pool.ntp.org iburst&#34;
+  - &#34;3.jp.pool.ntp.org iburst&#34;
+
+
+
+
+  Containerdの設定
+  #
+
+
+inventory/mycluster/group_vars/all/containerd.yml
+
+
+
+
+
+  AS-IS
+  # containerd_registries:
+#   &#34;docker.io&#34;: &#34;https://registry-1.docker.io&#34;
+
+  TO-BE
+  containerd_registries:
+  &#34;docker.io&#34;:
+    - &#34;https://mirror.gcr.io&#34;
+    - &#34;https://registry-1.docker.io&#34;
+
+
+
+
+  K8s Addonの設定
+  #
+
+
+inventory/mycluster/group_vars/k8s_cluster/addons.yml
+
+
+
+
+
+  AS-IS
+  # Helm deployment
+helm_enabled: false
+
+# csi_snapshot_controller_enabled: false
+# csi snapshot namespace
+# snapshot_controller_namespace: kube-system
+
+# Nginx ingress controller deployment
+ingress_nginx_enabled: false
+
+# Cert manager deployment
+cert_manager_enabled: false
+
+# MetalLB deployment
+metallb_enabled: false
+metallb_speaker_enabled: true
+# metallb_ip_range:
+#   - &#34;10.5.0.50-10.5.0.99&#34;
+# metallb_pool_name: &#34;loadbalanced&#34;
+# matallb_auto_assign: true
+# metallb_speaker_nodeselector:
+#   kubernetes.io/os: &#34;linux&#34;
+# metallb_controller_nodeselector:
+#   kubernetes.io/os: &#34;linux&#34;
+# metallb_speaker_tolerations:
+#   - key: &#34;node-role.kubernetes.io/master&#34;
+#     operator: &#34;Equal&#34;
+#     value: &#34;&#34;
+#     effect: &#34;NoSchedule&#34;
+#   - key: &#34;node-role.kubernetes.io/control-plane&#34;
+#     operator: &#34;Equal&#34;
+#     value: &#34;&#34;
+#     effect: &#34;NoSchedule&#34;
+# metallb_controller_tolerations:
+#   - key: &#34;node-role.kubernetes.io/master&#34;
+#     operator: &#34;Equal&#34;
+#     value: &#34;&#34;
+#     effect: &#34;NoSchedule&#34;
+#   - key: &#34;node-role.kubernetes.io/control-plane&#34;
+#     operator: &#34;Equal&#34;
+#     value: &#34;&#34;
+#     effect: &#34;NoSchedule&#34;
+# metallb_version: v0.12.1
+# metallb_protocol: &#34;layer2&#34;
+# metallb_port: &#34;7472&#34;
+# metallb_memberlist_port: &#34;7946&#34;
+# metallb_additional_address_pools:
+#   kube_service_pool:
+#     ip_range:
+#       - &#34;10.5.1.50-10.5.1.99&#34;
+#     protocol: &#34;layer2&#34;
+#     auto_assign: false
+# metallb_protocol: &#34;bgp&#34;
+# metallb_peers:
+#   - peer_address: 192.0.2.1
+#     peer_asn: 64512
+#     my_asn: 4200000000
+#   - peer_address: 192.0.2.2
+#     peer_asn: 64513
+#     my_asn: 4200000000
+
+argocd_enabled: false
+
+  TO-BE
+  # Helm deployment
+helm_enabled: true
+
+csi_snapshot_controller_enabled: true
+# csi snapshot namespace
+snapshot_controller_namespace: synology-csi
+
+# Nginx ingress controller deployment
+ingress_nginx_enabled: true
+
+# Cert manager deployment
+cert_manager_enabled: true
+
+# MetalLB deployment
+metallb_enabled: true
+metallb_speaker_enabled: true
+metallb_ip_range:
+  - &#34;192.168.51.128/26&#34;
+metallb_pool_name: &#34;k8scluster01&#34;
+metallb_auto_assign: true
+# metallb_speaker_nodeselector:
+#   kubernetes.io/os: &#34;linux&#34;
+# metallb_controller_nodeselector:
+#   kubernetes.io/os: &#34;linux&#34;
+metallb_speaker_tolerations:
+  - key: &#34;node-role.kubernetes.io/master&#34;
+    operator: &#34;Equal&#34;
+    value: &#34;&#34;
+    effect: &#34;NoSchedule&#34;
+  - key: &#34;node-role.kubernetes.io/control-plane&#34;
+    operator: &#34;Equal&#34;
+    value: &#34;&#34;
+    effect: &#34;NoSchedule&#34;
+metallb_controller_tolerations:
+  - key: &#34;node-role.kubernetes.io/master&#34;
+    operator: &#34;Equal&#34;
+    value: &#34;&#34;
+    effect: &#34;NoSchedule&#34;
+  - key: &#34;node-role.kubernetes.io/control-plane&#34;
+    operator: &#34;Equal&#34;
+    value: &#34;&#34;
+    effect: &#34;NoSchedule&#34;
+# metallb_version: v0.12.1
+# metallb_protocol: &#34;layer2&#34;
+# metallb_port: &#34;7472&#34;
+# metallb_memberlist_port: &#34;7946&#34;
+# metallb_additional_address_pools:
+#   kube_service_pool:
+#     ip_range:
+#       - &#34;10.5.1.50-10.5.1.99&#34;
+#     protocol: &#34;layer2&#34;
+#     auto_assign: false
+metallb_protocol: &#34;bgp&#34;
+metallb_peers:
+  - peer_address: 192.168.51.254
+    peer_asn: 65001
+    my_asn: 65002
+#   - peer_address: 192.0.2.2
+#     peer_asn: 64513
+#     my_asn: 4200000000
+
+argocd_enabled: true
+
+
+
+
+  K8s Clusterの設定
+  #
+
+
+inventory/mycluster/group_vars/k8s_cluster/k8s-cluster.yml
+
+
+
+
+
+  AS-IS
+  # configure arp_ignore and arp_announce to avoid answering ARP queries from kube-ipvs0 interface
+# must be set to true for MetalLB to work
+kube_proxy_strict_arp: false
+
+# Make a copy of kubeconfig on the host that runs Ansible in {{ inventory_dir }}/artifacts
+# kubeconfig_localhost: false
+# Use ansible_host as external api ip when copying over kubeconfig.
+# kubeconfig_localhost_ansible_host: false
+# Download kubectl onto the host that runs Ansible in {{ bin_dir }}
+# kubectl_localhost: false
+
+  TO-BE
+  # configure arp_ignore and arp_announce to avoid answering ARP queries from kube-ipvs0 interface
+# must be set to true for MetalLB to work
+kube_proxy_strict_arp: true
+
+# Make a copy of kubeconfig on the host that runs Ansible in {{ inventory_dir }}/artifacts
+kubeconfig_localhost: true
+# Use ansible_host as external api ip when copying over kubeconfig.
+kubeconfig_localhost_ansible_host: true
+# Download kubectl onto the host that runs Ansible in {{ bin_dir }}
+kubectl_localhost: true
+
+
+
+
+  K8s Clusterの設定
+  #
+
+
+inventory/mycluster/group_vars/k8s_cluster/k8s-net-calico.yml
+
+
+
+
+
+  AS-IS
+  # Adveritse Service LoadBalancer IPs
+# calico_advertise_service_loadbalancer_ips:
+# - x.x.x.x/24
+# - y.y.y.y/16
+
+# Choose Calico iptables backend: &#34;Legacy&#34;, &#34;Auto&#34; or &#34;NFT&#34;
+# calico_iptables_backend: &#34;Auto&#34;
+
+  TO-BE
+  # Adveritse Service LoadBalancer IPs
+calico_advertise_service_loadbalancer_ips:
+- 192.168.51.128/26
+# - y.y.y.y/16
+
+# Choose Calico iptables backend: &#34;Legacy&#34;, &#34;Auto&#34; or &#34;NFT&#34;
+calico_iptables_backend: &#34;NFT&#34;
+
+
+
+
+
+  Kubesprayを実行
+  #
+
+
+Kubesprayを実行します。
+
+sudo ansible-playbook -i inventory/mycluster/hosts.yaml cluster.yml --become --become-user=root -v --private-key=~/.ssh/k8scluster.pem
+
+
+  kubectlを設定
+  #
+
+
+kubectlを設定します。
+
+mkdir -p ~/.kube
+sudo cp inventory/mycluster/artifacts/kubectl /usr/local/bin/kubectl
+sudo cp inventory/mycluster/artifacts/admin.conf ~/.kube/config
+kubectl get node -o wide
+kubectl get all,cm,ing,pvc,pv,storageclass,secret,networkpolicies --all-namespaces -o wide
+">
 <meta name="theme-color" content="#FFFFFF">
-<meta name="color-scheme" content="light dark"><meta property="og:title" content="kubespray" />
-<meta property="og:description" content="kubespray # 準備 # Kubesprayを取得 # githubから Kubesprayを取得します。 git clone https://github.com/kubernetes-sigs/kubespray.git cd kubespray git reset --hard c4346e590f12239fe9f597cebdb00b5c0ffdc7b3 cp -rfp inventory/sample inventory/mycluster declare -a IPS=(192.168.51.1 192.168.51.2 192.168.51.3 192.168.51.4) CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]} sudo pip install -r requirements-2.12.txt 構成情報を設定 # inventory/mycluster/hosts.yaml
-AS-IS all: hosts: node1: ansible_host: 192.168.51.1 ip: 192.168.51.1 access_ip: 192.168.51.1 node2: ansible_host: 192.168.51.2 ip: 192.168.51.2 access_ip: 192.168.51.2 node3: ansible_host: 192.168.51.3 ip: 192.168.51.3 access_ip: 192.168.51.3 node4: ansible_host: 192.168.51.4 ip: 192.168.51.4 access_ip: 192." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.oblique-rays.cyou/docs/kubernetes/kubespray/" /><meta property="article:section" content="docs" />
-<meta property="article:published_time" content="2023-01-20T23:00:00+09:00" />
-<meta property="article:modified_time" content="2023-01-20T23:21:01+09:00" />
-
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://tasekida.github.io/hands-on/docs/kubernetes/kubespray/">
+  <meta property="og:site_name" content="Hands on">
+  <meta property="og:title" content="kubespray">
+  <meta property="og:description" content="kubespray # 準備 # Kubesprayを取得 # githubから Kubesprayを取得します。 git clone https://github.com/kubernetes-sigs/kubespray.git cd kubespray git reset --hard c4346e590f12239fe9f597cebdb00b5c0ffdc7b3 cp -rfp inventory/sample inventory/mycluster declare -a IPS=(192.168.51.1 192.168.51.2 192.168.51.3 192.168.51.4) CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inventory.py ${IPS[@]} sudo pip install -r requirements-2.12.txt 構成情報を設定 # inventory/mycluster/hosts.yaml
+AS-IS all: hosts: node1: ansible_host: 192.168.51.1 ip: 192.168.51.1 access_ip: 192.168.51.1 node2: ansible_host: 192.168.51.2 ip: 192.168.51.2 access_ip: 192.168.51.2 node3: ansible_host: 192.168.51.3 ip: 192.168.51.3 access_ip: 192.168.51.3 node4: ansible_host: 192.168.51.4 ip: 192.168.51.4 access_ip: 192.168.51.4 children: kube_control_plane: hosts: node1: node2: kube_node: hosts: node1: node2: node3: node4: etcd: hosts: node1: node2: node3: k8s_cluster: children: kube_control_plane: kube_node: calico_rr: hosts: {} TO-BE all: hosts: k8smaster01: ansible_host: 192.168.51.1 ip: 192.168.51.1 access_ip: 192.168.51.1 k8sworker01: ansible_host: 192.168.51.2 ip: 192.168.51.2 access_ip: 192.168.51.2 k8sworker02: ansible_host: 192.168.51.3 ip: 192.168.51.3 access_ip: 192.168.51.3 k8sworker03: ansible_host: 192.168.51.4 ip: 192.168.51.4 access_ip: 192.168.51.4 children: kube_control_plane: hosts: k8smaster01: kube_node: hosts: k8sworker01: k8sworker02: k8sworker03: etcd: hosts: k8smaster01: k8s_cluster: children: kube_control_plane: kube_node: calico_rr: hosts: {} Cluster全体の設定 # inventory/mycluster/group_vars/all/all.yml
+AS-IS ## Upstream dns servers # upstream_dns_servers: # - 8.8.8.8 # - 8.8.4.4 ## NTP Settings # Start the ntpd or chrony service and enable it at system boot. ntp_enabled: false ntp_manage_config: false ntp_servers: - &#34;0.pool.ntp.org iburst&#34; - &#34;1.pool.ntp.org iburst&#34; - &#34;2.pool.ntp.org iburst&#34; - &#34;3.pool.ntp.org iburst&#34; TO-BE ## Upstream dns servers upstream_dns_servers: - 8.8.8.8 - 1.1.1.1 ## NTP Settings # Start the ntpd or chrony service and enable it at system boot. ntp_enabled: true ntp_manage_config: true ntp_servers: - &#34;0.jp.pool.ntp.org iburst&#34; - &#34;1.jp.pool.ntp.org iburst&#34; - &#34;2.jp.pool.ntp.org iburst&#34; - &#34;3.jp.pool.ntp.org iburst&#34; Containerdの設定 # inventory/mycluster/group_vars/all/containerd.yml
+AS-IS # containerd_registries: # &#34;docker.io&#34;: &#34;https://registry-1.docker.io&#34; TO-BE containerd_registries: &#34;docker.io&#34;: - &#34;https://mirror.gcr.io&#34; - &#34;https://registry-1.docker.io&#34; K8s Addonの設定 # inventory/mycluster/group_vars/k8s_cluster/addons.yml
+AS-IS # Helm deployment helm_enabled: false # csi_snapshot_controller_enabled: false # csi snapshot namespace # snapshot_controller_namespace: kube-system # Nginx ingress controller deployment ingress_nginx_enabled: false # Cert manager deployment cert_manager_enabled: false # MetalLB deployment metallb_enabled: false metallb_speaker_enabled: true # metallb_ip_range: # - &#34;10.5.0.50-10.5.0.99&#34; # metallb_pool_name: &#34;loadbalanced&#34; # matallb_auto_assign: true # metallb_speaker_nodeselector: # kubernetes.io/os: &#34;linux&#34; # metallb_controller_nodeselector: # kubernetes.io/os: &#34;linux&#34; # metallb_speaker_tolerations: # - key: &#34;node-role.kubernetes.io/master&#34; # operator: &#34;Equal&#34; # value: &#34;&#34; # effect: &#34;NoSchedule&#34; # - key: &#34;node-role.kubernetes.io/control-plane&#34; # operator: &#34;Equal&#34; # value: &#34;&#34; # effect: &#34;NoSchedule&#34; # metallb_controller_tolerations: # - key: &#34;node-role.kubernetes.io/master&#34; # operator: &#34;Equal&#34; # value: &#34;&#34; # effect: &#34;NoSchedule&#34; # - key: &#34;node-role.kubernetes.io/control-plane&#34; # operator: &#34;Equal&#34; # value: &#34;&#34; # effect: &#34;NoSchedule&#34; # metallb_version: v0.12.1 # metallb_protocol: &#34;layer2&#34; # metallb_port: &#34;7472&#34; # metallb_memberlist_port: &#34;7946&#34; # metallb_additional_address_pools: # kube_service_pool: # ip_range: # - &#34;10.5.1.50-10.5.1.99&#34; # protocol: &#34;layer2&#34; # auto_assign: false # metallb_protocol: &#34;bgp&#34; # metallb_peers: # - peer_address: 192.0.2.1 # peer_asn: 64512 # my_asn: 4200000000 # - peer_address: 192.0.2.2 # peer_asn: 64513 # my_asn: 4200000000 argocd_enabled: false TO-BE # Helm deployment helm_enabled: true csi_snapshot_controller_enabled: true # csi snapshot namespace snapshot_controller_namespace: synology-csi # Nginx ingress controller deployment ingress_nginx_enabled: true # Cert manager deployment cert_manager_enabled: true # MetalLB deployment metallb_enabled: true metallb_speaker_enabled: true metallb_ip_range: - &#34;192.168.51.128/26&#34; metallb_pool_name: &#34;k8scluster01&#34; metallb_auto_assign: true # metallb_speaker_nodeselector: # kubernetes.io/os: &#34;linux&#34; # metallb_controller_nodeselector: # kubernetes.io/os: &#34;linux&#34; metallb_speaker_tolerations: - key: &#34;node-role.kubernetes.io/master&#34; operator: &#34;Equal&#34; value: &#34;&#34; effect: &#34;NoSchedule&#34; - key: &#34;node-role.kubernetes.io/control-plane&#34; operator: &#34;Equal&#34; value: &#34;&#34; effect: &#34;NoSchedule&#34; metallb_controller_tolerations: - key: &#34;node-role.kubernetes.io/master&#34; operator: &#34;Equal&#34; value: &#34;&#34; effect: &#34;NoSchedule&#34; - key: &#34;node-role.kubernetes.io/control-plane&#34; operator: &#34;Equal&#34; value: &#34;&#34; effect: &#34;NoSchedule&#34; # metallb_version: v0.12.1 # metallb_protocol: &#34;layer2&#34; # metallb_port: &#34;7472&#34; # metallb_memberlist_port: &#34;7946&#34; # metallb_additional_address_pools: # kube_service_pool: # ip_range: # - &#34;10.5.1.50-10.5.1.99&#34; # protocol: &#34;layer2&#34; # auto_assign: false metallb_protocol: &#34;bgp&#34; metallb_peers: - peer_address: 192.168.51.254 peer_asn: 65001 my_asn: 65002 # - peer_address: 192.0.2.2 # peer_asn: 64513 # my_asn: 4200000000 argocd_enabled: true K8s Clusterの設定 # inventory/mycluster/group_vars/k8s_cluster/k8s-cluster.yml
+AS-IS # configure arp_ignore and arp_announce to avoid answering ARP queries from kube-ipvs0 interface # must be set to true for MetalLB to work kube_proxy_strict_arp: false # Make a copy of kubeconfig on the host that runs Ansible in {{ inventory_dir }}/artifacts # kubeconfig_localhost: false # Use ansible_host as external api ip when copying over kubeconfig. # kubeconfig_localhost_ansible_host: false # Download kubectl onto the host that runs Ansible in {{ bin_dir }} # kubectl_localhost: false TO-BE # configure arp_ignore and arp_announce to avoid answering ARP queries from kube-ipvs0 interface # must be set to true for MetalLB to work kube_proxy_strict_arp: true # Make a copy of kubeconfig on the host that runs Ansible in {{ inventory_dir }}/artifacts kubeconfig_localhost: true # Use ansible_host as external api ip when copying over kubeconfig. kubeconfig_localhost_ansible_host: true # Download kubectl onto the host that runs Ansible in {{ bin_dir }} kubectl_localhost: true K8s Clusterの設定 # inventory/mycluster/group_vars/k8s_cluster/k8s-net-calico.yml
+AS-IS # Adveritse Service LoadBalancer IPs # calico_advertise_service_loadbalancer_ips: # - x.x.x.x/24 # - y.y.y.y/16 # Choose Calico iptables backend: &#34;Legacy&#34;, &#34;Auto&#34; or &#34;NFT&#34; # calico_iptables_backend: &#34;Auto&#34; TO-BE # Adveritse Service LoadBalancer IPs calico_advertise_service_loadbalancer_ips: - 192.168.51.128/26 # - y.y.y.y/16 # Choose Calico iptables backend: &#34;Legacy&#34;, &#34;Auto&#34; or &#34;NFT&#34; calico_iptables_backend: &#34;NFT&#34; Kubesprayを実行 # Kubesprayを実行します。 sudo ansible-playbook -i inventory/mycluster/hosts.yaml cluster.yml --become --become-user=root -v --private-key=~/.ssh/k8scluster.pem kubectlを設定 # kubectlを設定します。 mkdir -p ~/.kube sudo cp inventory/mycluster/artifacts/kubectl /usr/local/bin/kubectl sudo cp inventory/mycluster/artifacts/admin.conf ~/.kube/config kubectl get node -o wide kubectl get all,cm,ing,pvc,pv,storageclass,secret,networkpolicies --all-namespaces -o wide">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+    <meta property="article:published_time" content="2023-01-20T23:00:00+09:00">
+    <meta property="article:modified_time" content="2023-01-20T23:21:01+09:00">
 <title>kubespray | Hands on</title>
-<link rel="manifest" href="https://www.oblique-rays.cyou/manifest.json">
-<link rel="icon" href="https://www.oblique-rays.cyou/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="https://www.oblique-rays.cyou/book.min.d19e0f463a18eecba598e5937004fd8bdb717a8b293157c432039a983b2a097e.css" integrity="sha256-0Z4PRjoY7sulmOWTcAT9i9txeospMVfEMgOamDsqCX4=" crossorigin="anonymous">
-  <script defer src="https://www.oblique-rays.cyou/flexsearch.min.js"></script>
-  <script defer src="https://www.oblique-rays.cyou/ja.search.min.d331bc2f4793d1ee3ae43ab0f9bc4fe8e2d60ad32f7e4d46061d076c53c944ff.js" integrity="sha256-0zG8L0eT0e465Dqw&#43;bxP6OLWCtMvfk1GBh0HbFPJRP8=" crossorigin="anonymous"></script>
+<link rel="manifest" href="https://tasekida.github.io/hands-on/hands-on/manifest.json">
+<link rel="icon" href="https://tasekida.github.io/hands-on/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="https://tasekida.github.io/hands-on/hands-on/book.min.d19e0f463a18eecba598e5937004fd8bdb717a8b293157c432039a983b2a097e.css" integrity="sha256-0Z4PRjoY7sulmOWTcAT9i9txeospMVfEMgOamDsqCX4=" crossorigin="anonymous">
+  <script defer src="https://tasekida.github.io/hands-on/flexsearch.min.js"></script>
+  <script defer src="https://tasekida.github.io/hands-on/hands-on/ja.search.min.36fe6e69b2c12f2bce9530a21a0f8a1f35df5d8263d8a2d548d15e58b001fe6b.js" integrity="sha256-Nv5uabLBLyvOlTCiGg&#43;KHzXfXYJj2KLVSNFeWLAB/ms=" crossorigin="anonymous"></script>
 
-  <script defer src="https://www.oblique-rays.cyou/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
+  <script defer src="https://tasekida.github.io/hands-on/hands-on/sw.min.3215b38756cb4c18f18e782ee7cdd7bca646b45a65cce3457d6cf21c231f4ba8.js" integrity="sha256-MhWzh1bLTBjxjngu583XvKZGtFplzONFfWzyHCMfS6g=" crossorigin="anonymous"></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -37,7 +459,7 @@ https://github.com/alex-shpak/hugo-book
         
   <nav>
 <h2 class="book-brand">
-  <a class="flex align-center" href="https://www.oblique-rays.cyou/"><span>Hands on</span>
+  <a class="flex align-center" href="https://tasekida.github.io/hands-on/"><span>Hands on</span>
   </a>
 </h2>
 
@@ -73,8 +495,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-783344d2ec59d69b3c85b46b97bfaa3b" class="toggle"  />
-    <label for="section-783344d2ec59d69b3c85b46b97bfaa3b" class="flex justify-between">
+    <input type="checkbox" id="section-b8a6a4526e37bb0d5df7f97710f46847" class="toggle"  />
+    <label for="section-b8a6a4526e37bb0d5df7f97710f46847" class="flex justify-between">
       <a role="button" class="">hardware</a>
     </label>
   
@@ -89,7 +511,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://www.oblique-rays.cyou/docs/hardware/server/" class="">server</a>
+    <a href="https://tasekida.github.io/hands-on/docs/hardware/server/" class="">server</a>
   
 
         </li>
@@ -102,7 +524,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://www.oblique-rays.cyou/docs/hardware/storage/" class="">storage</a>
+    <a href="https://tasekida.github.io/hands-on/docs/hardware/storage/" class="">storage</a>
   
 
         </li>
@@ -115,8 +537,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-485cb8a9037900ad8f492b47fc13d80c" class="toggle"  />
-    <label for="section-485cb8a9037900ad8f492b47fc13d80c" class="flex justify-between">
+    <input type="checkbox" id="section-501f500dfb66532f1ffe19388a6522af" class="toggle"  />
+    <label for="section-501f500dfb66532f1ffe19388a6522af" class="flex justify-between">
       <a role="button" class="">router</a>
     </label>
   
@@ -131,7 +553,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://www.oblique-rays.cyou/docs/hardware/router/er-x/" class="">ER-X</a>
+    <a href="https://tasekida.github.io/hands-on/docs/hardware/router/er-x/" class="">ER-X</a>
   
 
         </li>
@@ -144,7 +566,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://www.oblique-rays.cyou/docs/hardware/router/wzr-900dhp/" class="">WZR-900DHP</a>
+    <a href="https://tasekida.github.io/hands-on/docs/hardware/router/wzr-900dhp/" class="">WZR-900DHP</a>
   
 
         </li>
@@ -167,8 +589,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-87f45e72e9046a94302e37ea137e2a5c" class="toggle" checked />
-    <label for="section-87f45e72e9046a94302e37ea137e2a5c" class="flex justify-between">
+    <input type="checkbox" id="section-6e13cf8c47c6103e27499069b251e921" class="toggle" checked />
+    <label for="section-6e13cf8c47c6103e27499069b251e921" class="flex justify-between">
       <a role="button" class="">kubernetes</a>
     </label>
   
@@ -183,7 +605,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://www.oblique-rays.cyou/docs/kubernetes/kubespray/" class=" active">kubespray</a>
+    <a href="https://tasekida.github.io/hands-on/docs/kubernetes/kubespray/" class=" active">kubespray</a>
   
 
         </li>
@@ -196,7 +618,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://www.oblique-rays.cyou/docs/kubernetes/synology-csi/" class="">synology-csi</a>
+    <a href="https://tasekida.github.io/hands-on/docs/kubernetes/synology-csi/" class="">synology-csi</a>
   
 
         </li>
@@ -209,7 +631,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://www.oblique-rays.cyou/docs/kubernetes/argo/" class="">argocd</a>
+    <a href="https://tasekida.github.io/hands-on/docs/kubernetes/argo/" class="">argocd</a>
   
 
         </li>
@@ -222,7 +644,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://www.oblique-rays.cyou/docs/kubernetes/kube-prometheus/" class="">kube-prometheus</a>
+    <a href="https://tasekida.github.io/hands-on/docs/kubernetes/kube-prometheus/" class="">kube-prometheus</a>
   
 
         </li>
@@ -240,8 +662,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-eca69da21de5b0cd25d8421dec09a327" class="toggle"  />
-    <label for="section-eca69da21de5b0cd25d8421dec09a327" class="flex justify-between">
+    <input type="checkbox" id="section-f71731bbbf7325fca1c287ab629a9fd4" class="toggle"  />
+    <label for="section-f71731bbbf7325fca1c287ab629a9fd4" class="flex justify-between">
       <a role="button" class="">Java</a>
     </label>
   
@@ -256,7 +678,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://www.oblique-rays.cyou/docs/java/tbd/" class="">Tbd</a>
+    <a href="https://tasekida.github.io/hands-on/docs/java/tbd/" class="">Tbd</a>
   
 
         </li>
@@ -283,7 +705,7 @@ https://github.com/alex-shpak/hugo-book
 <ul>
   
   <li>
-    <a href="https://www.oblique-rays.cyou/posts/" >
+    <a href="https://tasekida.github.io/hands-on/posts/" >
         Blog
       </a>
   </li>
@@ -312,14 +734,14 @@ https://github.com/alex-shpak/hugo-book
         
   <div class="flex align-center justify-between">
   <label for="menu-control">
-    <img src="https://www.oblique-rays.cyou/svg/menu.svg" class="book-icon" alt="Menu" />
+    <img src="https://tasekida.github.io/hands-on/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
   <strong>kubespray</strong>
 
   <label for="toc-control">
     
-    <img src="https://www.oblique-rays.cyou/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    <img src="https://tasekida.github.io/hands-on/svg/toc.svg" class="book-icon" alt="Table of Contents" />
     
   </label>
 </div>

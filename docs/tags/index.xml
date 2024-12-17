@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Hands on</title>
-    <link>https://www.oblique-rays.cyou/tags/</link>
+    <link>https://tasekida.github.io/hands-on/tags/</link>
     <description>Recent content in Tags on Hands on</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>ja</language>
-    <atom:link href="https://www.oblique-rays.cyou/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://tasekida.github.io/hands-on/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
