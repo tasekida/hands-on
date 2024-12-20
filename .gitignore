@@ -1,0 +1,5 @@
+.settings
+.hugo_build.lock
+.gitmodules
+public/
+themes/
