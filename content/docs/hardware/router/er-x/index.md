@@ -40,13 +40,11 @@ RB750Gr3は入手するまでに日数が掛かりそうだった。
 - 静音
 - 16,400円
 ---
-{{< hint info >}}
 **購入について**  
 私は上記の価格でAmazonより購入しました。  
 その時は[eurodk.com](http://edge-os.net/wiki/view/購入方法_＞_eurodk.com)が、日本へのShippingを停止していたからです。  
 今は、[getic.com](https://www.getic.com/product/edgerouter-x)で、購入確定前まで進めます。  
 日本へのShippingに対応してくれるかも知れません。  
-{{< /hint >}}
 
 ---
 ## 設定  
